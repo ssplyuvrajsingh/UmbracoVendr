@@ -1,0 +1,63 @@
+﻿@inherits USNStarterKit.ViewPages.USNViewPage<IPublishedContent>
+
+@{
+    USNImageSettings imageSettings = (USNImageSettings)ViewData["imageSettings"];
+
+    if (Model != null)
+    {
+        if (Model.Value<string>("umbracoExtension") != "svg")
+        {
+            string smallImage = String.Empty;
+            string displayImage = String.Empty;
+            string displayImageWebP = String.Empty;
+            bool webPEnabled = Convert.ToBoolean(ConfigurationManager.AppSettings["USN_WEBP_Enabled"]);
+
+            if (imageSettings.BoxPad)
+            {
+                smallImage = Model.Url() + "?width=" + imageSettings.WidthSmall + "&height=" + imageSettings.HeightSmall + "&mode=boxpad";
+                displayImage = Model.Url() + "?width=" + (imageSettings.Width) + "&height=" + (imageSettings.Height) + "&mode=boxpad";
+                displayImageWebP = webPEnabled ? Model.Url() + "?format=webp&width=" + (imageSettings.Width) + "&height=" + (imageSettings.Height) + "&mode=boxpad" : String.Empty;
+            }
+            else
+            {
+                smallImage = Model.GetCropUrl(cropAlias: imageSettings.CropAlias, width: imageSettings.WidthSmall, height: imageSettings.HeightSmall);
+                displayImage = Model.GetCropUrl(cropAlias: imageSettings.CropAlias);
+                displayImageWebP = webPEnabled ? Model.GetCropUrl(cropAlias: imageSettings.CropAlias) + "&format=webp" : String.Empty;
+            }
+
+        <picture>
+            @if (webPEnabled)
+            {
+            <source type="image/webp" data-srcset="@displayImageWebP">
+            }
+            <img class="lazyload @imageSettings.CircleClass" src="@smallImage" width="@imageSettings.Width" height="@imageSettings.Height" data-src="@displayImage" alt="@(GetAlternativeText(Model.Value<string>("alternativeText")))">
+        </picture>
+        }
+        else
+        {
+        <img class="lazyload" src="@Model.Url()" alt="@(Model.Value<string>("alternativeText"))">
+        }
+    }
+
+}
+
+@functions{
+
+    public string GetAlternativeText(string altText)
+    {
+        string output = altText;
+
+        if (altText.Length >= 3)
+        {
+            if (altText[0].ToString() == "[" && altText[altText.Length - 1].ToString() == "]")
+            {
+                string dictionaryLabel = altText.Substring(1, altText.Length - 2);
+                output = Umbraco.GetDictionaryValue(dictionaryLabel);
+            }
+        }
+
+        return output;
+    }
+}
+
+

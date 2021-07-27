@@ -1,0 +1,68 @@
+﻿@inherits USNStarterKit.ViewPages.USNViewPage<USNBlock>
+
+@{
+    // Available as Pod Block type only
+
+    var content = (Usn_Pb_SocialLinks)Model.BlockContent;
+
+    //Settings taken from compositions common to all block types
+    var animateSettings = (IUsn_Cmp_AnimateSettings)Model.BlockSettings;
+
+    string backgroundColorLabel = ViewData["backgroundColorLabel"].ToString();
+
+    USNAnimation animation = Umbraco.GetAnimationSettings(animateSettings.Animate, animateSettings.AnimationDelay, animateSettings.AnimationDuration, animateSettings.AnimationStyle);
+
+    if (content.SecondaryHeading.HasValue())
+    {
+        <p class="secondary-heading @content.SecondaryHeading.Style @(backgroundColorLabel)-secondary-heading">@Html.Raw(content.SecondaryHeading.Text)</p>
+    }
+    if (content.Heading.HasValue())
+    {
+        <p class="heading @content.Heading.Style @(backgroundColorLabel)-heading @animation.AnimationClass" data-os-animation="@animation.AnimationStyle" data-os-animation-delay="@animation.AnimationDelay" data-os-animation-duration="@animation.AnimationDuration">@Html.Raw(content.Heading.Text)</p>
+    }
+
+    if (content.SocialLinks.HasValue() && content.SocialLinks.Any())
+    {
+        <nav class="social @animation.AnimationClass" data-os-animation="@animation.AnimationStyle" data-os-animation-delay="@animation.AnimationDelay" data-os-animation-duration="@animation.AnimationDuration">
+
+            <ul>
+                @foreach (USNMultiUrlPicker item in content.SocialLinks)
+                {
+                    if (USNThemeService.DisplayLink(item))
+                    {
+                        <li>
+                            <span>
+                                <a href="@item.link.LinkUrl" @Html.Raw(item.link.LinkTarget) @Html.Raw(item.link.LinkTitle)>
+                                    @if (item.image.HasValue())
+                                    {
+                                        bool webPEnabled = Convert.ToBoolean(ConfigurationManager.AppSettings["USN_WEBP_Enabled"]);
+
+                                        if (item.image.Value<string>("umbracoExtension") != "svg")
+                                        {
+                                            <picture>
+                                                @if (webPEnabled)
+                                                {
+                                                    <source type="image/webp" data-srcset="@item.image.Url()?format=webp&height=160">
+                                                }
+                                                <img class="lazyload" src="@item.image.Url()?height=16" data-src="@item.image.Url()?height=160" alt="@(item.image.Value<string>("alternativeText"))">
+                                            </picture>
+                                        }
+                                        else
+                                        {
+                                            <img class="lazyload" src="@item.image.Url()" data-src="@item.image.Url()" alt="@(item.image.Value<string>("alternativeText"))">
+                                        }
+                                    }
+                                    else
+                                    {
+                                        @Html.Raw(item.link.LinkText)
+                                    }
+                                </a>
+                            </span>
+                        </li>
+                    }
+                }
+            </ul>
+        </nav>
+    }
+
+}

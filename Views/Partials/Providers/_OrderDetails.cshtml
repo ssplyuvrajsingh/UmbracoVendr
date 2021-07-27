@@ -1,0 +1,250 @@
+﻿@using Vendr.Core.Models
+@model OrderReadOnly
+@using Vendr.Core;
+@using Vendr.Web.Controllers;
+@{
+    var data = Model?.OrderLines?.FirstOrDefault();
+    var price = IPriceExtensions.Formatted(data?.TotalPrice.Value);
+    var unit = IPriceExtensions.Formatted(data?.UnitPrice.Value);
+    var cInfo = Model?.CustomerInfo;
+    var transactionInfo = Model?.TransactionInfo;
+}
+@if (Model == null)
+{
+    <h5>Your session has timed out. Please login again.</h5>
+    <a href="/login/" class="btn btn-primary ml-3"><i class="fa fa-arrow-circle-left"></i>Click Here To Login</a>
+}
+else
+{
+    <style>
+        thead {
+            background-color: #dee2e6 !important;
+        }
+    </style>
+    <div>
+        <input type="hidden" id="orderStatusId" value="@Model.OrderStatusId" />
+        <input type="hidden" id="orderId" value="@data.OrderId" />
+        <input type="hidden" id="paymentMethodId" value="@Model.PaymentInfo.PaymentMethodId.ToString()" />
+        <input type="hidden" id="paymentStatus" value="@transactionInfo.PaymentStatus.ToString()" />
+        <a href="javascript:void(0);" onclick="$('#order-list').show(); $('#Order-details').hide();" class="btn btn-primary my-3">Back</a>
+        <h5>Customer Order Details</h5>
+        <div class="dropdown-divider pb-2"></div>
+        <div class="row" id="OrderDetailsSection">
+            <div class="col-md-7">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col" colspan="3"><b>Order Details</b></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <b>@data.Name</b>
+                                </td>
+                                @{
+                                    var quantity = String.Format("{0:0.##}", Convert.ToDecimal(data.Quantity));
+                                }
+                                <td><b> @quantity &#10005; @unit.WithoutTax</b></td>
+                                <td><span><b>@price.WithoutTax</b></span></td>
+                            </tr>
+                            <tr>
+                                <td class="text-right" colspan="2">
+                                    <b>Subtotal</b>
+                                </td>
+                                <td>
+                                    <b>@price.WithoutTax</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-right" colspan="2">
+                                    <b>Net Total</b>
+                                </td>
+                                <td>
+                                    <b>@price.WithoutTax</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-right" colspan="2">
+                                    <b>TAX</b>
+                                </td>
+                                <td>
+                                    <b>@price.Tax</b>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <thead>
+                            <tr>
+                                <th class="text-right" colspan="2"><b>Order Total</b></th>
+                                <th>@price.WithTax</th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <table class="table table-bordered mt-4">
+                        <thead>
+                            <tr>
+                                <th scope="col" colspan="3"><b>Payment Details</b></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-right" colspan="2"><b>Transaction Amount </b></td>
+                                <td class="">
+                                    <b> @Model.TransactionAmount.Value.Formatted() </b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text-right" colspan="2"><b>Total Received  </b></td>
+                                <td class="">
+                                    <b>@Model.TotalPrice.Value.Formatted()</b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <div id="payment-div"></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col" colspan="3"><b>Customer Details</b></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td><b>Customer Name</b></td>
+                                <td class="">
+                                    <b>@cInfo.FirstName  @cInfo.LastName </b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Email</b></td>
+                                <td>
+                                    <b> @cInfo.Email </b>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Billing Address</b></td>
+                                <td>
+                                    @{
+                                        var bill = Model.Properties.Values.ToList();
+                                    }
+                                    @if (bill.Count >= 9)
+                                    {
+                                        for (int i = 4; i < 9; i++)
+                                        {
+                                            if (i == 8)
+                                            {
+                                                <b><sapn>Tel</sapn> <span>@bill[i].Value</span></b>
+                                                <br />
+                                            }
+                                            else
+                                            {
+                                                <b>@bill[i].Value</b>
+                                                <br />
+                                            }
+                                        }
+                                    }
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div id="hdn-div" style="display:none;"></div>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col" colspan="3"><b> Change Order Status </b></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            <tr>
+                                <td><b>Order Status</b></td>
+                                <td class="">
+                                    <div id="status-ddl"></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="dropdown-divider pt-2"></div>
+        </div>
+        <div class="dropdown-divider pb-2"></div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                type: "get",
+                url: "/umbraco/Surface/USNCreateProductFormSurface/GetOrderStatus",
+                data: { orderStatusId: $("#orderStatusId").val(), orderId: $("#orderId").val(), paymentMethodId: $("#paymentMethodId").val(), paymentStatus: $("#paymentStatus").val() },
+                contentType: 'application/json; charset=utf-8',
+                success: function (result) {
+                    $("#hdn-div").html(result);
+                    $("#status-ddl").html($("#DdlDiv").html());
+                    $("#payment-div").html($("#tr-payment").html())
+                },
+                error: function (result) {
+                }
+            });
+
+            ChangeOrderStatus = function (thisValue) {
+                if (confirm("Are you sure for order status change!")) {
+                    var ddlValue = thisValue.find('option:selected');
+                    $.ajax({
+                        type: "get",
+                        url: "/umbraco/Surface/USNCreateProductFormSurface/UpdateOrderStatusByOrderId",
+                        data: { orderStatusId: ddlValue.val(), orderId: $("#orderId").val() },
+                        contentType: 'application/json; charset=utf-8',
+                        success: function (result) {
+                            console.log(result);
+                            if (result == 1) {
+                                $("#orderStatus_" + $("#orderId").val()).text(ddlValue.text());
+                                alert("Status Changed: Order status successfully changed to " + ddlValue.text() + ".")
+                            }
+                            else if (result == 2) {
+                                alert("Your session has timed out. Please login again.");
+                                window.location.replace("/login/");
+                            }
+                        },
+                        error: function (result) {
+                        }
+                    });
+                }
+            }
+
+            ChangePaymentStaus = function (status) {
+                if (confirm("Are you sure you want to " + status + " this payment?")) {
+
+                    $.ajax({
+                        type: "get",
+                        url: "/umbraco/Surface/USNCreateProductFormSurface/ChangePaymentStaus",
+                        data: { orderId: $("#orderId").val(), paymentStatus: status },
+                        contentType: 'application/json; charset=utf-8',
+                        success: function (result) {
+                            if (result === "logout") {
+                                alert("Your session has timed out. Please login again.");
+                                window.location.replace("/login/");
+                            }
+                            else {
+                                $("#payment-div").html(result);
+                                alert("Payment " + status + ": Payment successfully " + status + ".");
+                            }
+                        },
+                        error: function (result) {
+                        }
+                    });
+                }
+            }
+        });
+    </script>
+}
+

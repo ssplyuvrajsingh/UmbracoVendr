@@ -1,0 +1,18 @@
+﻿@inherits USNStarterKit.ViewPages.USNViewPage<USNBlock>
+
+@{
+    //Available as Component Block and Split Component Block types
+
+    var content = (IUsn_Cmp_GridLayout_Content)Model.BlockContent;
+
+    //Settings taken from compositions common to all block types
+    var animateSettings = (IUsn_Cmp_AnimateSettings)Model.BlockSettings;
+
+    USNAnimation animation = Umbraco.GetAnimationSettings(animateSettings.Animate, animateSettings.AnimationDelay, animateSettings.AnimationDuration, animateSettings.AnimationStyle);
+
+    <div class="@animation.AnimationClass" data-os-animation="@animation.AnimationStyle" data-os-animation-delay="@animation.AnimationDelay" data-os-animation-duration="@animation.AnimationDuration">
+
+        @Html.GetGridHtml(Model.BlockContent, "grid", "uskinned")
+
+    </div>
+}

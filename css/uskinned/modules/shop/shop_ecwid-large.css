@@ -1,0 +1,22 @@
+/*  
+----------------------------------------------------------------------------------------------------
+Ecwid - Large Breakpoint - http://open.ecwid.com/39sfFq
+----------------------------------------------------------------------------------------------------
+*/
+
+/*  
+---------------------------------------------------
+Cart icon
+---------------------------------------------------  
+*/
+
+html#ecwid_html.usn body#ecwid_body .ec-cart-widget,
+html#ecwid_html.usn body#ecwid_body .ec-cart-widget .ec-minicart,
+html#ecwid_html.usn body#ecwid_body .ec-cart-widget .ec-minicart__body { 
+    width: 22px;
+    height: var(--large-header);
+}
+html#ecwid_html.usn body#ecwid_body .ec-minicart__counter { 
+    top: calc(50% - 10px)!important; 
+    left: calc(50% + 10px)!important;
+}

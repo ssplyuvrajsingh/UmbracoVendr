@@ -1,0 +1,195 @@
+﻿<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<style>
+    .product_description p {
+        margin-bottom: 0px !important;
+    }
+
+    .umb-editor-container {
+        top: 0 !important;
+        bottom: 0 !important;
+        padding-right: 15px;
+    }
+</style>
+
+<div class="umb-editor-container">
+    <div ng-controller="ProductDetailsController">
+        <h2 class="ml-3 mt-2"><u>Product Details</u></h2>
+        <a href="#/documentsSection/documentsSectionTree/productsList" class="btn btn-primary ml-3"><i class="fa fa-arrow-circle-left"></i> Back</a>
+
+        <div class="table-responsive mt-2 ml-2">
+            <input type="hidden" class="productStatus" value="{{ProductDetails.ProductStatus}}" />
+            <input type="hidden" class="productId" value="{{ProductDetails.ProductId}}" />
+            <table class="table">
+                <tbody>
+                    <tr class="d-flex">
+                        <th class="col-2 border-0">
+                            Name
+                        </th>
+                        <td class="col-6 border-0" ng-if="ProductDetails.ProductName">
+                            {{ProductDetails.ProductName}}
+                        </td>
+                        <td class="col-6 border-0" ng-if="!ProductDetails.ProductName">
+                            -----
+                        </td>
+                    </tr>
+                    <tr class="d-flex">
+                        <th class="col-2 border-0">
+                            Type
+                        </th>
+                        <td class="col-6 border-0" ng-if="ProductDetails.ProductTypeName">
+                            {{ProductDetails.ProductTypeName}}
+                        </td>
+                        <td class="col-6 border-0" ng-if="!ProductDetails.ProductTypeName">
+                            -----
+                        </td>
+                    </tr>
+                    <tr class="d-flex">
+                        <th class="col-2 border-0">
+                            Price
+                        </th>
+                        <td class="col-6 border-0">
+                            <div ng-if="ProductDetails.IsFormattedPrice">
+                                {{ProductDetails.FormattedPrice.WithTax}}
+                            </div>
+                            <div ng-if="!ProductDetails.IsFormattedPrice">
+                                <div ng-if="ProductDetails.ProductPrice">
+                                    {{ProductDetails.ProductPrice}}
+                                </div>
+                                <div ng-if="!ProductDetails.ProductPrice">
+                                    -----
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr class="d-flex">
+                        <th class="col-2 border-0">
+                            Description
+                        </th>
+                        <td class="col-6 border-0 product_description" data-innerHtml="{{ProductDetails.ProductDescription}}" ng-if="ProductDetails.ProductDescription">
+                        </td>
+                        <td class="col-6 border-0" ng-if="!ProductDetails.ProductDescription">
+                            -----
+                        </td>
+                    </tr>
+                    <tr class="d-flex">
+                        <th class="col-2 border-0">
+                            Logo Large
+                        </th>
+                        <td class="col-6 border-0">
+                            <a href="{{ProductDetails.ProductLogoLarge}}" target="_blank" ng-if="ProductDetails.ProductLogoLargeName">{{ProductDetails.ProductLogoLargeName}}</a>
+                            <p ng-if="!ProductDetails.ProductLogoLargeName">-----</p>
+                        </td>
+                    </tr>
+                    <tr class="d-flex">
+                        <th class="col-2 border-0">
+                            Logo Small
+                        </th>
+                        <td class="col-6 border-0">
+                            <a href="{{ProductDetails.ProductLogoSmall}}" target="_blank">{{ProductDetails.ProductLogoSmallName}}</a>
+                            <p ng-if="!ProductDetails.ProductLogoSmall">-----</p>
+                        </td>
+                    </tr>
+                    <tr class="d-flex">
+                        <th class="col-2 border-0">
+                            Screenshot
+                        </th>
+                        <td class="col-6 border-0">
+                            <a href="{{ProductDetails.ProductScreenshot}}" target="_blank">{{ProductDetails.ProductScreenshotName}}</a>
+                            <p ng-if="!ProductDetails.ProductScreenshot">-----</p>
+                        </td>
+                    </tr>
+                    <tr class="d-flex">
+                        <th class="col-2 border-0">
+                            Screenshot Description
+                        </th>
+                        <td class="col-6 border-0" ng-if="ProductDetails.ProductScreenshotDescription">
+                            {{ProductDetails.ProductScreenshotDescription}}
+                        </td>
+                        <td class="col-6 border-0" ng-if="!ProductDetails.ProductScreenshotDescription">
+                            -----
+                        </td>
+                    </tr>
+                    <tr class="d-flex">
+                        <th class="col-2 border-0">
+                            File(s)
+                        </th>
+                        <td class="col-6 border-0" ng-if="ProductDetails.ProductVersionGroupList">
+                            <ul>
+                                <li ng-repeat="file in ProductDetails.ProductVersionGroupList">
+                                    <a data-value="{{file.ProductVersionNumber}}" onclick="showTableAccordingVersionNumber($(this))" href="javascript:void(0);"><h6>Product Version : {{file.ProductVersionNumber}}</h6></a>
+                                    <ul id="version_{{file.ProductVersionNumber.replace('.','_')}}" style="display:none;">
+                                        <li ng-repeat="fileList in file.productVersionFiles">
+                                            <a href="{{fileList.FileUrl}}" target="_blank">{{fileList.FileName}}</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </td>
+                        <td class="col-6 border-0" ng-if="!ProductDetails.ProductVersionGroupList">
+                            -----
+                        </td>
+                    </tr>
+                    <tr class="d-flex">
+                        <th class="col-2 border-0">
+                            Protection Trial Length
+                        </th>
+                        <td class="col-6 border-0" ng-if="ProductDetails.ProductProtectionTrialLength">
+                            {{ProductDetails.ProductProtectionTrialLength}}
+                        </td>
+                        <td class="col-6 border-0" ng-if="!ProductDetails.ProductProtectionTrialLength">
+                            -----
+                        </td>
+                    </tr>
+                    <tr class="d-flex">
+                        <th class="col-2 border-0">
+                            Protection Number of Trials
+                        </th>
+                        <td class="col-6 border-0" ng-if="ProductDetails.ProductProtectionNumberOfTrials">
+                            {{ProductDetails.ProductProtectionNumberOfTrials}}
+                        </td>
+                        <td class="col-6 border-0" ng-if="!ProductDetails.ProductProtectionNumberOfTrials">
+                            -----
+                        </td>
+                    </tr>
+                    <tr class="d-flex">
+                        <th class="col-2 border-0">
+                            Status
+                        </th>
+                        <td class="col-4 border-0">
+                            <select class="custom-select productStatusDDL">
+                                <option value="Active">Active</option>
+                                <option value="Inactive">Inactive</option>
+                                <option value="Drafted" selected>Drafted</option>
+                                <option value="Waiting For Approval">Waiting For Approval</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr class="d-flex">
+                        <th class="col-2 border-0">
+                            &nbsp;
+                        </th>
+                        <td class="col-4 border-0">
+                            <button type="submit" class="btn btn-success updateProductStatus">Update Status</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+    showTableAccordingVersionNumber = function (event) {
+        id = $(event).attr("data-value").replace('.', '_');
+        if ($("#version_" + id).is(":visible")) {
+            $("#version_" + id).hide()
+        } else {
+            $("#version_" + id).show();
+        }
+    }
+</script>
+

@@ -1,0 +1,17 @@
+﻿@inherits USNStarterKit.ViewPages.USNViewPage<USNStarterKit.Models.USNBaseViewModel>
+
+@{
+    Usnnavigation navigation = (Usnnavigation)Model.Navigation;
+
+    if (navigation.FooterNavigation != null && navigation.FooterNavigation.Any())
+    {
+
+        foreach (var item in navigation.FooterNavigation)
+        {
+            if (USNThemeService.DisplayLink(item))
+            {
+                <li><span><a href="@item.link.LinkUrl" @Html.Raw(item.link.LinkTarget) @Html.Raw(item.link.LinkTitle)>@Html.Raw(item.icon)@Html.Raw(item.link.LinkText)@Html.Raw(item.link.LinkTargetIcon)</a></span></li>
+            }
+        }
+    }
+}

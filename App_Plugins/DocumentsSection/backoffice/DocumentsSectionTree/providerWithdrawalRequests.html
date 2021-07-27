@@ -1,0 +1,159 @@
+﻿<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<style>
+    .productList-table {
+        max-height: 380px;
+        overflow-x: auto;
+    }
+</style>
+<div id="div_providerWithdrawalRequest" ng-controller="ProviderWithdrawalRequestsController">
+    <h2 class="ml-3 mt-2"><u>Provider Withdrawal Request List</u></h2>
+
+    <div class="container-fluid mt-4">
+
+        <div ng-if="AnyRecord">
+            <!--<div class="form-row">
+                <div class="form-group col-md-3">
+                    <label><strong>Filter by Provider : </strong></label>
+                    <div class="input-group">
+                        <select class="custom-select" id="inputGroupSelect04" ng-model="test">
+                            <option value="">All Providers</option>
+                            <option value="{{provider.ProviderId}}" ng-repeat="provider in ProductsList[1].Value">{{provider.ProviderName}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>-->
+
+            <div class="umb-table productList-table ng-scope">
+                <div class="umb-table-head">
+                    <div class="umb-table-row">
+                        <div class="umb-table-cell">
+                            <span class="umb-table__action">&nbsp;</span>
+                        </div>
+                        <div class="umb-table-cell">
+                            <span class="umb-table-head__link">Provider Name</span>
+                        </div>
+                        <div class="umb-table-cell">
+                            <span class="umb-table-head__link">Description</span>
+                        </div>
+                        <div class="umb-table-cell">
+                            <span class="umb-table-head__link">Amount</span>
+                        </div>
+                        <div class="umb-table-cell">
+                            <span class="umb-table-head__link">Payment Status</span>
+                        </div>
+                        <div class="umb-table-cell">
+                            <span class="umb-table-head__link">Date</span>
+                        </div>
+                        <div class="umb-table-cell">
+                            <span class="umb-table-head__link">Action</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="umb-table-body" ng-repeat="walletUser in WalletUserList | filter:test">
+                    <div class="umb-table-row umb-outline ng-scope">
+                        <div class="umb-table-cell">
+
+                        </div>
+                        <div class="umb-table-cell">
+                            {{walletUser.ProviderName}}
+                        </div>
+                        <div class="umb-table-cell">
+                            {{walletUser.Description}}
+                        </div>
+                        <div class="umb-table-cell">
+                            &#128; {{walletUser.Amount}}
+                        </div>
+                        <div class="umb-table-cell">
+                            {{walletUser.PaymentStatus}}
+                        </div>
+                        <div class="umb-table-cell">
+                            {{walletUser.LogDateTime}}
+                        </div>
+                        <div id="{{walletUser.PaymentStatus}}_{{walletUser.LogId}}" class="umb-table-cell">
+                            <button id="{{walletUser.LogId}}_{{walletUser.ProviderId}}" onclick="providerWithdrawalDetails(this.id)" class="btn btn-success updateProductStatus">View</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div ng-if="!AnyRecord">
+            <strong>No record found!</strong>
+        </div>
+    </div>
+</div>
+
+<div id="div_ProviderDetails" style="display:none;">
+    <h2 class="ml-3 mt-2"><u>Provider Withdrawal Requested User List</u></h2>
+    <a href="javascript:void(0)" onclick="$('#div_ProviderDetails').hide(), $('#div_providerWithdrawalRequest').show();" class="btn btn-primary ml-3"><i class="fa fa-arrow-circle-left"></i>Back</a>
+    <div class="table-responsive mt-2 ml-2">
+        <input type="hidden" class="productStatus" value="{{ProductDetails.ProductStatus}}" />
+        <input type="hidden" class="productId" value="{{ProductDetails.ProductId}}" />
+        <table class="table">
+            <tbody>
+                <tr class="d-flex">
+                    <th class="col-2 border-0">
+                        Provider Name
+                    </th>
+                    <td class="col-6 border-0">
+                        <span id="sp_ProviderName"></span>
+                    </td>
+                </tr>
+                <tr class="d-flex">
+                    <th class="col-2 border-0">
+                        Order Id
+                    </th>
+                    <td class="col-6 border-0">
+                        <span id="sp_OrderId"></span>
+                    </td>
+                </tr>
+                <tr class="d-flex">
+                    <th class="col-2 border-0">
+                         Withdrawal Amount
+                    </th>
+                    <td class="col-6 border-0">
+                        &#128; <span id="sp_WithdrawalAmount"></span>
+                    </td>
+                </tr>
+                <tr class="d-flex">
+                    <th class="col-6 border-0"><h3>Bank Account Details</h3></th>
+                </tr>
+                <tr class="d-flex">
+                    <th class="col-2 border-0">
+                        Bank Account Number
+                    </th>
+                    <td class="col-6 border-0">
+                        <span id="sp_AccountNumber"></span>
+                    </td>
+                </tr>
+                <tr class="d-flex">
+                    <th class="col-2 border-0">
+                        IFSC Code
+                    </th>
+                    <td class="col-6 border-0">
+                        <span id="sp_IFSC"></span>
+                    </td>
+                </tr>
+                <tr class="d-flex">
+                    <th class="col-2 border-0">
+                        Account Holder's Name
+                    </th>
+                    <td class="col-6 border-0">
+                        <span id="sp_AccountHolderName"></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-2 border-0">
+                        <button id="btn_approved" onclick="updatePaymentStatus($(this).val(), 'approved')" class="btn btn-success">Approved</button>
+                        &nbsp;&nbsp;
+                        <button id="btn_disapproved" onclick="updatePaymentStatus($(this).val(),'disapproved')" class="btn btn-danger">Disapproved</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

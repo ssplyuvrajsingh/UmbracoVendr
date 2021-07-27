@@ -1,0 +1,74 @@
+﻿@using USNWebsite.USNModels;
+@model USNProviderWalletModel
+@if (Model == null)
+{
+    <h5>Your session has timed out. Please login again.</h5>
+    <a href="/login/" class="btn btn-primary ml-3"><i class="fa fa-arrow-circle-left"></i>Click Here To Login</a>
+}
+else
+{
+    <style>
+        .box-b {
+            min-height: 180px;
+        }
+
+            .box-b h5 {
+                font-size: 24px !important;
+                line-height: 28px !important;
+            }
+
+            .box-b span {
+                font-size: 16px;
+                line-height: 24px;
+                margin-bottom: 20px;
+                font-weight: 600;
+            }
+
+            .box-b input {
+                font-weight: 700;
+            }
+    </style>
+    <h2>Account Balance & History</h2>
+    <h5>Balance</h5>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card bg-dark box-b">
+                <div class="card-body">
+                    <h5 class="text-white"> My Balance</h5>
+                    <span id="span-mybalance" class="text-white">@Model.ProviderBalance</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-dark box-b">
+                <div class="card-body">
+                    <h5 class="text-white"> Withdrawal Pending</h5>
+                    <span class="text-white d-block">@Model.WithdrawalPending</span>
+                    <input type="button" class="form-control" value="Withdrawal Request" onclick="GetWithdrawalRequest()" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-dark box-b">
+                <div class="card-body">
+                    <h5 class="text-white">Total Paid</h5>
+                    <span class="text-white">@Model.TotalPaid</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card bg-dark box-b">
+                <div class="card-body">
+                    <h5 class="text-white">Bank Account Details View & Save</h5>
+                    <input type="button" class="form-control" value="Save Bank Account Details" onclick="EditBankAccountDetails()" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="paymenthistory-section">
+
+    </div>
+}

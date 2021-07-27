@@ -1,0 +1,50 @@
+﻿@inherits USNStarterKit.ViewPages.USNViewPage<IUsn_Cmp_IntroOutro>
+
+@{
+    if (Model != null && Model.DisplayOutro)
+    {
+        USNAnimation animation = (USNAnimation)ViewData["animation"];
+        string colorLabel = ViewData["backgroundColorLabel"].ToString();
+        string textAlignmentClass = Model.OutroTextAlignment.HasValue() ? Model.OutroTextAlignment : "justify-content-start text-left";
+        Usnstyle websiteStyle = (Usnstyle)Umbraco.Content(ViewData["websiteStyleId"]);
+
+        <!-- Outro -->
+        <div class="component-outro row @textAlignmentClass @animation.AnimationClass" data-os-animation="@animation.AnimationStyle" data-os-animation-delay="@animation.AnimationDelay" data-os-animation-duration="@animation.AnimationDuration">
+            <div class="info col">
+                @if (Model.OutroSecondaryHeading.HasValue())
+                {
+                    @Html.Raw(String.Format("<{0} class=\"secondary-heading {1} {2}-secondary-heading\">{3}</{0}>", Model.OutroSecondaryHeading.HeadingTag, Model.OutroSecondaryHeading.Style, colorLabel, Model.OutroSecondaryHeading.Text))
+                }
+                @if (Model.OutroHeading.HasValue())
+                {
+                    @Html.Raw(String.Format("<{0} class=\"heading {1} main {2}-heading\">{3}</{0}>", Model.OutroHeading.HeadingTag, Model.OutroHeading.Style, colorLabel, Model.OutroHeading.Text))
+                }
+                @if (Model.OutroText.HasValue())
+                {
+                    <div class="text @(colorLabel)-text">
+                        @Html.Raw(Model.OutroText)
+                    </div>
+                }
+                @if (Model.OutroButtons.HasValue())
+                {
+                    <p class="link">
+                        @foreach (var button in Model.OutroButtons)
+                        {
+                            if (USNThemeService.DisplayLink(button))
+                            {
+                                string buttonBgClass = USNThemeService.GetBackgroundColorClass(button.color.sortOrder, "button", websiteStyle);
+                                string buttonBgHoverClass = USNThemeService.GetBackgroundColorClass(button.color.sortOrder, "buttonHover", websiteStyle);
+                                <a class="btn @button.sizeStyle @buttonBgClass @buttonBgHoverClass @(button.color.label)-text @(button.color.label)-borders" href="@button.link.LinkUrl" @Html.Raw(button.link.LinkTarget) @Html.Raw(button.link.LinkTitle)>
+                                    <span></span>
+                                    @Html.Raw(button.icon)@Html.Raw(button.link.LinkText)@Html.Raw(button.link.LinkTargetIcon)
+                                </a>
+                            }
+                        }
+                    </p>
+                }
+            </div>
+        </div>
+        <!--// Outro -->
+    }
+}
+

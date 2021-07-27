@@ -1,0 +1,26 @@
+﻿@inherits USNStarterKit.ViewPages.USNViewPage<USNStarterKit.Models.USNBaseViewModel>
+
+@{
+    Usnnavigation navigation = (Usnnavigation)Model.Navigation;
+
+    if (navigation.CtaButtons != null && navigation.CtaButtons.Any())
+    {
+        Usnstyle websiteStyle = (Usnstyle)Model.WebsiteStyle;
+
+        <nav aria-label="Call To Action Navigation" class="cta-links">
+            @foreach (var item in navigation.CtaButtons)
+            {
+                if (USNThemeService.DisplayLink(item))
+                {
+                    string buttonBgClass = USNThemeService.GetBackgroundColorClass(item.color.sortOrder, "button", websiteStyle);
+                    string buttonBgHoverClass = USNThemeService.GetBackgroundColorClass(item.color.sortOrder, "buttonHover", websiteStyle);
+
+                    <a class="btn @item.sizeStyle @buttonBgClass @buttonBgHoverClass @(item.color.label)-text @(item.color.label)-borders" href="@item.link.LinkUrl" @Html.Raw(item.link.LinkTarget) @Html.Raw(item.link.LinkTitle)>
+                        <span></span>
+                        @Html.Raw(item.icon)@Html.Raw(item.link.LinkText)@Html.Raw(item.link.LinkTargetIcon)
+                    </a>
+                }
+            }
+        </nav>
+    }
+}

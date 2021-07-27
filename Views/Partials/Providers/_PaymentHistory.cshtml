@@ -1,0 +1,64 @@
+﻿
+@using USNWebsite.USNModels;
+@model List<ProviderPaymentLogsModel>
+<style>
+    .my-custom-scrollbar {
+        position: relative;
+        height: 400px;
+        overflow: auto;
+    }
+
+    .table-wrapper-scroll-y {
+        display: block;
+    }
+</style>
+<h5>Payment History</h5>
+@if (Model?.Count > 0)
+{
+    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+    <table class="table table-bordered table-striped mb-0">
+        <thead>
+            <tr>
+                <th>
+                    <span style="color:white;">Amount</span>
+                </th>
+                <th>
+                    <span style="color:white;">Payment Status</span>
+                </th>
+                <th>
+                    <span style="color:white;">Description</span>
+                </th>
+                <th>
+                    <span style="color:white;">Date</span>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.Amount
+                    </td>
+                    <td>
+                        @item.PaymentStatus
+                    </td>
+                    <td>
+                        @{
+                            var orderId = !string.IsNullOrEmpty(item.OrderId) ? "Order Id is " + item.OrderId : string.Empty;
+                        }
+                        @item.Description <br /> @orderId
+                    </td>
+                    <td>
+                        @item.LogDateTime
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+  </div>
+}
+else
+{
+    <span><strong>No record found!</strong></span>
+}

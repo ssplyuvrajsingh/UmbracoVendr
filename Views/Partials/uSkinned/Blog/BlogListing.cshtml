@@ -1,0 +1,114 @@
+﻿@inherits USNStarterKit.ViewPages.USNViewPage<USNStarterKit.Models.USNBlogListingViewModel>
+
+@{
+    string itemTextPosition = Model.CurrentPage.Value<string>("itemTextPosition").HasValue() ? Model.CurrentPage.Value<string>("itemTextPosition") : "item_text-below";
+    string itemHeadingSizeClass = Model.CurrentPage.Value<string>("itemHeadingSize");
+    string itemTextAlignmentClass = Model.CurrentPage.Value<string>("itemTextAlignment").HasValue() ? Model.CurrentPage.Value<string>("itemTextAlignment") : "text-left";
+    string overlayImageClass = itemTextPosition == "item_text-boxed item_overlay" ? Model.CurrentPage.Value<USNColor>("overlayBackgroundColor").label + "-bg" : String.Empty;
+    USNImageSettings imageSettings = Umbraco.GetImageSettings(Model.CurrentPage.Value<string>("listingImageStyle"));
+    string listSpacingClass = Model.CurrentPage.Value<bool>("removeItemSpacing") ? "listing_no-spacing" : String.Empty;
+    bool hideImage = Model.CurrentPage.Value<bool>("hideImage");
+    string verticalAlignmentClass = itemTextPosition == "item_text-boxed item_overlay" ? (Model.CurrentPage.HasValue("overlayTextPosition") ? Model.CurrentPage.Value<string>("overlayTextPosition") : "align-self-center") : String.Empty;
+
+    string backgroundColor = itemTextPosition == "item_text-boxed item_overlay" ? Model.CurrentPage.Value<USNColor>("overlayBackgroundColor").label : "base";
+
+    string itemsPerRowValue = String.Empty;
+
+    if (itemTextPosition == "item_text-below" || itemTextPosition == "item_text-above" || itemTextPosition == "item_text-boxed item_overlay")
+    {
+        itemsPerRowValue = Model.CurrentPage.Value<string>("itemsPerRow8");
+    }
+    else if (itemTextPosition == "item_text-left" || itemTextPosition == "item_text-right")
+    {
+        itemsPerRowValue = Model.CurrentPage.Value<string>("itemsPerRow4");
+    }
+    else
+    {
+        itemsPerRowValue = Model.CurrentPage.Value<string>("itemsPerRow8");
+    }
+
+    string itemsPerRowClass = itemsPerRowValue.HasValue() ? itemsPerRowValue : "items-1";
+
+    <section class="content component listing-component blog-listing-component p-0">
+
+        @if (Model.SearchResults.Paging.CurrentPagePosition == 1)
+        {
+            //Only display introduction on first page
+            <div class="row component-introduction">
+                <div class="info col">
+                    <div class="text">
+                        @Html.Raw(Model.CurrentPage.Value<IHtmlString>("listingIntroduction"))
+                    </div>
+                </div>
+            </div>
+        }
+
+        @if (Model.SearchResults.BlogPostList.Any())
+        {
+            <div class="row component-main listing listing_basic-grid @listSpacingClass">
+                @foreach (var item in Model.SearchResults.BlogPostList)
+                {
+                    string pageName = item.HasValue("subpageListingLinkText") ? item.Value<string>("subpageListingLinkText") : item.Name;
+
+                    <div class="item item-blog @itemsPerRowClass col-12 @itemTextPosition @itemTextAlignmentClass">
+                        <div class="inner">
+                            <a href="@item.Url()">
+                                @if (!hideImage && item.Value<IPublishedContent>("pageListingImage") != null && itemTextPosition != "item_text-above")
+                                {
+                                    <div class="image @overlayImageClass @imageSettings.CircleClass">
+                                        @Html.Partial(Model.ThemeFolder + "/MiscPageElements/Image", item.Value<IPublishedContent>("pageListingImage"), new ViewDataDictionary { { "imageSettings", imageSettings } })
+                                    </div>
+                                }
+                                <div class="info @verticalAlignmentClass">
+                                    <p class="heading @itemHeadingSizeClass @(backgroundColor)-heading">@Html.Raw(pageName)</p>
+
+                                    @if (item.HasValue("pageSummary"))
+                                    {
+                                        <div class="text @(backgroundColor)-text">@Html.Raw(item.Value<IHtmlString>("pageSummary"))</div>
+                                    }
+
+                                    @if (itemTextPosition == "item_text-boxed item_overlay")
+                                    {
+                                        <!-- Meta -->
+                                        <div class="meta @(backgroundColor)-text">
+                                            <p class="date"><time>@(item.Value<DateTime>("postDate").ToString("dd MMM yyyy"))</time></p>
+                                        </div>
+                                        <!--// Meta -->
+                                    }
+
+                                </div>
+                                @if (item.Value<IPublishedContent>("pageListingImage") != null && itemTextPosition == "item_text-above")
+                                {
+                                    <div class="image @overlayImageClass @imageSettings.CircleClass">
+                                        @Html.Partial(Model.ThemeFolder + "/MiscPageElements/Image", item.Value<IPublishedContent>("pageListingImage"), new ViewDataDictionary { { "imageSettings", imageSettings } })
+                                    </div>
+                                }
+                            </a>
+                            @if (itemTextPosition != "item_text-boxed item_overlay")
+                            {
+                                <!-- Meta -->
+                                <div class="meta @(backgroundColor)-text">
+                                    <p class="date"><time>@(item.Value<DateTime>("postDate").ToString("dd MMM yyyy"))</time></p>
+                                    @Html.Partial(Model.ThemeFolder + "/Blog/BlogPostCategories", item)
+                                </div>
+                                <!--// Meta -->
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+
+            if (Model.SearchResults.Paging.TotalPageCount > 1)
+            {
+                <!-- PAGINATION -->
+                @Html.Partial(Model.ThemeFolder + "/MiscPageElements/Paging", new ViewDataDictionary { { "totalPageCount", Model.SearchResults.Paging.TotalPageCount } })
+                <!--// PAGINATION -->
+            }
+
+        }
+        else
+        {
+            <p>@Umbraco.GetDictionaryValue("USN Blog Nothing Found")</p>
+        }
+    </section>
+}

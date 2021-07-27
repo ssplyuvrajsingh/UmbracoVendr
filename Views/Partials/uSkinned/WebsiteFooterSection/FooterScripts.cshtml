@@ -1,0 +1,51 @@
+﻿@inherits USNStarterKit.ViewPages.USNViewPage<USNStarterKit.Models.USNBaseViewModel>
+
+@{
+    Usnstyle websiteStyle = (Usnstyle)Model.WebsiteStyle;
+
+    Html.RequiresJs("~/scripts/libraries/jquery.min.js", 1);
+    Html.RequiresJs("~/scripts/libraries/modernizr.min.js", 2);
+    Html.RequiresJs("~/scripts/libraries/popper.min.js", 3);
+    Html.RequiresJs("~/scripts/libraries/bootstrap.min.js", 4);
+    Html.RequiresJs("~/scripts/libraries/jquery.validate.min.js", 5);
+    Html.RequiresJs("~/scripts/libraries/jquery.validation-unobtrusive.min.js", 6);
+    Html.RequiresJs("~/scripts/libraries/slick-carousel.js", 7);
+    Html.RequiresJs("~/scripts/libraries/ekko-lightbox.js", 8);
+    Html.RequiresJs("~/scripts/" + Model.ThemeFolder + "/plugins.js", 9);
+    Html.RequiresJs("~/scripts/" + Model.ThemeFolder + "/application.js", 10);
+    Html.RequiresJs("~/scripts/libraries/jquery.unobtrusive-ajax.js", 11);
+    Html.RequiresJs("~/scripts/libraries/css-vars-ponyfill.js", 12);
+
+    if (websiteStyle.CustomJS.HasValue())
+    {
+        Html.RequiresJs("~/scripts/" + Model.ThemeFolder + "/generated/" + websiteStyle.Key + ".js?version=" + websiteStyle.UpdateDate.Ticks, 13);
+    }
+
+    if (UmbracoContext.InPreviewMode)
+    {
+        Html.RequiresJs("~/scripts/libraries/jquery-ui.min.js", 14);
+        Html.RequiresJs("~/scripts/libraries/angular.min.js", 15);
+        Html.RequiresJs("~/App_Plugins/uSkinned/lib/spectrum.js", 16);
+        Html.RequiresJs("~/scripts/libraries/sortable.js", 17);
+        Html.RequiresJs("~/scripts/design-panel/design-panel.js", 18);
+    }
+
+    UsnglobalSettings globalSettings = (UsnglobalSettings)Model.GlobalSettings;
+}
+@Html.RenderJsHere()
+<!-- CSS VARS Ponyfill -->
+<script>cssVars({ onlyLegacy: true });</script>
+
+@if (globalSettings.EnableShop && globalSettings.Ecwid.HasValue() && globalSettings.ShopPage.HasValue())
+{
+    var ecwid = globalSettings.Ecwid;
+    var shopPageUrl = globalSettings.ShopPage.Url();
+
+    <script defer data-cfasync="false" type="text/javascript" src="https://app.ecwid.com/script.js?@(ecwid)&data_platform=code" charset="utf-8"></script>
+    <script defer type="text/javascript">
+        window.addEventListener('load', function () {
+            Ecwid.init();
+        })
+        var ecwid_ProductBrowserURL = "@(shopPageUrl)";
+    </script>
+}

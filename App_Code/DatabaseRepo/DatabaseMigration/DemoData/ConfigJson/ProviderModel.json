@@ -1,0 +1,60 @@
+{
+  "ProvidersModel": [
+    {
+      "FirstName": "Dummy",
+      "LastName": "First",
+      "StreetName": "Street Demo",
+      "City": "City Demo",
+      "ZipCode": "302034",
+      "Country": "India",
+      "TelephoneNumber": "0141",
+      "Email": "dummyfirst@gmail.com",
+      "Password": "dummy@12345",
+      "ProviderType": "Market Provider",
+      "ProviderStatus": "Approved",
+      "IdDocument": "~/SourceFiles/Profile.jpg"
+    },
+    {
+      "FirstName": "Dummy",
+      "LastName": "Second",
+      "StreetName": "Street Demo",
+      "City": "City Demo",
+      "ZipCode": "302034",
+      "Country": "India",
+      "TelephoneNumber": "0141",
+      "Email": "dummysecond@gmail.com",
+      "Password": "dummy@12345",
+      "ProviderType": "Signal Provider",
+      "ProviderStatus": "Approved",
+      "IdDocument": "~/SourceFiles/Profile.jpg"
+    },
+    {
+      "FirstName": "Dummy",
+      "LastName": "Third",
+      "StreetName": "Street Demo",
+      "City": "City Demo",
+      "ZipCode": "302034",
+      "Country": "India",
+      "TelephoneNumber": "0141",
+      "Email": "dummythird@gmail.com",
+      "Password": "dummy@12345",
+      "ProviderType": "Market Provider",
+      "ProviderStatus": "Waiting for Approval",
+      "IdDocument": "~/SourceFiles/Profile.jpg"
+    },
+    {
+      "FirstName": "Dummy",
+      "LastName": "Fourth",
+      "StreetName": "Street Demo",
+      "City": "City Demo",
+      "ZipCode": "302034",
+      "Country": "India",
+      "TelephoneNumber": "0141",
+      "Email": "dummyfourth@gmail.com",
+      "Password": "dummy@12345",
+      "ProviderType": "Signal Provider",
+      "ProviderStatus": "Rejected",
+      "IdDocument": "~/SourceFiles/Profile.jpg"
+    }
+  ]
+}

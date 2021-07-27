@@ -1,0 +1,61 @@
+﻿@inherits USNStarterKit.ViewPages.USNViewPage<USNBlock>
+
+@{
+    // Available as Pod Block type only
+
+    var content = (Usn_Pb_ReusablePods)Model.BlockContent;
+
+    if (content.ReusablePodGroups.HasValue() && content.ReusablePodGroups.Any())
+    {
+
+        //This loops around the reusable nodes that have been created. Inside these nodes pods can be added.
+        //Need to loop around all nodes and all pods to build up a full block list.
+
+        List<BlockListItem> allBlocks = new List<BlockListItem>();
+
+        foreach (IPublishedContent component in content.ReusablePodGroups)
+        {
+            BlockListModel pageComponents = component.Value<BlockListModel>("pods");
+
+            if (pageComponents != null && pageComponents.Where(x => !x.Settings.Value<bool>("hideFromWebsite")).Any())
+            {
+                foreach (var item in pageComponents.Where(x => !x.Settings.Value<bool>("hideFromWebsite")))
+                {
+                    if (item?.ContentUdi != null)
+                    {
+                        allBlocks.Add(item);
+
+                    }
+                }
+            }
+        }
+
+        if (allBlocks.HasValue() && allBlocks.Any())
+        {
+            string backgroundColorLabel = ViewData["backgroundColorLabel"].ToString();
+            string itemClass = ViewData["itemClass"] != null ? ViewData["itemClass"].ToString() : String.Empty;
+            string uniqueID = ViewData["uniqueID"].ToString();
+
+            Usnstyle websiteStyle = (Usnstyle)Model.BaseModel.WebsiteStyle;
+
+            foreach (var item in allBlocks)
+            {
+                var podItem = new USNBlock(Model.BaseModel, item);
+                var itemCommonBlockSettings = (IUsn_Cmp_CommonBlockSettings)item.Settings;
+
+                if (podItem.BlockContent.ContentType.Alias.GetBlockViewName() == "RelatedContent" || podItem.BlockContent.ContentType.Alias.GetBlockViewName() == "TextImage")
+                {
+                    @Html.Partial(Model.BaseModel.ThemeFolder + "/Blocks/" + item.Content.ContentType.Alias.GetBlockViewName(), podItem, new ViewDataDictionary { { "blockLocation", "pod" }, { "backgroundColorLabel", backgroundColorLabel }, { "itemClass", itemClass }, { "uniqueID", uniqueID } })
+                }
+                else
+                {
+                    <div class="item usn_pod_@podItem.BlockContent.ContentType.Alias.GetBlockStyleName() @itemClass @itemCommonBlockSettings.CustomClasses">
+                        <div class="inner">
+                            @Html.Partial(Model.BaseModel.ThemeFolder + "/Blocks/" + item.Content.ContentType.Alias.GetBlockViewName(), podItem, new ViewDataDictionary { { "blockLocation", "pod" }, { "backgroundColorLabel", backgroundColorLabel }, { "uniqueID", uniqueID } })
+                        </div>
+                    </div>
+                }
+            }
+        }
+    }
+}

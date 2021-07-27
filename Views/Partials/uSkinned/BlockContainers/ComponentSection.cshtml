@@ -1,0 +1,83 @@
+﻿@inherits USNStarterKit.ViewPages.USNViewPage<USNBlock>
+
+@{
+    var commonBlockSettings = (IUsn_Cmp_CommonBlockSettings)Model.BlockSettings;
+    var websiteStyle = (Usnstyle)Model.BaseModel.WebsiteStyle;
+
+    //All components contain minimum settings
+    var minSettings = (IUsn_Cmp_MinSettings)Model.BlockSettings;
+
+    //Intro/Outro content NOT included with all components
+    var introOutro = Model.BlockContent as IUsn_Cmp_IntroOutro;
+
+    //Settings NOT included with all components
+    var animateSettings = Model.BlockSettings as IUsn_Cmp_AnimateSettings;
+    var widthSettings = Model.BlockSettings as IUsn_Cmp_WidthSettings;
+    var backgroundSettings = Model.BlockSettings as IUsn_Cmp_BackgroundSettings;
+
+    //Properties NOT included with all components
+    USNAnimation animation = animateSettings != null ? Umbraco.GetAnimationSettings(animateSettings.Animate, animateSettings.AnimationDelay, animateSettings.AnimationDuration, animateSettings.AnimationStyle) : null;
+    string backgroundImageStyle = backgroundSettings != null ? USNThemeService.GetBackgroundImageStyle(backgroundSettings.BackgroundImageOptions, backgroundSettings.BackgroundImage) : String.Empty;
+        
+    //Required for class label prefix
+    string backgroundColorLabel = backgroundSettings != null && backgroundSettings.BackgroundColor.label != null ? backgroundSettings.BackgroundColor.label : "base";
+        
+    //required for background class
+    string backgroundColorClass = backgroundSettings != null ? USNThemeService.GetBackgroundColorClass(backgroundSettings.BackgroundColor.sortOrder, "content", websiteStyle) : "base-bg base-bg-solid";
+
+    //Properties included with all components
+    string anchor = USNThemeService.MakeAnchorSafe(minSettings.AnchorName);
+    anchor = anchor != String.Empty ? " id=\"" + anchor + "\"" : String.Empty;
+    string additionalStyles = minSettings.ComponentStyles.HasValue() ? minSettings.ComponentStyles.ToString().Replace(",", " ") : String.Empty;
+
+    <section class="content component usn_cmp_@Model.BlockContent.ContentType.Alias.GetBlockStyleName() @backgroundColorClass @additionalStyles @commonBlockSettings.CustomClasses" @Html.Raw(anchor)>  
+
+    @if (backgroundImageStyle.HasValue())
+    {
+        <div class="image background-image component-background-image" @Html.Raw(backgroundImageStyle)></div>
+    }
+        <div class="component-inner">
+            @if (widthSettings != null && Model.PageLayout == "pageLayoutFull")
+            {
+                if (widthSettings.ComponentWidth == "componentWidthCenter")
+                {
+                    @:<div class="container"><div class="row justify-content-center"><div class="content-col center-col col">
+                }
+                else if (widthSettings.ComponentWidth == "componentWidthFull")
+                {
+                    @:<div class="container-fluid">
+                }
+                else
+                {
+                    @:<div class="container">
+                }
+            }
+
+            @if (introOutro != null)
+            {
+                @Html.Partial(Model.BaseModel.ThemeFolder + "/MiscPageElements/ComponentIntro", introOutro, new ViewDataDictionary { { "animation", animation }, { "backgroundColorLabel", backgroundColorLabel }, { "websiteStyleId", Model.BaseModel.WebsiteStyle.Id } })
+            }
+
+            @Html.Partial(Model.BaseModel.ThemeFolder + "/Blocks/" + Model.BlockContent.ContentType.Alias.GetBlockViewName(), Model, new ViewDataDictionary { { "animation", animation }, { "backgroundColorLabel", backgroundColorLabel } })
+
+            @if (introOutro != null)
+            {
+                @Html.Partial(Model.BaseModel.ThemeFolder + "/MiscPageElements/ComponentOutro", introOutro, new ViewDataDictionary { { "animation", animation }, { "backgroundColorLabel", backgroundColorLabel }, { "websiteStyleId", Model.BaseModel.WebsiteStyle.Id } })
+            }
+
+            @if (widthSettings != null && Model.PageLayout == "pageLayoutFull")
+            {
+                if (widthSettings.ComponentWidth == "componentWidthCenter")
+                {
+                    @:</div></div></div>
+                }
+
+                else
+                {
+                    @:</div>
+                }
+            }
+        </div>
+    </section>
+
+}

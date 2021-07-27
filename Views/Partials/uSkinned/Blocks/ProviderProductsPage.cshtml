@@ -1,0 +1,23 @@
+﻿@inherits USNStarterKit.ViewPages.USNViewPage<USNBlock>
+@using USNStarterKit.Models;
+
+<style>
+    .my-custom-scrollbar {
+        position: relative;
+        height: 400px;
+        overflow: auto;
+    }
+
+    .table-wrapper-scroll-y {
+        display: block;
+    }
+</style>
+
+<div>
+    <a href="/create-product/?productId=0" class="btn btn-success">Create New Product</a>
+    <h2>Products Page</h2>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar" id="productsDetailsSection">
+
+    </div>
+</div>
+<script src="~/scripts/ProvidersScript/ProviderProductsPage.js"></script>

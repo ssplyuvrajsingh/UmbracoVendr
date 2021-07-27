@@ -1,0 +1,30 @@
+﻿@inherits USNStarterKit.ViewPages.USNViewPage<USNBlock>
+
+@{
+    //Available as Component Block, Split Component Block and Pod Block types
+
+    var content = (IUsn_Cmp_CodeBlock_Content)Model.BlockContent;
+
+    //Settings taken from compositions common to all block types
+    var animateSettings = (IUsn_Cmp_AnimateSettings)Model.BlockSettings;
+
+    //Headings and secondary headings only present on pods
+    var podContent = Model.BlockContent as Usn_Pb_Code;
+
+    USNAnimation animation = Umbraco.GetAnimationSettings(animateSettings.Animate, animateSettings.AnimationDelay, animateSettings.AnimationDuration, animateSettings.AnimationStyle);
+
+    string backgroundColorLabel = ViewData["backgroundColorLabel"].ToString();
+
+    if (podContent != null && podContent.SecondaryHeading.HasValue())
+    {
+        <p class="secondary-heading @podContent.SecondaryHeading.Style @(backgroundColorLabel)-secondary-heading">@Html.Raw(podContent.SecondaryHeading.Text)</p>
+    }
+    if (podContent != null && podContent.Heading.HasValue())
+    {
+        <p class="heading @podContent.Heading.Style @(backgroundColorLabel)-heading @animation.AnimationClass" data-os-animation="@animation.AnimationStyle" data-os-animation-delay="@animation.AnimationDelay" data-os-animation-duration="@animation.AnimationDuration">@podContent.Heading.Text</p>
+    }
+
+    <div class="code-item @animation.AnimationClass" data-os-animation="@animation.AnimationStyle" data-os-animation-delay="@animation.AnimationDelay" data-os-animation-duration="@animation.AnimationDuration">
+        @Html.Raw(content.Code)
+    </div>
+}

@@ -1,0 +1,49 @@
+﻿@inherits USNStarterKit.ViewPages.USNViewPage<USNBlock>
+
+@{
+    //Available as Component Block and Split Component Block types
+
+    var content = (IUsn_Cmp_Pods_Content)Model.BlockContent;
+
+    //Settings taken from compositions common to all block types
+    var uniqueSettings = (IUsn_Cmp_Pods_Settings)Model.BlockSettings;
+
+    var pods = content.Pods.Where(x => !x.Settings.Value<bool>("hideFromWebsite"));
+
+    if (pods != null && pods.Any())
+    {
+        string backgroundColorLabel = ViewData["backgroundColorLabel"].ToString();
+
+        Usnstyle websiteStyle = (Usnstyle)Model.BaseModel.WebsiteStyle;
+
+        USNCarouselSettings carouselSettings = Umbraco.GetCarouselSettings(uniqueSettings.ItemsPerRow, uniqueSettings.EnableCarousel, uniqueSettings.AutoRotateSpeed, uniqueSettings.ShowDots, uniqueSettings.ShowArrows);
+        string uniqueID = Guid.NewGuid().ToString();
+        string listSpacingClass = uniqueSettings.RemoveItemSpacing ? "listing_no-spacing" : String.Empty;
+
+        <div class="component-main row listing @listSpacingClass listing_basic-grid listing-pods @carouselSettings.CarouselRowClass" @Html.Raw(carouselSettings.SlickAttributes)>
+            @foreach (var item in pods)
+            {
+                if (item?.ContentUdi != null)
+                {
+                    var podItem = new USNBlock(Model.BaseModel, item);
+
+                    if (podItem.BlockContent.ContentType.Alias.GetBlockViewName() == "RelatedContent" || podItem.BlockContent.ContentType.Alias.GetBlockViewName() == "TextImage"
+                        || podItem.BlockContent.ContentType.Alias.GetBlockViewName() == "ReusablePods")
+                    {
+                        @Html.Partial(Model.BaseModel.ThemeFolder + "/Blocks/" + item.Content.ContentType.Alias.GetBlockViewName(), podItem, new ViewDataDictionary { { "blockLocation", "pod" }, { "backgroundColorLabel", backgroundColorLabel }, { "itemClass", @carouselSettings.ItemsClass }, { "uniqueID", uniqueID } })
+                    }
+                    else
+                    {
+                        var itemCommonBlockSettings = (IUsn_Cmp_CommonBlockSettings)item.Settings;
+
+                        <div class="item usn_pod_@podItem.BlockContent.ContentType.Alias.GetBlockStyleName() @carouselSettings.ItemsClass @itemCommonBlockSettings.CustomClasses">
+                            <div class="inner">
+                                @Html.Partial(Model.BaseModel.ThemeFolder + "/Blocks/" + item.Content.ContentType.Alias.GetBlockViewName(), podItem, new ViewDataDictionary { { "blockLocation", "pod" }, { "backgroundColorLabel", backgroundColorLabel }, { "uniqueID", uniqueID } })
+                            </div>
+                        </div>
+                    }
+                }
+            }
+        </div>
+    }
+}

@@ -1,0 +1,48 @@
+﻿@inherits USNStarterKit.ViewPages.USNViewPage<USNBlock>
+
+@{
+    //Available as Component Block and Split Component Block types
+
+    var content = (IUsn_Cmp_InstagramFeed_Content)Model.BlockContent;
+
+    //Settings taken from compositions common to all block types
+    var uniqueSettings = (IUsn_Cmp_InstagramFeed_Settings)Model.BlockSettings;
+    var animateSettings = (IUsn_Cmp_AnimateSettings)Model.BlockSettings;
+
+    string listSpacingClass = uniqueSettings.RemoveItemSpacing ? "listing_no-spacing" : String.Empty;
+    USNAnimation animation = Umbraco.GetAnimationSettings(animateSettings.Animate, animateSettings.AnimationDelay, animateSettings.AnimationDuration, animateSettings.AnimationStyle);
+
+    string feedSourceScript = String.Empty;
+    bool displayFeed = false;
+    string uniqueID = Guid.NewGuid().ToString();
+
+    if (content.FeedType == "username" && content.Username.HasValue())
+    {
+        displayFeed = true;
+        int itemsToDisplay = content.ItemsToDisplayUsername > 0 && content.ItemsToDisplayUsername < 13 ? content.ItemsToDisplayUsername : 12;
+        string itemsPerRow = uniqueSettings.ItemsPerRow.HasValue() ? uniqueSettings.ItemsPerRow[9].ToString() : "4";
+        feedSourceScript = String.Format("'username': '{0}', 'container': document.getElementById('instagram_feed_{1}'), 'items': {2}, 'items_per_row': {3}, 'display_gallery' : true", content.Username.ToLower(), uniqueID, itemsToDisplay, itemsPerRow);
+    }
+    else if (content.FeedType == "hashtag" && content.Hashtag.HasValue())
+    {
+        displayFeed = true;
+        int itemsToDisplay = content.ItemsToDisplayTag > 0 && content.ItemsToDisplayTag < 73 ? content.ItemsToDisplayTag : 72;
+        string itemsPerRow = uniqueSettings.ItemsPerRow.HasValue() ? uniqueSettings.ItemsPerRow[9].ToString() : "4";
+        feedSourceScript = String.Format("'tag': '{0}', 'container': document.getElementById('instagram_feed_{1}'), 'items': {2}, 'items_per_row': {3}, 'display_gallery' : true", content.Hashtag.ToLower(), uniqueID, itemsToDisplay, itemsPerRow);
+    }
+
+    if (displayFeed)
+    {
+        <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            (function(){
+                new InstagramFeed({
+                    @Html.Raw(feedSourceScript)
+                });
+            })();
+        })
+        </script>
+
+        <div id="instagram_feed_@uniqueID" class="component-main row listing @listSpacingClass listing_basic-grid listing_instagram"></div>
+    }
+}

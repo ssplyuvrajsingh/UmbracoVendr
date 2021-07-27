@@ -1,0 +1,124 @@
+﻿@inherits USNStarterKit.ViewPages.USNViewPage<USNStarterKit.Models.USNBaseViewModel>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@using FinCMS.App_Code.DatabaseRepo
+@using Vendr.Core;
+
+@{
+    Layout = "USNMaster.cshtml";
+
+
+    var order = Model.Content.GetCurrentOrder();
+    var homePage = Umbraco.ContentAtRoot().Where(x => x.IsDocumentType("USNHomepage")).FirstOrDefault();
+    var checkoutPage = homePage.ChildrenOfType("vendrCheckoutCheckoutPage").FirstOrDefault();
+}
+<style>
+    .table-shopping thead th, .table-shopping tbody td {
+        border-bottom: 2px solid transparent;
+        vertical-align: middle;
+    }
+
+    .table-shopping tbody td {
+        border-bottom: 1px solid #ddd;
+    }
+
+    .table-shopping tbody tr:last-child td {
+        border-bottom: 1px solid transparent;
+    }
+
+    .table-shopping th, .table-shopping td {
+        border-color: transparent;
+        border-top: 1px solid transparent;
+    }
+</style>
+
+
+<div class="productsDetailsSection py-5">
+    <div class="pt-6">
+        <article>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-10 col-md-10 m-auto">
+                        <a href="/shop-page/" class="btn btn-primary mb-3">Back</a>
+                        <h4>Shopping Cart</h4>
+                        <br />
+                        @if (Model != null && order != null && order.OrderLines.Any())
+                        {
+                            using (Html.BeginUmbracoForm("UpdateCart", "CartSurface"))
+                            {
+                                <div class="table-responsive">
+                                    <table class="table table-shopping border-0">
+                                        <thead class="">
+                                            <tr>
+                                                <th colspan="2" style="min-width:300px;">Product</th>
+                                                <th>Price</th>
+                                                <th>Quantity</th>
+                                                <th>Amount</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in order.OrderLines.Select((ol, i) => new { OrderLine = ol, Index = i }))
+                                            {
+                                                var product = Umbraco.Content(item.OrderLine.ProductReference.As<Guid>());
+                                                <tr>
+                                                    <td colspan="2" style="min-width:300px;">
+                                                        <a href="@product.Url()">@item.OrderLine.Name</a>
+                                                    </td>
+                                                    <td>
+                                                        @(item.OrderLine.UnitPrice.Value.Formatted())
+                                                    </td>
+                                                    <td style="min-width:150px;">
+                                                        <div class="input-group">
+                                                            @Html.Hidden($"orderLines[{item.Index}].Id", item.OrderLine.Id)
+                                                            @Html.TextBox($"orderLines[{item.Index}].Quantity", (int)item.OrderLine.Quantity, new { @class = "form-control input-number quantity  rounded-0 border-0 bg-light", type = "number", style = "background-color: #f1f1f1!important;padding:10px 15px;max-width:80px;" })
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        @(item.OrderLine.TotalPrice.Value.Formatted())
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <a href="@Url.SurfaceAction("RemoveFromCart", "CartSurface", new { OrderLineId = item.OrderLine.Id })" rel="tooltip" class="btn btn-link">
+                                                            Remove <i class="fa fa-times"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            }
+                                            <tr>
+                                                <td colspan="2"><strong>Total</strong></td>
+                                                <td class="td-price">
+                                                    <strong>
+                                                        @(order.SubtotalPrice.Value.Formatted())
+                                                    </strong>
+                                                </td>
+                                                <td>
+                                                    <strong>
+                                                        @(order.TotalQuantity)
+                                                    </strong>
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-success btn-round" title="Refresh Cart">Update Cart <i class="fa fa-sync"></i></button>
+                                                </td>
+                                                <td class="text-right">
+                                                    <a href="@checkoutPage.Url" class="btn btn-info btn-round">Go to checkout <i class="fa fa-shopping-cart"></i></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            var shopPage = Model.Content.Root().ChildrenOfType("shop").FirstOrDefault();
+                            <p>Your shopping cart is empty.</p>
+                            if (shopPage != null)
+                            {
+                                <p>Go to the <a href="@shopPage.Url()">@shopPage.Name</a> to add some items to your cart.</p>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</div>

@@ -1,0 +1,468 @@
+/*  
+----------------------------------------------------------------------------------------------------
+Snipcart - https://snipcart.com/
+---------------------------------------------------------------------------------------------------- 
+*/
+
+
+/*  
+----------------------------------------------------------------------------------------------------
+Checkout body
+---------------------------------------------------------------------------------------------------- 
+*/
+
+body.snip-open:not(.no-header) {
+    padding-top: var(--small-header)!important;
+}
+
+
+/*  
+----------------------------------------------------------------------------------------------------
+Checkout process
+---------------------------------------------------------------------------------------------------- 
+*/
+
+.usn .snip-layout * {
+    border-radius: 0!important;
+    font-size: 17px;
+    letter-spacing: -0.25px;
+    color:  rgba(var(--base-text), 1);
+}
+
+.usn .snip-layout {
+    font-size: 17px;
+    letter-spacing: -0.25px;
+    background: rgba(var(--true-black), 0.85);
+}
+
+
+/* close */
+
+.usn .snip-ico.snip-ico--close {
+    display: inline-block;
+    font-family: "Ionicons";
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-rendering: auto;
+    line-height: 1;
+    font-size: 30px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.usn .snip-ico.snip-ico--close::before {
+    content: "\f2c0";
+}
+
+.usn .snip-layout .snip-layout__close .snip-ico.snip-ico--close {
+    color:  rgba(var(--base-heading), 1);
+    transition: color 0.3s ease-in-out 0s;
+}
+
+.usn .snip-layout .snip-layout__close .snip-ico.snip-ico--close:hover {
+    color: rgba(var(--base-heading), 0.7);
+}
+
+.usn .snip-layout .snip-product__remove {
+    font-size: 20px;
+}
+
+
+/* tabs */
+
+.usn .snip-layout .snip-steps li {
+    background:  rgba(var(--base-borders), 1);
+}
+
+.usn .snip-layout .snip-steps li.snip-step__item.js-active {
+    background:  rgba(var(--base-bg-color1), 1);
+    border-bottom-color:  rgba(var(--base-bg-color1), 1);
+}
+
+.usn .snip-layout .snip-steps li .snip-step__label {
+    font-size: 13px;
+}
+
+.usn .snip-layout .snip-step__item,
+.usn .snip-layout .snip-step__item+.snip-step__item {
+    border-color: rgba(var(--base-borders), 0.1);
+}
+
+
+/* forms */
+
+.usn .snip-layout .snip-form__label {
+    font-size: 15px;
+    text-transform: none;
+    color:  rgba(var(--base-text), 1);
+}
+
+.usn .snip-layout input[type=password],
+.usn .snip-layout input[type=text],
+.usn .snip-layout select {
+    font-size: 15px;
+    color:  rgba(var(--base-heading), 1);
+}
+
+.usn .snip-layout .snip-actions {
+    border: 0 none;
+}
+
+.usn .snip-layout .snip-actions__link--small {
+    font-size: 14px;
+}
+
+.usn .snip-form__container--select:not(.snipcart-state) {
+    position: relative;
+    z-index: 0;
+    background: none;
+}
+
+.usn .snip-form__container--select:not(.snipcart-state) select {
+    position: relative;
+    z-index: 2;
+    background: none;
+    padding-right: 20px;
+}
+
+.usn .snip-layout__main-container:not(#snip-layout-order-confirm) .snip-form__container--select:not(.snipcart-state)::after {
+    font-family: "Ionicons";
+    content: "\f280";
+    position: absolute;
+    top: 25px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    height: 37px;
+    padding: 6px 10px 0 0;
+    font-size: 20px;
+    text-align: right;
+    color:  rgba(var(--base-text), 1);
+    background: none;
+    box-sizing: border-box;
+}
+
+
+/* buttons */
+
+.usn .snip-layout .snip-btn,
+.usn #snipcart-show-discount-box {
+    border: 0 none;
+    border-radius: 0!important;
+    position: relative;
+    padding: 12px 15px 14px;
+    font-size: 14px;
+    height: auto;
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+.usn #snipcart-show-discount-box {
+    padding: 8px 10px 10px;
+    font-size: 12px;
+}
+
+.usn .snip-layout .snip-btn,
+.usn .snip-layout .snip-quantity-trigger__btn,
+.usn #snipcart-show-discount-box {
+    color:  rgba(var(--base-highlight-text), 1);
+    background:  rgba(var(--base-highlight), 1);
+}
+
+.usn .snip-layout #snipcart-login-submit.snip-btn,
+.usn .snip-layout .snip-btn--highlight,
+.usn .snip-layout #snipcart-newaccount-submit.snip-btn {
+    padding: 15px 20px 17px;
+    font-size: 18px;
+    background:  rgba(var(--base-highlight), 1);
+}
+
+.usn .snip-layout #snipcart-login-submit.snip-btn {
+    background:  rgba(var(--base-highlight), 1);
+}
+
+.usn .snip-layout .snip-btn:hover,
+.usn .snip-layout .snip-btn:active,
+.usn .snip-layout .snip-btn:focus,
+.usn .snip-layout .snip-quantity-trigger__btn:hover,
+.usn #snipcart-show-discount-box:hover {
+    background: rgba(var(--base-borders), 0.5%);
+}
+
+.usn .snip-layout #snipcart-login-submit.snip-btn:hover,
+.usn .snip-layout #snipcart-login-submit.snip-btn:active,
+.usn .snip-layout #snipcart-login-submit.snip-btn:focus,
+.usn .snip-layout #snipcart-newaccount-submit.snip-btn:hover,
+.usn .snip-layout #snipcart-newaccount-submit.snip-btn:active,
+.usn .snip-layout #snipcart-newaccount-submit.snip-btn:focus,
+.usn .snip-layout .snip-btn--highlight:hover,
+.usn .snip-layout .snip-btn--highlight:active,
+.usn .snip-layout .snip-btn--highlight:focus {
+    background: rgba(var(--base-highlight), 0.1);
+}
+
+.usn .snip-layout #snipcart-login-submit.snip-btn:hover,
+.usn .snip-layout #snipcart-login-submit.snip-btn:active,
+.usn .snip-layout #snipcart-login-submit.snip-btn:focus {
+    background: rgba(var(--base-borders), 0.1);
+}
+
+
+/* header + footer */
+
+.usn .snip-layout .snip-header__user {
+    padding: var(--base-half-spacing) var(--base-spacing);
+    color:  rgba(var(--base-heading), 1);
+    background:  rgba(var(--base-bg-color1), 1);
+}
+
+.usn .snip-layout .snip-header__user .snip-header__user-text {
+    color:  rgba(var(--base-heading), 1);
+}
+
+.usn .snip-layout .snip-header__user-mail {
+    color:  rgba(var(--base-heading), 1);
+    font-weight: var(--p-heading-typography_font-weight);
+}
+
+.usn .snip-layout .snip-header {
+    padding: var(--base-spacing) var(--base-half-spacing);
+    border-bottom: var(--base-border-width) solid  rgba(var(--base-borders), 1);
+}
+
+.usn .snip-layout .snip-header {
+    color:  rgba(var(--base-heading), 1);
+    background:  rgba(var(--base-bg-color1), 1);
+}
+
+.usn .snip-layout .snip-header__title {
+    color:  rgba(var(--base-heading), 1);
+}
+
+.usn .snip-layout .snip-header a {
+    color:  rgba(var(--base-link), 1);
+}
+
+.usn .snip-layout .snip-header__total {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 0;
+    padding: 10px;
+    height: auto;
+    line-height: 1;
+    color:  rgba(var(--base-highlight-text), 1);
+    background:  rgba(var(--base-highlight), 1);
+    transform: translate(-50%, -50%);
+}
+
+.usn .snip-layout .snip-header__total span {
+    font-size: 20px;
+}
+
+.usn #snipcart-amount {
+    color:  rgba(var(--true-white), 1);
+    font-weight: 900;
+}
+
+.usn .snip-layout .snip-header__total-label {
+    color:  rgba(var(--true-white), 1);
+}
+
+.usn .snip-layout .snip-header__title {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1;
+}
+
+.usn .snip-layout .snip-header__title {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+}
+
+.usn .snip-layout .snip-footer {
+    padding: 10px var(--base-spacing);
+    color: rgba(var(--base-heading), 0.2);
+    background:  rgba(var(--base-bg-color1), 1);
+    text-align: center;
+}
+
+.usn .snip-layout .snip-footer a,
+.usn .snip-layout .snip-footer b {
+    color: rgba(var(--base-heading), 0.5);
+    font-size: 14px;
+}
+
+.usn .snip-layout .snip-footer b {
+    font-weight: bold;
+}
+
+.usn .snip-layout .snip-footer__copyright {
+    padding-left: 0;
+    background: none;
+}
+
+.usn .snip-layout .snip-footer__copyright::before {
+    content: "\f31d";
+    display: inline-block;
+    margin-right: 8px;
+    font-family: "Ionicons";
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-rendering: auto;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color:  rgba(var(--base-highlight), 1);
+}
+
+
+/* products */
+
+.usn .snip-layout .snip-static__title,
+.usn .snip-layout .snip-table th,
+.usn .snip-layout .snip-product__name {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color:  rgba(var(--base-heading), 1);
+}
+
+.usn .snip-layout .snip-product__name {
+    font-size: 20px;
+}
+
+.usn .snip-layout .snip-product__remove {
+    color:  rgba(var(--base-text), 1);
+    transition: color 0.3s ease-in-out 0s;
+}
+
+.usn .snip-layout .snip-product__remove:hover {
+    color: rgba(var(--base-text), 0.7);
+}
+
+
+/* tables */
+
+.usn .snip-layout td,
+.usn .snip-layout th {
+    vertical-align: top;
+    border-color:  rgba(var(--base-borders), 1);
+}
+
+.usn .snip-layout .snipcart-items span {
+    font-size: 16px;
+}
+
+.usn .snip-layout .snip-table__body--small,
+.usn .snip-layout .snip-table__body--big {
+    text-align: right;
+}
+
+.usn .snip-layout .snip-static__title,
+.usn .snip-layout .snip-table th {
+    font-size: 16px;
+}
+
+.usn .snip-layout .snip-product__description {
+    font-size: 16px;
+}
+
+.usn .snip-layout .snip-static__content p {
+    font-size: 16px;
+}
+
+.usn .snip-layout .snip-quantity-trigger,
+.usn .snip-layout .snip-table__cell--bold,
+.usn .snip-layout .snip-table__cell--highlight {
+    font-weight: 700;
+}
+
+.usn #snipcart-total * {
+    font-size: 16px;
+}
+
+
+/* loader */
+
+.usn .snip-layout .snip-loader--bar::before {
+    background:  rgba(var(--true-white), 1);
+}
+
+
+/* images */
+
+.usn .snip-layout #snipcart-cvc-content-holder img.snip-static__item {
+    width: auto;
+    max-width: auto;
+}
+
+
+/* flash messages */
+
+.usn .snip-layout .snip-flash__item {
+    border: 0 none;
+    padding: var(--base-half-spacing) 20px;
+    font-size: 17px;
+}
+
+.usn .snip-layout .snip-flash__item--success {
+    background:  rgba(var(--form-success), 1);
+    color:  rgba(var(--true-white), 1);
+}
+.usn .snip-layout .snip-flash__item--success:hover {
+    background: rgba(var(--form-success), 0.9);
+}
+
+.usn .snip-layout .snip-flash__item--warn {
+    background:  rgba(var(--form-warning), 1);
+    color:  rgba(var(--true-white), 1);
+}
+.usn .snip-layout .snip-flash__item--warn:hover {
+    background: rgba(var(--form-warning), 0.9);
+}
+
+.usn .snip-layout .snip-flash__item--error {
+    background: rgba(var(--form-errors), 1);
+    color:  rgba(var(--true-white), 1);
+}
+.usn .snip-layout .snip-flash__item--error:hover {
+    background: rgba(var(--form-errors), 0.9);
+}
+
+@media (min-width:0) and (max-width:991px) {
+    .usn .snip-layout .snip-discount__remove,
+    .snip-layout .snip-product__remove {
+        right: var(--base-half-spacing)!important;
+    }
+}
+
+@media (min-width:768px) {}
+
+@media (min-width:992px) {
+    .usn .snip-layout .snip-layout__main-container {
+        max-width: 970px;
+    }
+    .usn .snip-layout .snip-header__user {
+        padding-bottom: 0;
+    }
+    .usn .snip-layout .snip-header__total {
+        padding: var(--base-half-spacing);
+    }
+}
+
+@media (min-width:1200px) {
+    .usn .snip-layout .snip-layout__main-container {
+        max-width: 1140px;
+    }
+}

@@ -1,0 +1,387 @@
+﻿<section class="usn-dashboard" ng-controller="WelcomeController as vm">
+
+    <!-- USN Row -->
+    <div class="umb-package-details usn-row">
+
+        <!-- USN Col -->
+        <div class="umb-package-details__main-content usn-col">
+
+            <!-- Panel -->
+            <div class="umb-box" ng-if="vm.tours.length > 0">
+
+                <!-- Title -->
+                <div class="umb-panel-group__details-group-title umb-panel-group__details-group-name">
+                    uSkinned tours
+                </div>
+                <!--// Title -->
+                <!-- Table -->
+                <div class="umb-table">
+
+                    <!-- Table Body -->
+                    <div class="umb-table-body">
+
+                        <div ng-repeat="tourGroup in vm.tours | orderBy:'groupOrder'">
+
+                            <div class="umb-help-list">
+
+                                <button type="button"
+                                        class="umb-help-list-item umb-help-list-item__content flex items-center justify-between"
+                                        ng-click="tourGroup.open = !tourGroup.open"
+                                        aria-expanded="{{tourGroup.open === undefined ? false : tourGroup.open }}">
+                                    <span class="umb-help-list-item__group-title bold">
+                                        <i ng-class="{'icon-navigation-right': !tourGroup.open, 'icon-navigation-down': tourGroup.open}" aria-hidden="true"></i>
+                                        <span ng-if="tourGroup.group !== 'undefined'">{{tourGroup.group}}</span>
+                                        <span ng-if="tourGroup.group === 'undefined'">
+                                            <localize key="general_other">Other</localize>
+                                        </span>
+                                    </span>
+                                    <umb-progress-circle percentage="{{tourGroup.completedPercentage}}"
+                                                         size="40">
+                                    </umb-progress-circle>
+                                </button>
+
+                                <div ng-if="tourGroup.open">
+                                    <div data-element="tour-{{tour.alias}}" class="umb-help-list-item" ng-repeat="tour in tourGroup.tours">
+                                        <div class="umb-help-list-item__content justify-between">
+                                            <div class="flex items-center">
+                                                <div ng-if="!tour.completed" class="umb-number-badge umb-number-badge--xs umb-help-list-item__icon">{{ $index + 1 }}</div>
+                                                <umb-checkmark ng-if="tour.completed" size="xs" checked="tour.completed" class="umb-help-list-item__icon"></umb-checkmark>
+                                                <span ng-class="{'strike': tour.completed}" class="umb-help-list-item__title">{{ tour.name }}</span>
+                                            </div>
+                                            <div>
+                                                <umb-button ng-if="!tour.completed && vm.showTourButton($index, tourGroup)" button-style="primary" type="button" label="Start" action="vm.startTour(tour)"></umb-button>
+                                                <umb-button ng-if="tour.completed" type="button" label="Rerun" action="vm.startTour(tour)"></umb-button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!--// Table Body -->
+
+                </div>
+                <!--// Table -->
+
+            </div>
+            <!--// Panel -->
+
+
+            <!-- USN Row -->
+            <div class="umb-package-details usn-row">
+            <div class="usn-col">
+
+                <!-- Panel -->
+                <div class="umb-box usn-recent-activity ajax-wrap">
+
+                    <!-- Title -->
+                    <div class="umb-panel-group__details-group-title umb-panel-group__details-group-name">
+                        Your recent activity
+                    </div>
+                    <!--// Title -->
+                    <!-- Table -->
+                    <div class="umb-table" ng-show="vm.isHistoryLoaded">
+
+                        <div class="umb-table-body" ng-show="vm.HistoryData.yourItems.length == 0">
+                            <div class="alert  alert-usn">No recent updates found.</div>
+                        </div>
+
+                        <!-- Activity list -->
+                        <div class="usn-activity-list" ng-show="vm.HistoryData.yourItems.length > 0">
+
+                            <a class="usn-activity-item" ng-repeat="logEntry in vm.HistoryData.yourItems" href="/Umbraco/#/content/content/edit/{{logEntry.nodeId}}">
+
+                                <div class="usn-activity-nodename"><i class="umb-panel-status-icon {{logEntry.icon}}"></i>{{logEntry.nodeName}}</div>
+
+                                <div class="usn-activity-avatar">
+                                    <umb-avatar name="{{logEntry.user.name}}"
+                                        size="xs"
+                                        color="secondary"
+                                        img-src="{{logEntry.user.avatar[0]}}"
+                                        img-srcset="{{logEntry.user.avatar[1]}} 2x, {{logEntry.user.avatar[2]}} 3x">
+                                    </umb-avatar>
+                                </div>
+                                
+                                <div class="usn-activity-username">{{logEntry.dateStamp  | date:'dd MMM yyyy HH:mm'}} by you</div>
+
+                                <span class="usn-activity-status alert alert-success" ng-if="logEntry.updateType == 'Save' || logEntry.updateType == 'SaveVariant'">Saved</span>
+                                <span class="usn-activity-status alert alert-success" ng-if="logEntry.updateType == 'Publish' || logEntry.updateType == 'PublishVariant'">Saved and published</span>
+                                <span class="usn-activity-status alert alert-warning" ng-if="logEntry.updateType == 'SaveAndScheduled' || logEntry.updateType == 'SaveAndScheduledVariant'">Saved and scheduled for <span ng-if="logEntry.scheduledAction == 'Release'">publishing</span><span ng-if="logEntry.scheduledAction == 'Expire'">unpublishing</span> at {{logEntry.scheduledPublishDate  | date:'dd MMM yyyy HH:mm'}}</span>
+                                <span class="usn-activity-status alert alert-info" ng-if="logEntry.updateType == 'Unpublish' || logEntry.updateType == 'UnpublishVariant'">Unpublished</span>
+                                <span class="usn-activity-status alert alert-danger" ng-if="logEntry.updateType == 'RecycleBin' || logEntry.updateType == 'RecycleBinVariant'">Moved to recycle bin</span>
+                                <span class="usn-activity-status alert alert-info" ng-if="logEntry.updateType == 'RollBack' || logEntry.updateType == 'RollBackVariant'">Rolled back to a previous version</span>
+                        
+                            </a>
+                            <!--// Activity item -->
+
+                        </div>
+                        <!--// Activity list -->
+
+                    </div>
+                    <!--// Table -->
+
+                    <div class="ajax-loading" ng-show="!vm.isHistoryLoaded">
+                        <div class="loading">
+                            <span class="message">Please wait...</span>
+                        </div>
+                    </div>
+
+                </div>
+                <!--// Panel -->
+
+            </div>
+            <div class="usn-col">
+
+                <!-- Panel -->
+                <div class="umb-box usn-recent-activity ajax-wrap">
+
+                    <!-- Title -->
+                    <div class="umb-panel-group__details-group-title umb-panel-group__details-group-name">
+                        All recent activity
+                    </div>
+                    <!--// Title -->
+                    <!-- Table -->
+                    <div class="umb-table" ng-show="vm.isHistoryLoaded">
+
+                        <div class="umb-table-body" ng-show="vm.HistoryData.allItems.length == 0">
+                            <div class="alert  alert-usn">No recent updates found.</div>
+                        </div>
+
+                        <!-- Activity list -->
+                        <div class="usn-activity-list" ng-show="vm.HistoryData.allItems.length > 0">
+
+                            <!-- Activity item -->
+                            <a class="usn-activity-item" ng-repeat="logEntry in vm.HistoryData.allItems" href="/Umbraco/#/content/content/edit/{{logEntry.nodeId}}">
+
+                                <div class="usn-activity-nodename"><i class="umb-panel-status-icon {{logEntry.icon}}"></i>{{logEntry.nodeName}}</div>
+
+                                <div class="usn-activity-avatar">
+                                    <umb-avatar name="{{logEntry.user.name}}"
+                                        size="xs"
+                                        color="secondary"
+                                        img-src="{{logEntry.user.avatar[0]}}"
+                                        img-srcset="{{logEntry.user.avatar[1]}} 2x, {{logEntry.user.avatar[2]}} 3x">
+                                    </umb-avatar>
+                                </div>
+
+                                <div class="usn-activity-username">{{logEntry.dateStamp | date:'dd MMM yyyy HH:mm'}} by {{logEntry.user.name}}</div>
+
+                                <span class="usn-activity-status alert alert-success" ng-if="logEntry.updateType == 'Save' || logEntry.updateType == 'SaveVariant'">Saved</span>
+                                <span class="usn-activity-status alert alert-success" ng-if="logEntry.updateType == 'Publish' || logEntry.updateType == 'PublishVariant'">Saved and published</span>
+                                <span class="usn-activity-status alert alert-warning" ng-if="logEntry.updateType == 'SaveAndScheduled' || logEntry.updateType == 'SaveAndScheduledVariant'">Saved and scheduled for <span ng-if="logEntry.scheduledAction == 'Release'">publishing</span><span ng-if="logEntry.scheduledAction == 'Expire'">unpublishing</span> at {{logEntry.scheduledPublishDate  | date:'dd MMM yyyy HH:mm'}}</span>
+                                <span class="usn-activity-status alert alert-info" ng-if="logEntry.updateType == 'Unpublish' || logEntry.updateType == 'UnpublishVariant'">Unpublished</span>
+                                <span class="usn-activity-status alert alert-danger" ng-if="logEntry.updateType == 'RecycleBin' || logEntry.updateType == 'RecycleBinVariant'">Moved to recycle bin</span>
+                                <span class="usn-activity-status alert alert-info" ng-if="logEntry.updateType == 'RollBack' || logEntry.updateType == 'RollBackVariant'">Rolled back to a previous version</span>
+                        
+                            </a>
+                            <!--// Activity item -->
+
+                        </div>
+                        <!--// Activity list -->
+
+                    </div>
+                    <!--// Table -->
+
+                    <div class="ajax-loading" ng-show="!vm.isHistoryLoaded">
+                        <div class="loading">
+                            <span class="message">Please wait...</span>
+                        </div>
+                    </div>
+
+                </div>
+                <!--// Panel -->
+
+            </div>
+            </div>
+            <!--// USN Row -->
+
+        </div>
+        <!--// USN Col -->
+
+        <!-- USN Col -->
+        <div class="umb-package-details__sidebar usn-col">
+
+            <!-- Box -->
+            <div class="umb-box ajax-wrap">
+
+                <!-- Title -->
+                <div class="umb-box-header">
+                    Your Site
+                </div>
+                <!--// Title -->
+                <!-- Table -->
+                <div class="umb-table" ng-show="vm.isInfoLoaded">
+
+                    <!-- Table Body -->
+                    <div class="umb-table-body">
+
+                        <!-- Table Row -->
+                        <div class="umb-table-row">
+
+                            <div class="umb-table-cell not-fixed">
+                                Published content items
+                            </div>
+
+                            <div class="umb-table-cell text-right">
+                                <span class="umb-badge umb-badge--success umb-badge--xs">{{vm.InfoData.publishedNodes}}</span>
+                            </div>
+
+                        </div>
+                        <!--// Table Row -->
+                        <!-- Table Row -->
+                        <div class="umb-table-row">
+
+                            <div class="umb-table-cell not-fixed">
+                                <a href="#/content/content/recyclebin" class="btn-link -underline-hover">Content in recycle bin</a>
+                            </div>
+
+                            <div class="umb-table-cell text-right">
+                                <span ng-class="{'umb-badge umb-badge--danger umb-badge--xs': vm.InfoData.recycleBinContentNodes > 0,'umb-badge umb-badge--success umb-badge--xs': vm.InfoData.recycleBinContentNodes == 0}">{{vm.InfoData.recycleBinContentNodes}}</span>
+                            </div>
+
+                        </div>
+                        <!--// Table Row -->
+                        <!-- Table Row -->
+                        <div class="umb-table-row">
+
+                            <div class="umb-table-cell not-fixed">
+                                <a href="#/media/media/recyclebin" class="btn-link -underline-hover">Media in recycle bin</a>
+                            </div>
+
+                            <div class="umb-table-cell text-right">
+                                <span ng-class="{'umb-badge umb-badge--danger umb-badge--xs': vm.InfoData.recycleBinMediaNodes > 0,'umb-badge umb-badge--success umb-badge--xs': vm.InfoData.recycleBinMediaNodes == 0}">{{vm.InfoData.recycleBinMediaNodes}}</span>
+                            </div>
+
+                        </div>
+                        <!--// Table Row -->
+                        <!-- Table Row -->
+                        <div class="umb-table-row">
+
+                            <div class="umb-table-cell not-fixed">
+                                uSkinned version
+                            </div>
+
+                            <div class="umb-table-cell text-right">
+                                {{vm.InfoData.themeVersion}}
+                            </div>
+
+                        </div>
+                        <!--// Table Row -->
+                        <!-- Table Row -->
+                        <div class="umb-table-row">
+
+                            <div class="umb-table-cell not-fixed">
+                                Umbraco version
+                            </div>
+
+                            <div class="umb-table-cell text-right">
+                                {{vm.UmbracoVersion}}
+                            </div>
+
+                        </div>
+                        <!--// Table Row -->
+
+                    </div>
+                    <!--// Table Body -->
+
+                </div>
+                <!--// Table -->
+                <div class="ajax-loading" ng-show="!vm.isInfoLoaded">
+                    <div class="loading">
+                        <span class="message">Please wait...</span>
+                    </div>
+                </div>
+
+            </div>
+            <!--// Box -->
+            <!-- Box -->
+            <div class="umb-box ajax-wrap">
+
+                <!-- Title -->
+                <div class="umb-box-header">
+                    Your Details
+                </div>
+                <!--// Title -->
+                <!-- Table -->
+                <div class="umb-table" ng-show="vm.isInfoLoaded">
+
+                    <!-- Table Body -->
+                    <div class="umb-table-body">
+
+                        <!-- Table Row -->
+                        <div class="umb-table-row">
+
+                            <div class="umb-table-cell not-fixed">
+                                User
+                            </div>
+
+                            <div class="umb-table-cell text-right">
+                                {{vm.UserName}}
+                            </div>
+
+                        </div>
+                        <!--// Table Row -->
+                        <!-- Table Row -->
+                        <div class="umb-table-row">
+
+                            <div class="umb-table-cell not-fixed">
+                                Email
+                            </div>
+
+                            <div class="umb-table-cell text-right">
+                                {{vm.Email}}
+                            </div>
+
+                        </div>
+                        <!--// Table Row -->
+                        <!-- Table Row -->
+                        <div class="umb-table-row">
+
+                            <div class="umb-table-cell not-fixed">
+                                Last login
+                            </div>
+
+                            <div class="umb-table-cell text-right">
+                                {{vm.InfoData.lastLogin}}
+                            </div>
+
+                        </div>
+                        <!--// Table Row -->
+                        <!-- Table Row -->
+                        <div class="umb-table-row">
+
+                            <div class="umb-table-cell not-fixed">
+                                Password changed
+                            </div>
+
+                            <div class="umb-table-cell text-right">
+                                {{vm.InfoData.passwordChanged}}
+                            </div>
+
+                        </div>
+                        <!--// Table Row -->
+
+                    </div>
+                    <!--// Table Body -->
+
+                </div>
+                <!--// Table -->
+
+                <div class="ajax-loading" ng-show="!vm.isInfoLoaded">
+                    <div class="loading">
+                        <span class="message">Please wait...</span>
+                    </div>
+                </div>
+
+            </div>
+            <!--// Box -->
+            
+
+        </div>
+        <!--// USN Col -->
+
+    </div>
+    <!--// USN Row -->
+
+</section>

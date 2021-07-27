@@ -1,0 +1,281 @@
+﻿@inherits USNStarterKit.ViewPages.USNViewPage<USNBlock>
+
+@{
+    //Available as Component Block only
+
+    var content = (Usn_Cb_Banner)Model.BlockContent;
+    var settings = (Usn_Cbs_Banners)Model.BlockSettings;
+
+    Usnstyle websiteStyle = (Usnstyle)Model.BaseModel.WebsiteStyle;
+
+    var banners = content.Banners.Where(x => !x.Settings.Value<bool>("hideFromWebsite"));
+
+    if (banners.HasValue() && banners.Any())
+    {
+        bool webPEnabled = Convert.ToBoolean(ConfigurationManager.AppSettings["USN_WEBP_Enabled"]);
+
+        int bannerCount = banners.Count();
+
+        USNCarouselSettings carouselSettings = Umbraco.GetCarouselSettings("items-1", true, settings.AutoRotateSpeed, settings.ShowDots, settings.ShowArrows);
+
+        if (bannerCount > 1)
+        {
+            @:<div class="slides" @Html.Raw(carouselSettings.SlickAttributes)>
+        }
+
+        foreach (var banner in banners)
+        {
+            if (banner?.ContentUdi != null)
+            {
+                var itemContent = (Usn_Cbi_Banner)banner.Content;
+                var itemSettings = (Usn_Cbis_Banner)banner.Settings;
+
+                USNAnimation animation = Umbraco.GetAnimationSettings(itemSettings.Animate, itemSettings.AnimationDelay, itemSettings.AnimationDuration, itemSettings.AnimationStyle);
+
+                string parallaxClass = itemSettings.BannerParallax ? "parallax" : String.Empty;
+
+                string colorOverlayClass = itemSettings.BannerAddColorOverlay ? "item_overlay" : String.Empty;
+
+                string bannerStyle = "item_medium-banner";
+                int imageHeightSmall = 70;
+                string cropAlias = "Medium Banner";
+
+                switch (itemSettings.BannerStyle)
+                {
+                    case "bannerSizeShort":
+                        bannerStyle = "item_short-banner";
+                        cropAlias = "Short Banner";
+                        imageHeightSmall = parallaxClass != String.Empty ? 110 : 50;
+                        break;
+                    case "bannerSizeMedium":
+                        bannerStyle = "item_medium-banner";
+                        cropAlias = "Medium Banner";
+                        imageHeightSmall = parallaxClass != String.Empty ? 110 : 70;
+                        break;
+                    case "bannerSizeTakeover":
+                        bannerStyle = "item_takeover-banner";
+                        imageHeightSmall = 110;
+                        cropAlias = "Takeover Banner";
+                        break;
+                    case "bannerSizeScale":
+                        bannerStyle = "item_scale-banner";
+                        cropAlias = "Scale Banner";
+                        parallaxClass = String.Empty;
+                        break;
+                }
+
+                string bgImage = String.Empty;
+                string bgImageSmall = String.Empty;
+
+                if (itemContent.BannerImage != null)
+                {
+                    bgImage = webPEnabled ? itemContent.BannerImage.GetCropUrl(cropAlias: cropAlias) + "&format=webp" + " [type:image/webp] | " + itemContent.BannerImage.GetCropUrl(cropAlias: cropAlias) : itemContent.BannerImage.GetCropUrl(cropAlias: cropAlias);
+                    bgImageSmall = "style=\"background-image:url('" + itemContent.BannerImage.GetCropUrl(cropAlias: cropAlias, width: 150, height: imageHeightSmall) + "')\"";
+                }
+
+                string backgroundColorClass = USNThemeService.GetBackgroundColorClass(itemSettings.BannerBackgroundColor.sortOrder, "content", websiteStyle);
+
+                    <div class="item @colorOverlayClass @bannerStyle @parallaxClass @backgroundColorClass @itemSettings.CustomClasses">
+
+                        @if (itemContent.BannerVideoSource.HasValue() && (itemContent.BannerVideoSource == "youtube" || itemContent.BannerVideoSource == "vimeo") && itemContent.BannerVideo3rdParty.HasValue())
+                        {
+                            USNVideo video = USNThemeService.GetVideo(itemContent.BannerVideo3rdParty);
+                            string videoID = video.VideoID;
+                            string videoSrc = String.Empty;
+
+                            if (itemContent.BannerVideoSource == "youtube")
+                            {
+                                videoSrc = "https://www.youtube.com/embed/" + videoID + "?autoplay=1&loop=1&mute=1&controls=0&showinfo=0&disablekb=1&fs=0&modestbranding=1&playsinline=1&playlist=" + videoID;
+                            }
+                            else
+                            {
+                                videoSrc = "https://player.vimeo.com/video/" + videoID + "?autoplay=1&loop=1&autopause=0&playsinline=1&muted=1&background=1";
+                            }
+
+                            if (itemSettings.BannerStyle == "bannerSizeScale")
+                            {
+                                <div class="image">
+                                    @if (itemContent.BannerImage != null)
+                                    {
+                                        USNImageSettings imageSettings = new USNImageSettings { WidthSmall = 160, HeightSmall = 90, CropAlias = cropAlias, CircleClass = String.Empty };
+                                        @Html.Partial(Model.BaseModel.ThemeFolder + "/MiscPageElements/Image", itemContent.BannerImage, new ViewDataDictionary { { "imageSettings", imageSettings } })
+                                    }
+                                    <div class="video embed-responsive embed-responsive-16by9">
+                                        <iframe class="video-player embed-responsive-item lazyload" type="text/html" width="640" height="360" src="@videoSrc" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                    </div>
+
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="image lazyload background-image" style="@bgImageSmall" data-bgset="@bgImage">
+
+                                    <div class="video">
+                                        <iframe class="video-player lazyload" type="text/html" width="640" height="360" src="@videoSrc" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                    </div>
+
+                                </div>
+                            }
+                        }
+                        else if (itemContent.BannerVideoSource.HasValue() && itemContent.BannerVideoSource == "mp4" && itemContent.BannerVideoMp4.HasValue())
+                        {
+                            if (itemSettings.BannerStyle == "bannerSizeScale")
+                            {
+                                <div class="image">
+                                    @if (itemContent.BannerImage != null)
+                                    {
+                                        USNImageSettings imageSettings = new USNImageSettings { WidthSmall = 160, HeightSmall = 90, CropAlias = cropAlias, CircleClass = String.Empty };
+                                        @Html.Partial(Model.BaseModel.ThemeFolder + "/MiscPageElements/Image", itemContent.BannerImage, new ViewDataDictionary { { "imageSettings", imageSettings } })
+                                    }
+                                    <div class="video embed-responsive embed-responsive-16by9">
+                                        <video class="video-player embed-responsive-item" playsinline autoplay muted loop preload width="640" height="360">
+                                            <source src="@itemContent.BannerVideoMp4.Url()" type="video/mp4">
+                                        </video>
+                                    </div>
+
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="image lazyload background-image" style="@bgImageSmall" data-bgset="@bgImage">
+
+                                    <div class="video">
+                                        <video class="video-player" playsinline autoplay muted loop preload width="640" height="360">
+                                            <source src="@itemContent.BannerVideoMp4.Url()" type="video/mp4">
+                                        </video>
+                                    </div>
+
+                                </div>
+                            }
+                        }
+                        else if (itemContent.BannerImage != null && itemSettings.BannerStyle != "bannerSizeScale")
+                        {
+                            <!-- IMAGE -->
+                            <div class="image lazyload background-image" @Html.Raw(bgImageSmall) data-bgset="@bgImage">
+
+                            </div>
+                            <!--// IMAGE -->
+                        }
+                        else if (itemContent.BannerImage != null && itemSettings.BannerStyle == "bannerSizeScale")
+                        {
+                            <div class="image">
+                                @{
+                                    USNImageSettings imageSettings = new USNImageSettings { WidthSmall = 160, HeightSmall = 90, CropAlias = cropAlias, CircleClass = String.Empty };
+                                    @Html.Partial(Model.BaseModel.ThemeFolder + "/MiscPageElements/Image", itemContent.BannerImage, new ViewDataDictionary { { "imageSettings", imageSettings } })
+                                }
+                            </div>
+                        }
+
+                        @if (itemContent.BannerHeading != null || itemContent.BannerText.HasValue() || itemContent.BannerButtons != null || itemContent.BannerSecondaryHeading.HasValue())
+                        {
+                            string textAlignment = itemSettings.BannerTextAlignment.HasValue() ? itemSettings.BannerTextAlignment : "text-left";
+
+                            string textPosition;
+
+                            switch (itemSettings.BannerTextPosition)
+                            {
+                                case "Text_TopLeft":
+                                    textPosition = "justify-content-start info_align-top";
+                                    break;
+                                case "Text_TopCenter":
+                                    textPosition = "justify-content-center info_align-top";
+                                    break;
+                                case "Text_TopRight":
+                                    textPosition = "justify-content-end info_align-top";
+                                    break;
+                                case "Text_CenterLeft":
+                                    textPosition = "justify-content-start info_align-middle";
+                                    break;
+                                case "Text_CenterCenter":
+                                    textPosition = "justify-content-center info_align-middle";
+                                    break;
+                                case "Text_CenterRight":
+                                    textPosition = "justify-content-end info_align-middle";
+                                    break;
+                                case "Text_BottomLeft":
+                                    textPosition = "justify-content-start info_align-bottom";
+                                    break;
+                                case "Text_BottomCenter":
+                                    textPosition = "justify-content-center info_align-bottom";
+                                    break;
+                                case "Text_BottomRight":
+                                    textPosition = "justify-content-end info_align-bottom";
+                                    break;
+                                default:
+                                    textPosition = "justify-content-center info_align-middle";
+                                    break;
+                            }
+
+                            <div class="inner">
+                                <div class="container">
+                                    <!-- ROW -->
+                                    <div class="row @textAlignment @textPosition">
+
+                                        <div class="info col">
+                                            <div class="d-table">
+
+                                                <div class="d-table-cell">
+                                                    @if (itemContent.BannerSecondaryHeading.HasValue())
+                                                    {
+                                                        <p class="secondary-heading @itemContent.BannerSecondaryHeading.Style @(itemSettings.BannerBackgroundColor.label)-secondary-heading @animation.AnimationClass" data-os-animation="@animation.AnimationStyle" data-os-animation-delay="@animation.AnimationDelay" data-os-animation-duration="@animation.AnimationDuration">@Html.Raw(itemContent.BannerSecondaryHeading.Text)</p>
+                                                    }
+                                                    @if (itemContent.BannerHeading != null)
+                                                    {
+                                                        @Html.Raw(String.Format("<{0} class=\"heading {1} main {2}-heading {3}\" data-os-animation=\"{4}\" data-os-animation-delay=\"{5}\" data-os-animation-duration=\"{6}\">{7}</{0}>", itemContent.BannerHeading.HeadingTag, itemContent.BannerHeading.Style, itemSettings.BannerBackgroundColor.label, animation.AnimationClass, animation.AnimationStyle, animation.AnimationDelay, animation.AnimationDuration, itemContent.BannerHeading.Text))
+                                                    }
+                                                    @if (itemContent.BannerText.HasValue())
+                                                    {
+                                                        <div class="text @(itemSettings.BannerBackgroundColor.label)-text @animation.AnimationClass" data-os-animation="@animation.AnimationStyle" data-os-animation-delay="@animation.AnimationDelay" data-os-animation-duration="@animation.AnimationDuration">
+                                                            @Html.Raw(itemContent.BannerText)
+                                                        </div>
+                                                    }
+                                                    @if (itemContent.BannerButtons != null)
+                                                    {
+                                                        <p class="link @animation.AnimationClass" data-os-animation="@animation.AnimationStyle" data-os-animation-delay="@animation.AnimationDelay" data-os-animation-duration="@animation.AnimationDuration">
+                                                            @foreach (var button in itemContent.BannerButtons)
+                                                            {
+                                                                if (USNThemeService.DisplayLink(button))
+                                                                {
+                                                                    string buttonBgClass = USNThemeService.GetBackgroundColorClass(button.color.sortOrder, "button", websiteStyle);
+                                                                    string buttonBgHoverClass = USNThemeService.GetBackgroundColorClass(button.color.sortOrder, "buttonHover", websiteStyle);
+
+                                                                    <a class="btn @button.sizeStyle @buttonBgClass @buttonBgHoverClass @(button.color.label)-text @(button.color.label)-borders" href="@button.link.LinkUrl" @Html.Raw(button.link.LinkTarget) @Html.Raw(button.link.LinkTitle)>
+                                                                        <span></span>
+                                                                        @Html.Raw(button.icon)@Html.Raw(button.link.LinkText)@Html.Raw(button.link.LinkTargetIcon)
+                                                                    </a>
+                                                                }
+                                                            }
+                                                        </p>
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--// ROW -->
+                                </div>
+                            </div>
+                        }
+                        @if (itemSettings.BannerScrollPrompt)
+                        {
+                            string scrollStyle = itemSettings.BannerScrollStyle.HasValue() ? itemSettings.BannerScrollStyle : "scroll-prompt-arrow";
+
+                            <!-- SCROLL PROMPT -->
+                            <div class="scroll-prompt @scrollStyle">
+                                <a class="scroll-link">
+                                    <i class="icon"></i>
+                                    <div class="mouse-scroll"></div>
+                                    <span>@Umbraco.GetDictionaryValue("USN Banner Component Scroll Prompt")</span>
+                                </a>
+                            </div>
+                            <!--// SCROLL PROMPT -->
+                        }
+                    </div>
+                }
+            }
+
+            if (bannerCount > 1)
+            {
+            @:</div>
+        }
+    }
+}

@@ -1,0 +1,36 @@
+﻿@using USNWebsite.USNModels;
+@model ProviderBankDetailsModel
+
+@if (Model == null)
+{
+    <h5>Your session has timed out. Please login again.</h5>
+    <a href="/login/" class="btn btn-primary ml-3"><i class="fa fa-arrow-circle-left"></i>Click Here To Login</a>
+}
+else
+{
+    <button onclick="GetProviderWallet()" class="btn btn-primary">Back</button>
+    <h2>Bank Account Details</h2>
+    <div class="tab-content mt-4" id="myTabContent">
+        <div class="tab-pane fade show active" id="information" role="tabpanel" aria-labelledby="home-tab">
+            <div class="form-group">
+                <label for="ProductName" class="control-label font-weight-bold">
+                    Bank Account Number
+                </label>
+                <input id="in_BankAccountNumber" value="@Model.BankAccountNumber" type="text" placeholder="Bank Account Number" class="form-control col-md-6" />
+            </div>
+            <div class="form-group">
+                <label for="ProductName" class="control-label font-weight-bold">
+                    IFSC Code
+                </label>
+                <input id="in_IFSC" value="@Model.IFSC" type="text" placeholder="IFSC Code" class="form-control col-md-6" />
+            </div>
+            <div class="form-group">
+                <label for="ProductName" class="control-label font-weight-bold">
+                    Account Holder's Name
+                </label>
+                <input id="in_AccountHolderName" value="@Model.AccountHolderName" type="text" placeholder="Account Holder's Name" class="form-control col-md-6" />
+            </div>
+            <input class="form-control btn btn-success col-md-2" onclick="EditSaveBankAccountDetails()" type="button" value="Save" />
+        </div>
+    </div>
+}

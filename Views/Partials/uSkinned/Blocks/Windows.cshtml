@@ -1,0 +1,359 @@
+﻿@inherits USNStarterKit.ViewPages.USNViewPage<USNBlock>
+
+@{
+    //Available as Component Block and Split Component Block types
+
+    var content = (IUsn_Cmp_Windows_Content)Model.BlockContent;
+
+    //Settings taken from compositions common to all block types
+    var uniqueSettings = (IUsn_Cmp_Windows_Settings)Model.BlockSettings;
+    var animateSettings = (IUsn_Cmp_AnimateSettings)Model.BlockSettings;
+
+    var windowItems = content.Windows.Where(x => !x.Settings.Value<bool>("hideFromWebsite"));
+
+    if (windowItems.HasValue() && windowItems.Any())
+    {
+        bool webPEnabled = Convert.ToBoolean(ConfigurationManager.AppSettings["USN_WEBP_Enabled"]);
+
+        Usnstyle websiteStyle = (Usnstyle)Model.BaseModel.WebsiteStyle;
+
+        USNAnimation animation = Umbraco.GetAnimationSettings(animateSettings.Animate, animateSettings.AnimationDelay, animateSettings.AnimationDuration, animateSettings.AnimationStyle);
+        string listSpacingClass = uniqueSettings.RemoveItemSpacing ? "listing_no-spacing" : String.Empty;
+
+        bool bigSmallOrder = false;
+        int currentItemPosition = 1;
+        int currentRow = 1;
+        int currentCount = 1;
+        int totalItemCount = windowItems.Count();
+        string rowClass = "basic-windows windows-1";
+
+        int itemsPerRow = 1;
+
+        switch (uniqueSettings.ImageOrder)
+        {
+            case "WindowsOrder_4_Big":
+                itemsPerRow = 4;
+                rowClass = "big-window-first windows-4";
+                bigSmallOrder = true;
+                break;
+            case "WindowsOrder_4_Small":
+                itemsPerRow = 4;
+                rowClass = "small-window-first windows-4";
+                bigSmallOrder = true;
+                break;
+            case "WindowsOrder_3_Big":
+                itemsPerRow = 3;
+                rowClass = "big-window-first windows-3";
+                bigSmallOrder = true;
+                break;
+            case "WindowsOrder_3_Small":
+                itemsPerRow = 3;
+                rowClass = "small-window-first windows-3";
+                bigSmallOrder = true;
+                break;
+            case "WindowsOrder_4":
+                itemsPerRow = 4;
+                rowClass = "basic-windows windows-4";
+                break;
+            case "WindowsOrder_3":
+                itemsPerRow = 3;
+                rowClass = "basic-windows windows-3";
+                break;
+            case "WindowsOrder_2":
+                itemsPerRow = 2;
+                rowClass = "basic-windows windows-2";
+                break;
+            case "WindowsOrder_1":
+                itemsPerRow = 1;
+                rowClass = "basic-windows windows-1";
+                break;
+            default:
+                itemsPerRow = 1;
+                break;
+        }
+
+        //If not enough images uploaded, default to basic
+        if (totalItemCount < itemsPerRow)
+        {
+            itemsPerRow = totalItemCount;
+            rowClass = "basic-windows windows-" + itemsPerRow;
+        }
+
+        //Get total full rows
+        int totalFullRows = totalItemCount / itemsPerRow;
+
+        //Get total extra items that dont fill full row
+        int extraCount = totalItemCount % itemsPerRow;
+
+        bool extraRow = extraCount > 0 ? true : false;
+
+        foreach (var item in windowItems)
+        {
+            if (item?.ContentUdi != null)
+            {
+                var itemCommonBlockSettings = (IUsn_Cmp_CommonBlockSettings)item.Settings;
+
+                if (currentRow > totalFullRows)
+                {
+                    rowClass = "basic-windows windows-" + extraCount;
+                    itemsPerRow = extraCount;
+                }
+
+                string colorOverlayClass = String.Empty;
+
+                if (currentItemPosition == 1)
+                {
+                    <!--Start main container row-->
+                    @:<div class="component-main row listing @listSpacingClass listing_window-mosaic @rowClass">
+                    }
+
+                    if (item.Content.ContentType.Alias == Usn_Cbi_WindowImage.ModelTypeAlias)
+                    {
+                        Usn_Cbi_WindowImage windowSectionImageContent = (Usn_Cbi_WindowImage)item.Content;
+                        Usn_Cbis_WindowImage windowSectionImageSettings = (Usn_Cbis_WindowImage)item.Settings;
+
+                        int buttonCount = windowSectionImageContent.Buttons.HasValue() ? windowSectionImageContent.Buttons.Count() : 0;
+
+                        string textAlignmentClass = windowSectionImageSettings.TextAlignment.HasValue() ? windowSectionImageSettings.TextAlignment : "text-left";
+
+                        string textPosition;
+
+                        switch (windowSectionImageSettings.TextPosition)
+                        {
+                            case "Text_TopLeft":
+                                textPosition = "align-self-start justify-content-left";
+                                break;
+                            case "Text_TopCenter":
+                                textPosition = "align-self-start justify-content-center";
+                                break;
+                            case "Text_TopRight":
+                                textPosition = "align-self-start justify-content-right";
+                                break;
+                            case "Text_CenterLeft":
+                                textPosition = "align-self-center justify-content-left";
+                                break;
+                            case "Text_CenterCenter":
+                                textPosition = "align-self-center justify-content-center";
+                                break;
+                            case "Text_CenterRight":
+                                textPosition = "align-self-center justify-content-right";
+                                break;
+                            case "Text_BottomLeft":
+                                textPosition = "align-self-end justify-content-left";
+                                break;
+                            case "Text_BottomCenter":
+                                textPosition = "align-self-end justify-content-center";
+                                break;
+                            case "Text_BottomRight":
+                                textPosition = "align-self-end justify-content-right";
+                                break;
+                            default:
+                                textPosition = "align-self-center justify-content-center";
+                                break;
+                        }
+
+                        string bgImage = String.Empty;
+                        string bgImageSmall = String.Empty;
+
+                        if (windowSectionImageContent.Image != null)
+                        {
+                            bgImage = webPEnabled ? windowSectionImageContent.Image.GetCropUrl(cropAlias: "1:1 Square") + "&format=webp" + " [type:image/webp] | " + windowSectionImageContent.Image.GetCropUrl(cropAlias: "1:1 Square") : windowSectionImageContent.Image.GetCropUrl(cropAlias: "1:1 Square");
+                            bgImageSmall = "style=\"background-image:url('" + windowSectionImageContent.Image.GetCropUrl(cropAlias: "1:1 Square", width: 80, height: 80) + "')\"";
+                        }
+
+                        if (windowSectionImageSettings.AddColorOverlay)
+                        {
+                            colorOverlayClass = "item_overlay";
+                        }
+
+                        string backgroundColorClass = USNThemeService.GetBackgroundColorClass(windowSectionImageSettings.BackgroundColor.sortOrder, "content", websiteStyle);
+
+                        <!-- ITEM -->
+                        <div class="item item_text-boxed @backgroundColorClass @colorOverlayClass @animation.AnimationClass @itemCommonBlockSettings.CustomClasses" data-os-animation="@animation.AnimationStyle" data-os-animation-delay="@animation.AnimationDelay" data-os-animation-duration="@animation.AnimationDuration">
+                            <div class="inner">
+                                @if (windowSectionImageContent.Buttons.HasValue() && buttonCount == 1 && USNThemeService.DisplayLink(windowSectionImageContent.Buttons.First()))
+                                {
+                                    @:<a href="@windowSectionImageContent.Buttons.First().link.LinkUrl" @Html.Raw(windowSectionImageContent.Buttons.First().link.LinkTarget) @Html.Raw(windowSectionImageContent.Buttons.First().link.LinkTitle)>
+                                }
+
+                                <!-- IMAGE - Need internal image to support gradient overlay -->
+                                <div class="image @backgroundColorClass">
+
+                                    <!-- IMAGE -->
+                                    <div class="image lazyload background-image" @Html.Raw(bgImageSmall) data-bgset="@bgImage">
+                                    </div>
+                                    <!--// IMAGE -->
+
+                                </div>
+                                <!--// IMAGE -->
+
+                                @if (windowSectionImageContent.Heading.HasValue() || windowSectionImageContent.SecondaryHeading.HasValue() || windowSectionImageContent.Text.HasValue() || windowSectionImageContent.Buttons.HasValue())
+                                {
+                                    <div class="info @textAlignmentClass @textPosition">
+                                        @if (windowSectionImageContent.SecondaryHeading.HasValue())
+                                        {
+                                            <p class="secondary-heading @windowSectionImageContent.SecondaryHeading.Style @(windowSectionImageSettings.BackgroundColor.label)-secondary-heading">@Html.Raw(windowSectionImageContent.SecondaryHeading.Text)</p>
+                                        }
+                                        @if (windowSectionImageContent.Heading.HasValue())
+                                        {
+                                            @Html.Raw(String.Format("<{0} class=\"heading {1} main {2}-heading\">{3}</{0}>", windowSectionImageContent.Heading.HeadingTag, windowSectionImageContent.Heading.Style, windowSectionImageSettings.BackgroundColor.label, windowSectionImageContent.Heading.Text))
+                                        }
+                                        @if (windowSectionImageContent.Text.HasValue())
+                                        {
+                                            <div class="text @(windowSectionImageSettings.BackgroundColor.label)-text">
+                                                @Html.Raw(windowSectionImageContent.Text)
+                                            </div>
+                                        }
+                                        @if (windowSectionImageContent.Buttons.HasValue())
+                                        {
+                                            <p class="link">
+                                                @foreach (var button in windowSectionImageContent.Buttons)
+                                                {
+                                                    if (USNThemeService.DisplayLink(button))
+                                                    {
+                                                        string buttonBgClass = USNThemeService.GetBackgroundColorClass(button.color.sortOrder, "button", websiteStyle);
+                                                        string buttonBgHoverClass = USNThemeService.GetBackgroundColorClass(button.color.sortOrder, "buttonHover", websiteStyle);
+
+                                                        if (buttonCount == 1)
+                                                        {
+                                                            <span class="btn @button.sizeStyle @buttonBgClass @buttonBgHoverClass @(button.color.label)-text @(button.color.label)-borders" @Html.Raw(button.link.LinkTarget) @Html.Raw(button.link.LinkTitle)>
+                                                                <span></span>
+                                                                @Html.Raw(button.icon)@Html.Raw(button.link.LinkText)@Html.Raw(button.link.LinkTargetIcon)
+                                                            </span>
+                                                        }
+                                                        else
+                                                        {
+                                                            <a class="btn @button.sizeStyle @buttonBgClass @buttonBgHoverClass @(button.color.label)-text @(button.color.label)-borders" href="@button.link.LinkUrl" @Html.Raw(button.link.LinkTarget) @Html.Raw(button.link.LinkTitle)>
+                                                                <span></span>
+                                                                @Html.Raw(button.icon)@Html.Raw(button.link.LinkText)@Html.Raw(button.link.LinkTargetIcon)
+                                                            </a>
+                                                        }
+                                                    }
+
+                                                }
+                                            </p>
+                                        }
+                                    </div>
+                                }
+
+                                @if (windowSectionImageContent.Buttons.HasValue() && buttonCount == 1 && USNThemeService.DisplayLink(windowSectionImageContent.Buttons.First()))
+                                {
+                                @:</a>
+                            }
+                            </div>
+                        </div>
+                        <!--// ITEM -->
+                    }
+                    else
+                    {
+                        Usn_Cbi_WindowVideo windowSectionVideoContent = (Usn_Cbi_WindowVideo)item.Content;
+                        Usn_Cbis_WindowVideo windowSectionImageSettings = (Usn_Cbis_WindowVideo)item.Settings;
+
+                        string bgImage = String.Empty;
+                        string bgImageSmall = String.Empty;
+
+                        if (windowSectionVideoContent.Image != null)
+                        {
+                            bgImage = webPEnabled ? windowSectionVideoContent.Image.GetCropUrl(cropAlias: "1:1 Square") + "&format=webp" + " [type:image/webp] | " + windowSectionVideoContent.Image.GetCropUrl(cropAlias: "1:1 Square") : windowSectionVideoContent.Image.GetCropUrl(cropAlias: "1:1 Square");
+                            bgImageSmall = "style=\"background-image:url('" + windowSectionVideoContent.Image.GetCropUrl(cropAlias: "1:1 Square", width: 80, height: 80) + "')\"";
+                        }
+
+                        string title = String.Empty;
+                        string footer = String.Empty;
+
+                        if (windowSectionVideoContent.LightWindowTitle.HasValue())
+                        {
+                            title = "data-title=\"" + windowSectionVideoContent.LightWindowTitle + "\"";
+                        }
+
+                        if (windowSectionVideoContent.LightWindowFooter.HasValue())
+                        {
+                            footer = "data-footer=\"" + windowSectionVideoContent.LightWindowFooter + "\"";
+                        }
+
+                        string videoUrl = String.Empty;
+                        string dataRemote = String.Empty;
+                        string dataType = String.Empty;
+
+                        if (windowSectionVideoContent.VideoSource.HasValue() && (windowSectionVideoContent.VideoSource == "youtube" || windowSectionVideoContent.VideoSource == "vimeo") && windowSectionVideoContent.Video3rdParty.HasValue())
+                        {
+                            USNVideo video = USNThemeService.GetVideo(windowSectionVideoContent.Video3rdParty);
+                            videoUrl = video.VideoURLModified;
+                            dataRemote = video.VideoDataRemote;
+                        }
+                        else if (windowSectionVideoContent.VideoSource.HasValue() && windowSectionVideoContent.VideoSource == "mp4" && windowSectionVideoContent.VideoMp4.HasValue())
+                        {
+                            videoUrl = windowSectionVideoContent.VideoMp4.Url();
+                            dataType = " data-type=\"video\" ";
+                        }
+
+                        if (windowSectionImageSettings.AddColorOverlay)
+                        {
+                            colorOverlayClass = "overlay";
+                        }
+
+                        <!-- ITEM -->
+                        <div class="item item_text-boxed @colorOverlayClass @animation.AnimationClass @itemCommonBlockSettings.CustomClasses" data-os-animation="@animation.AnimationStyle" data-os-animation-delay="@animation.AnimationDelay" data-os-animation-duration="@animation.AnimationDuration">
+                            <div class="inner">
+                                <!-- INFO -->
+                                <a href="@videoUrl" @Html.Raw(title) @Html.Raw(footer) @Html.Raw(dataType) data-toggle="lightbox" @Html.Raw(dataRemote) data-width="1350" data-height="750">
+
+                                    <!-- IMAGE -->
+                                    <div class="image @(windowSectionImageSettings.BackgroundColor.label)-bg">
+
+                                        <!-- IMAGE - Need internal image to support gradient overlay -->
+                                        <div class="image lazyload background-image" @Html.Raw(bgImageSmall) data-bgset="@bgImage">
+                                        </div>
+                                        <!--// IMAGE -->
+                                        <div class="overlayicon">
+                                            <i class="icon usn_ion-md-play c3-highlight"></i>
+                                        </div>
+                                    </div>
+                                    <!--// IMAGE -->
+
+                                </a>
+                                <!--// INFO -->
+                            </div>
+                        </div>
+                        <!--// ITEM -->
+                    }
+
+                    //alternate layout
+                    if (bigSmallOrder && currentItemPosition == itemsPerRow)
+                    {
+                        if (rowClass == "big-window-first windows-4")
+                        {
+                            rowClass = "small-window-first windows-4";
+                        }
+                        else if (rowClass == "small-window-first windows-4")
+                        {
+                            rowClass = "big-window-first windows-4";
+                        }
+                        else if (rowClass == "big-window-first windows-3")
+                        {
+                            rowClass = "small-window-first windows-3";
+                        }
+                        else if (rowClass == "small-window-first windows-3")
+                        {
+                            rowClass = "big-window-first windows-3";
+                        }
+                    }
+
+                    if (currentCount == totalItemCount || currentItemPosition == itemsPerRow)
+                    {
+                        <!--End main container row-->
+                    @:</div>
+
+
+                    currentRow += 1;
+                }
+
+                currentItemPosition += 1;
+                currentCount += 1;
+
+                //Each main row starts when item count hits 1 + itemsPerRow. Reset to 1 here
+                currentItemPosition = currentItemPosition == (itemsPerRow + 1) ? 1 : currentItemPosition;
+            }
+        }
+    }
+}

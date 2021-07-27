@@ -1,0 +1,33 @@
+﻿<div ng-controller="USN.GlobalListViewController">
+
+    <div class="umb-content-grid usn-global-grid" ng-if="items">
+
+        <div class="umb-content-grid__item umb-outline umb-outline--surrounding usn-global-grid-item" ng-repeat="item in items">
+            <div class="umb-content-grid__content usn-global-grid-item-inner">
+                <a ng-click="viewItem(item)" ng-class="{'-light': !item.published && item.updater != null}">
+                    <i class="umb-content-grid__icon {{ item.icon }}" aria-hidden="true"></i> 
+                    <div class="umb-content-grid__item-name umb-outline usn-global-title">
+                        <span>{{item.name}}</span>
+                        <div class="umb-badge umb-badge--warning umb-badge--xs" ng-show="!item.published && item.updater != null">Unpublished</div>
+                    </div>
+                    <ul class="umb-content-grid__details-list" ng-class="{'-light': !item.published && item.updater != null}">
+                        <li class="umb-content-grid__details-item">
+                            <div class="umb-content-grid__details-label">Status:</div> 
+                            <div class="umb-content-grid__details-value">{{item.state}}</div>
+                        </li>
+                        <li class="umb-content-grid__details-item">
+                            <div class="umb-content-grid__details-label">Last edited:</div> 
+                            <div class="umb-content-grid__details-value">{{item.updateDate}}</div>
+                        </li>
+                        <li class="umb-content-grid__details-item">
+                            <div class="umb-content-grid__details-label">Updated by:</div> 
+                            <div class="umb-content-grid__details-value">{{item.updater}}</div>
+                        </li>
+                    </ul>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</div>

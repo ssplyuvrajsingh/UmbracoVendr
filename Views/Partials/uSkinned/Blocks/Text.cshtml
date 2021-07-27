@@ -1,0 +1,55 @@
+﻿@inherits USNStarterKit.ViewPages.USNViewPage<USNBlock>
+
+@{
+    //Available as Component Block and Split Component Block types
+
+    //Different content model used for Component Block and Split Block so not strongly typed.
+    var content = Model.BlockContent;
+
+    string backgroundColorLabel = ViewData["backgroundColorLabel"].ToString();
+    Usnstyle websiteStyle = (Usnstyle)Model.BaseModel.WebsiteStyle;
+
+    //Settings taken from compositions common to all block types
+    var animateSettings = (IUsn_Cmp_AnimateSettings)Model.BlockSettings;
+    var uniqueSettings = Model.BlockSettings as Usn_Cbss_Text;
+
+    string textAlignmentClass = uniqueSettings != null ? (uniqueSettings.TextAlignment.HasValue() ? uniqueSettings.TextAlignment : "text-left") : String.Empty;
+
+    USNAnimation animation = Umbraco.GetAnimationSettings(animateSettings.Animate, animateSettings.AnimationDelay, animateSettings.AnimationDuration, animateSettings.AnimationStyle);
+
+    <div class="info @textAlignmentClass">
+
+        @if (content.Value<USNHeading>("secondaryHeading") != null)
+        {
+            <p class="secondary-heading @(content.Value<USNHeading>("secondaryHeading").Style) @(backgroundColorLabel)-secondary-heading @animation.AnimationClass" data-os-animation="@animation.AnimationStyle" data-os-animation-delay="@animation.AnimationDelay" data-os-animation-duration="@animation.AnimationDuration"> @Html.Raw(content.Value<USNHeading>("secondaryHeading").Text)</p>
+        }
+        @if (content.Value<USNHeading>("heading") != null)
+        {
+            @Html.Raw(String.Format("<{0} class=\"heading {1} main {2}-heading\">{3}</{0}>", content.Value<USNHeading>("heading").HeadingTag, content.Value<USNHeading>("heading").Style, backgroundColorLabel, content.Value<USNHeading>("heading").Text))
+        }
+
+        <div class="text @(backgroundColorLabel)-text @animation.AnimationClass" data-os-animation="@animation.AnimationStyle" data-os-animation-delay="@animation.AnimationDelay">
+            @Html.Raw(content.Value<IHtmlString>("text"))
+        </div>
+
+        @if (content.Value<IEnumerable<USNMultiUrlPicker>>("buttons") != null)
+        {
+            <p class="link @animation.AnimationClass" data-os-animation="@animation.AnimationStyle" data-os-animation-delay="@animation.AnimationDelay" data-os-animation-duration="@animation.AnimationDuration">
+                @foreach (var button in content.Value<IEnumerable<USNMultiUrlPicker>>("buttons"))
+                {
+                    if (USNThemeService.DisplayLink(button))
+                    {
+                        string buttonBgClass = USNThemeService.GetBackgroundColorClass(button.color.sortOrder, "button", websiteStyle);
+                        string buttonBgHoverClass = USNThemeService.GetBackgroundColorClass(button.color.sortOrder, "buttonHover", websiteStyle);
+
+                        <a class="btn @button.sizeStyle @buttonBgClass @buttonBgHoverClass @(button.color.label)-text @(button.color.label)-borders" href="@button.link.LinkUrl" @Html.Raw(button.link.LinkTarget) @Html.Raw(button.link.LinkTitle)>
+                            <span></span>
+                            @Html.Raw(button.icon)@Html.Raw(button.link.LinkText)@Html.Raw(button.link.LinkTargetIcon)
+                        </a>
+                    }
+                }
+            </p>
+        }
+
+    </div>
+}

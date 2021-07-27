@@ -1,0 +1,117 @@
+﻿@inherits USNStarterKit.ViewPages.USNViewPage<USNBlock>
+
+@{
+    //Available as Component Block, Split Component Block and Pod Block types
+    var content = (IUsn_Cmp_Links_Content)Model.BlockContent;
+
+    //Settings taken from compositions common to all block types
+    var animateSettings = (IUsn_Cmp_AnimateSettings)Model.BlockSettings;
+    var uniqueSettings = Model.BlockSettings;
+
+    //Headings and secondary headings only present on pods
+    var podContent = Model.BlockContent as Usn_Pb_Links;
+
+    string backgroundColorLabel = ViewData["backgroundColorLabel"].ToString();
+
+    string defaultItems = Model.BlockSettings as IUsn_Cmp_Links_Component_Settings != null ? "items-4" : "items-1";
+
+    USNAnimation animation = Umbraco.GetAnimationSettings(animateSettings.Animate, animateSettings.AnimationDelay, animateSettings.AnimationDuration, animateSettings.AnimationStyle);
+
+    string linksSectionClass = uniqueSettings.Value<bool>("includeLinkDetail") ? "listing_links" : "listing_links listing_links-mini";
+
+    string itemsClass = uniqueSettings.Value<string>("itemsPerRow").HasValue() ? uniqueSettings.Value<string>("itemsPerRow") : defaultItems;
+
+    var links = content.Links.Where(x => !x.Settings.Value<bool>("hideFromWebsite"));
+
+    if (links != null && links.Any())
+    {
+        if (podContent != null && podContent.SecondaryHeading.HasValue())
+        {
+            <p class="secondary-heading @podContent.SecondaryHeading.Style @(backgroundColorLabel)-secondary-heading">@Html.Raw(podContent.SecondaryHeading.Text)</p>
+        }
+        if (podContent != null && podContent.Heading.HasValue())
+        {
+            <p class="heading @podContent.Heading.Style @(backgroundColorLabel)-heading @animation.AnimationClass" data-os-animation="@animation.AnimationStyle" data-os-animation-delay="@animation.AnimationDelay" data-os-animation-duration="@animation.AnimationDuration">@podContent.Heading.Text</p>
+        }
+
+        <div class="component-main row listing @linksSectionClass @animation.AnimationClass" data-os-animation="@animation.AnimationStyle" data-os-animation-delay="@animation.AnimationDelay" data-os-animation-duration="@animation.AnimationDuration">
+
+            @foreach (var item in links)
+            {
+                if (item?.ContentUdi != null)
+                {
+                    var itemContent = (Usn_Cbi_Link)item.Content;
+                    var itemCommonBlockSettings = (IUsn_Cmp_CommonBlockSettings)item.Settings;
+
+                    if (itemContent.Link.HasValue() && itemContent.Link.link.HasValue() && USNThemeService.DisplayLink(itemContent.Link))
+                    {
+                        string note = String.Empty;
+                        string iconClass = String.Empty;
+                        bool fileError = false;
+
+                        switch (itemContent.Link.link.LinkType)
+                        {
+                            case USNLink.UrlPickerTypes.Url:
+                                iconClass = "icon usn_ion-md-open";
+                                note = Umbraco.GetDictionaryValue("USN Link Component External Web Link") + " - " + itemContent.Link.link.LinkUrl;
+                                break;
+                            case USNLink.UrlPickerTypes.Content:
+                                iconClass = "icon usn_ion-md-link";
+                                break;
+                            case USNLink.UrlPickerTypes.Media:
+                                iconClass = "icon usn_ion-md-download";
+
+                                Udi udi;
+                                bool udiCorrect = Udi.TryParse(itemContent.Link.link.LinkUdi, out udi);
+
+                                if (udiCorrect)
+                                {
+                                    var mediaItem = Umbraco.Media(udi);
+
+                                    long fileInMbu = Convert.ToInt64(mediaItem.Value<string>("umbracoBytes")) / 1024;
+
+                                    string fileSizeU = fileInMbu + "KB";
+                                    note = Umbraco.GetDictionaryValue("USN Link Component File Size") + ": " + fileSizeU;
+                                }
+
+                                break;
+                        }
+                        if (!fileError)
+                        {
+                            <!-- Item -->
+                            <div class="item @itemsClass item_links col-12 @animation.AnimationClass @itemCommonBlockSettings.CustomClasses" data-os-animation="@animation.AnimationStyle" data-os-animation-delay="@animation.AnimationDelay" data-os-animation-duration="@animation.AnimationDuration">
+                                <a href="@itemContent.Link.link.LinkUrl" @Html.Raw(itemContent.Link.link.LinkTitle) @Html.Raw(itemContent.Link.link.LinkTarget)>
+
+                                    @if (uniqueSettings.Value<bool>("includeLinkDetail"))
+                                    {
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <p class="heading sm @(backgroundColorLabel)-heading">@Html.Raw(itemContent.Link.link.LinkText)</p>
+                                            <i class="@iconClass @(backgroundColorLabel)-highlight"></i>
+                                        </div>
+                                        <div class="info @(backgroundColorLabel)-text">
+                                            @if (itemContent.OptionalAdditionalInformation.HasValue())
+                                            {
+                                                <div class="text pt-2">
+                                                    @Html.Raw(itemContent.OptionalAdditionalInformation)
+                                                </div>
+                                            }
+                                            @if (note != String.Empty)
+                                            {
+                                                <div class="meta small">@Html.Raw(note)</div>
+                                            }
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        @Html.Raw(itemContent.Link.link.LinkText)<i class="@iconClass @(backgroundColorLabel)-highlight after"></i>
+                                    }
+                                </a>
+                            </div>
+                            <!--// Item -->
+                        }
+                    }
+                }
+            }
+        </div>
+    }
+}

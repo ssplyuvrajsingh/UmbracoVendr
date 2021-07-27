@@ -1,0 +1,79 @@
+﻿@using USNWebsite.USNModels;
+
+@model _ProductPartialViewModel
+<div class="">
+    @if (Model.ProviderId != 0)
+    {
+        <div class="col-lg-12">
+            <div class="px-5">
+                <h4 class="my-4">Provider Name  @Model.ProviderName</h4>
+                <div class="dropdown-divider py-3"></div>
+            </div>
+        </div>
+
+        if (Model.ProductModel?.Count > 0)
+        {
+            <div class="row mx-0 px-5">
+                @foreach (var product in Model.ProductModel)
+                {
+                    <div class="col-lg-4 col-md-4 text-center">
+                        <a href="@product.ProductNodeUrl" onclick="getProductDetails(@product.ProductId)" class="text-center hover:text-teal-400">
+                            <img src="@product.ProductLogoLarge" class="border" style="height: 300px; width: 100%;">
+                            <div class="my-4 text-center">
+                                <span class="block d-block font-weight-bold font-bold mt-4">@product.ProductName</span>
+                                <span class="block d-block">
+                                    @product.FormattedPrice.WithTax
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="flex flex-wrap -mx-3">
+                <div class="px-3 mt-6 w-1/2 md:w-1/3">
+                    <h1 class="font-bold">No Products Available!</h1>
+                </div>
+            </div>
+        }
+    }
+    else if (Model.ProductModel?.Count > 0)
+    {
+
+        <div class="flex flex-wrap -mx-3">
+            @foreach (var product in Model.ProductModel)
+            {
+                <div class="px-3 mt-6 w-1/2 md:w-1/3">
+                    <a href="@product.ProductNodeUrl" onclick="getProductDetails(@product.ProductId)" class="text-center hover:text-teal-400">
+                        <img src="@product.ProductLogoLarge" class="border" style="height: 300px; width: 300px;">
+                        <span class="block font-bold mt-4">@product.ProductName</span>
+                        <span class="block d-block">
+                            @product.FormattedPrice.WithTax
+                        </span>
+                    </a>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="flex flex-wrap -mx-3">
+            <div class="px-3 mt-6 w-1/2 md:w-1/3">
+                <h1 class="font-bold">No Products Available!</h1>
+            </div>
+        </div>
+    }
+
+</div>
+
+<script>
+    function getProductDetails(productId) {
+
+        var model = {
+            ProductId: productId,
+            BackCategoryId: $("#hdn_categoryId").val()
+        }
+    }
+</script>

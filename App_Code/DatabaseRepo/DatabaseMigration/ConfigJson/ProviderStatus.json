@@ -1,0 +1,16 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "value": "Waiting for Approval"
+    },
+    {
+      "id": 2,
+      "value": "Approved"
+    },
+    {
+      "id": 3,
+      "value": "Rejected"
+    }
+  ]
+}

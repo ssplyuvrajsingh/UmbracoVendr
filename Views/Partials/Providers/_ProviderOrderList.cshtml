@@ -1,0 +1,88 @@
+﻿@using USNWebsite.USNModels;
+@model List<USNProductOrdersViewModel>
+@{
+    ViewBag.Title = "_ProviderOrderList";
+}
+<style>
+    .my-custom-scrollbar {
+        position: relative;
+        height: 400px;
+        overflow: auto;
+    }
+
+    .table-wrapper-scroll-y {
+        display: block;
+    }
+</style>
+@if (Model == null)
+{
+    <h5>Your session has timed out. Please login again.</h5>
+    <a href="/login/" class="btn btn-primary ml-3"><i class="fa fa-arrow-circle-left"></i>Click Here To Login</a>
+}
+else
+{
+<div class="table-wrapper-scroll-y my-custom-scrollbar">
+    <table class="table">
+        @if (Model.Count > 0)
+        {
+            <thead class="thead-light">
+                <tr>
+                    <th>
+                        Customer Full Name
+                    </th>
+                    <th>
+                        Order Status
+                    </th>
+                    <th>
+                        Payment Status
+                    </th>
+                    <th>
+                        Date
+                    </th>
+                    <th>
+                        Action
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.FullName
+                        </td>
+                        <td>
+                            <span id="orderStatus_@item.OrderId">@item.OrderStatus</span>
+
+                        </td>
+                        <td>
+                            <span>@item.PaymentStatus</span>
+                        </td>
+                        <td>
+                            @item.CreateDate.Value.ToString("dddd, dd MMMM yyyy hh:mm tt")
+                        </td>
+                        <td>
+                            <a style="cursor:pointer;" onclick="GetOrderDetails('@item.OrderId')"><strong>View</strong></a>
+                        </td>
+                    </tr>
+                }
+
+
+
+            </tbody>
+        }
+        else
+        {
+            <thead class="thead-light">
+                <tr>
+                    <th>
+                        No record found!
+                    </th>
+                </tr>
+            </thead>
+
+        }
+    </table>
+</div>
+}
+

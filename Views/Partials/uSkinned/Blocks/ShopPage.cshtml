@@ -1,0 +1,46 @@
+﻿@inherits USNStarterKit.ViewPages.USNViewPage<USNBlock>
+@using USNStarterKit.Models;
+@{
+    var homeNode = Umbraco.ContentAtRoot().Where(x => x.IsDocumentType("providers")).FirstOrDefault();
+    var productCategories = homeNode.Children(x => x.IsDocumentType("productsPage"))?.FirstOrDefault()?.Children()?.ToList();
+}
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.4.6/tailwind.min.css" rel="stylesheet">
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+<input type="hidden" id="hdn_categoryId" />
+<div>
+    <div class="mb-6 md:flex">
+
+        <div class="border-t-4 border-gray-300 md:w-1/4 md:mr-4 ">
+
+            <a href="#" id="menu-toggle" class="block text-center text-2xl py-4 md:hidden">
+                <span id="menu-toggle-icon__menu"><i class="fa fa-bars"></i></span>
+                <span id="menu-toggle-icon__close" class="hidden"><i class="fa fa-times"></i></span>
+            </a>
+
+            <nav id="menu" role="menu" class="hidden border-t-4 border-gray-300 md:block md:border-0">
+
+                <!-- Nav -->
+                @if (productCategories?.Count > 0)
+                {
+                    <ul>
+                        <li class="border-b border-gray-300 text-left"><a href="javascript:void(0);" class="block py-2 font-bold productCategory" onclick="getProducts(0)">All Products</a></li>
+                        @foreach (var item in productCategories)
+                        {
+                            <li class="border-b border-gray-300 text-left"><a href="javascript:void(0);" class="block py-2 font-bold productCategory" onclick="getProducts(@item.Id)">@item.Name</a></li>
+                        }
+                    </ul>
+                }
+
+            </nav>
+
+        </div>
+
+        <div class="flex-1 border-t-4 border-gray-300" id="productsDetailsSection">
+
+        </div>
+
+    </div>
+</div>
+<script src="~/scripts/ProvidersScript/ShopPage.js"></script>

@@ -1,0 +1,146 @@
+﻿@inherits USNStarterKit.ViewPages.USNViewPage<USNStarterKit.Models.USNBaseViewModel>
+
+@{
+    string textDirection = ViewData["TextDirection"].ToString();
+
+    UsnglobalSettings globalSettings = (UsnglobalSettings)Model.GlobalSettings;
+    Usnstyle style = (Usnstyle)Model.WebsiteStyle;
+
+    int largeBreakpoint = (int)style.StyleSpacing.headerBreakpoint;
+    int smallBreakpoint = largeBreakpoint - 1;
+    string smallMedia = String.Format("screen and (min-width:0) and (max-width:{0}px)", smallBreakpoint);
+    string largeMedia = String.Format("screen and (min-width:{0}px)", largeBreakpoint);
+
+    if (textDirection == "rtl")
+    {
+        Html.RequiresCss("~/css/libraries/bootstrap-4.3.1.min-RTL.css", 1, new { media = "screen" });
+        Html.RequiresCss("~/css/" + Model.ThemeFolder + "/layouts/rtl.css", 41, new { media = "screen" });
+        Html.RequiresCss("~/css/" + Model.ThemeFolder + "/layouts/rtl-small.css", 51, new { media = smallMedia });
+        Html.RequiresCss("~/css/" + Model.ThemeFolder + "/layouts/rtl-large.css", 61, new { media = largeMedia });
+    }
+    else
+    {
+        Html.RequiresCss("~/css/libraries/bootstrap-4.3.1.min.css", 1, new { media = "screen" });
+    }
+    Html.RequiresCss("~/css/libraries/slick-carousel-1.8.1.min.css", 2, new { media = "screen" });
+    Html.RequiresCss("~/css/libraries/ekko-lightbox-5.3.0.min.css", 3, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/icons/icons.css", 4, new { media = "screen" });
+
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/base/theme.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/base/plugins.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/base/typography.css", 40, new { media = "screen" });
+
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/layouts/body.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/layouts/body-small.css", 50, new { media = smallMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/layouts/body-large.css", 60, new { media = largeMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/layouts/header.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/layouts/header-small.css", 50, new { media = smallMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/layouts/header-large.css", 60, new { media = largeMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/layouts/footer.css", 40, new { media = "screen" });
+
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/navigation/all_nav.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/navigation/nav_breadcrumb.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/navigation/nav_burger.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/navigation/nav_burger-large.css", 60, new { media = largeMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/navigation/nav_cta.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/navigation/nav_cta-small.css", 50, new { media = smallMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/navigation/nav_cta-large.css", 60, new { media = largeMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/navigation/nav_main.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/navigation/nav_main-small.css", 50, new { media = smallMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/navigation/nav_main-large.css", 60, new { media = largeMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/navigation/nav_secondary.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/navigation/nav_secondary-small.css", 50, new { media = smallMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/navigation/nav_secondary-large.css", 60, new { media = largeMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/navigation/nav_sub.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/navigation/nav_pagination.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/navigation/nav_quick-links.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/navigation/nav_sitemap.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/navigation/nav_social.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/navigation/nav_social-large.css", 60, new { media = largeMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/navigation/nav_footer.css", 40, new { media = "screen" });
+
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/page-components/all_pc.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/page-components/all_pc-small.css", 50, new { media = smallMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/page-components/all_pc-large.css", 60, new { media = largeMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/page-components/pc_alerts.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/page-components/pc_anchors.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/page-components/pc_anchors-small.css", 50, new { media = smallMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/page-components/pc_anchors-large.css", 60, new { media = largeMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/page-components/pc_banner.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/page-components/pc_banner-small.css", 50, new { media = smallMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/page-components/pc_banner-large.css", 60, new { media = largeMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/page-components/pc_codeblock.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/page-components/pc_cta.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/page-components/pc_data-list.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/page-components/pc_data-list-large.css", 60, new { media = largeMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/page-components/pc_forms.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/page-components/pc_gallery.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/page-components/pc_instagram-feed.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/page-components/pc_grid.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/page-components/pc_links.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/page-components/pc_links-large.css", 60, new { media = largeMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/page-components/pc_listing.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/page-components/pc_pods.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/page-components/pc_split.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/page-components/pc_split-large.css", 60, new { media = largeMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/page-components/pc_tabs-accordions.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/page-components/pc_windows.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/page-components/pc_windows-small.css", 50, new { media = smallMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/page-components/pc_windows-large.css", 60, new { media = largeMedia });
+
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/sitewide-pods/all_swp.css", 40, new { media = "screen" });
+
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/forms/all_forms.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/forms/all_forms-large.css", 60, new { media = largeMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/forms/form_contact.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/forms/form_login.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/forms/form_login-large.css", 60, new { media = largeMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/forms/form_newsletter.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/forms/form_newsletter-large.css", 60, new { media = largeMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/forms/form_site-search.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/forms/form_site-search-large.css", 60, new { media = largeMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/forms/form_loading.css", 40, new { media = "screen" });
+
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/misc/all_misc.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/misc/misc_authors.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/misc/misc_back-to-top.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/misc/misc_back-to-top-small.css", 50, new { media = smallMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/misc/misc_back-to-top-large.css", 60, new { media = largeMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/misc/misc_buttons.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/misc/misc_images.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/misc/misc_lazyframe-video.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/misc/misc_lightbox.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/misc/misc_links.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/misc/misc_meta.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/misc/misc_notification.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/misc/misc_notification-small.css", 50, new { media = smallMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/misc/misc_notification-large.css", 60, new { media = largeMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/misc/misc_overlay-icons.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/misc/misc_scroll-prompt.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/misc/misc_scroll-prompt-small.css", 50, new { media = smallMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/misc/misc_scroll-prompt-large.css", 60, new { media = largeMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/misc/misc_tables.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/misc/misc_directions.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/misc/misc_directions-small.css", 50, new { media = smallMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/misc/misc_directions-large.css", 60, new { media = largeMedia });
+
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/shop/all_shop.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/shop/all_shop-small.css", 50, new { media = smallMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/shop/all_shop-large.css", 60, new { media = largeMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/shop/shop_snipcart.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/shop/shop_snipcart-small.css", 50, new { media = smallMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/shop/shop_snipcart-large.css", 60, new { media = largeMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/shop/shop_ecwid.css", 40, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/shop/shop_ecwid-small.css", 50, new { media = smallMedia });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/modules/shop/shop_ecwid-large.css", 60, new { media = largeMedia });
+
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/generated/" + style.Key + ".css?version=" + style.UpdateDate.Ticks, 997, new { media = "screen" });
+    Html.RequiresCss("~/css/" + Model.ThemeFolder + "/print.css", 998, new { media = "print" });
+
+    if (UmbracoContext.InPreviewMode)
+    {
+        Html.RequiresCss("~/css/design-panel/design-panel.css", 999, new { media = "screen" });
+        Html.RequiresCss("~/App_Plugins/uSkinned/css/spectrum.css", 1000, new { media = "screen" });
+    }
+}
+@Html.RenderCssHere()

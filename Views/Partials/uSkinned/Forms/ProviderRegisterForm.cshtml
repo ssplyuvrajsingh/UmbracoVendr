@@ -1,0 +1,192 @@
+﻿@inherits USNStarterKit.ViewPages.USNViewPage<USNWebsite.USNModels.USNProviderRegisterFormViewModel>
+
+@using USNStarterKit.Extensions;
+
+@if (Model.ProviderStatus == "Waiting for Approval")
+{
+    <div class="alert alert-warning mb-3">
+        <div class="info">
+            <p>Your application is submitted and is <em class="font-weight-bold">Waiting for Approval.</em></p>
+        </div>
+    </div>
+}
+else if (Model.ProviderStatus == "Rejected")
+{
+    <div class="alert alert-danger mb-3">
+        <div class="info">
+            <p>Your application is <em class="font-weight-bold">Rejected.</em></p>
+        </div>
+    </div>
+}
+else if (Model.ProviderStatus == "Approved")
+{
+    <div class="alert alert-success mb-3">
+        <div class="info">
+            <p>Your application is <em class="font-weight-bold">Approved.</em></p>
+        </div>
+    </div>
+}
+else
+{
+    using (Html.BeginUmbracoForm("HandleProviderRegisterSubmit", "USNProviderRegisterFormSurface"))
+    {
+        UsnglobalSettings globalSettings = (UsnglobalSettings)Umbraco.Content(Model.GlobalSettingsID);
+
+        @Html.AntiForgeryToken()
+        @Html.Hidden("GlobalSettingsID", Model.GlobalSettingsID)
+        <div class="form login-form">
+            <div class="inner @(Model.FormColor)-bg @(Model.FormColor)-text">
+                @if (Model.FormHeading.HasValue() || Model.FormIntroduction.HasValue() || Model.FormSecondaryHeading.HasValue())
+                {
+                    <div class="info short-margin-bottom">
+
+                        @if (Model.FormSecondaryHeading.HasValue())
+                        {
+                            @Html.Raw(String.Format("<{0} class=\"secondary-heading {1} {2}-heading\">{3}</{0}>", Model.FormSecondaryHeading.HeadingTag, Model.FormSecondaryHeading.Style, Model.FormColor, Model.FormSecondaryHeading.Text))
+                        }
+
+                        @if (Model.FormHeading.HasValue())
+                        {
+                            @Html.Raw(String.Format("<{0} class=\"heading main {1} {2}-heading\">{3}</{0}>", Model.FormHeading.HeadingTag, Model.FormHeading.Style, Model.FormColor, Model.FormHeading.Text))
+                        }
+
+                        @if (Model.FormIntroduction.HasValue())
+                        {
+                            <div class="text @(Model.FormColor)-text">
+                                @Html.Raw(Model.FormIntroduction)
+                            </div>
+                        }
+
+                    </div>
+                }
+
+                <div class="form-inner">
+                    @if (TempData["ProviderRegistrationFailure"] != null)
+                    {
+                        <div class="alert alert-danger mb-3">
+                            <div class="info">
+                                <p>@TempData["ProviderRegistrationFailure"]</p>
+                            </div>
+                        </div>
+                    }
+                    @if (TempData["ProviderRegistrationSuccess"] != null)
+                    {
+                        <div class="alert alert-success mb-3">
+                            <div class="info">
+                                <p>@TempData["ProviderRegistrationSuccess"]</p>
+                            </div>
+                        </div>
+                    }
+                    <fieldset>
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="ProviderType" class="control-label font-weight-bold">
+                                    @Umbraco.GetDictionaryValue("USN Provider Register Form Provider Type Label")<em class="req">*</em>
+                                </label>
+                                <div class="form-row mt-2">
+                                    <div class="form-group col-md-4 mb-0 d-flex align-items-center">
+                                        @Html.RadioButtonFor(x => Model.ProviderType, "Market Provider", new { @id = "marketProvider" })
+                                        <label class="mb-0 ml-1" for="marketProvider">Market Provider</label>
+                                    </div>
+                                    <div class="form-group col-md-4 mb-0 d-flex align-items-center">
+                                        @Html.RadioButtonFor(x => Model.ProviderType, "Signal Provider", new { @id = "signalProvider" })
+                                        <label class="mb-0 ml-1" for="signalProvider">Signal Provider</label>
+                                    </div>
+                                </div>
+                                @Html.ValidationMessageFor(x => Model.ProviderType, Umbraco.GetDictionaryValue("USN Register Form Last Name Validation"))
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="FirstName" class="control-label font-weight-bold">
+                                @Umbraco.GetDictionaryValue("USN Provider Register Form First Name Label")<em class="req">*</em>
+                            </label>
+                            @Html.TextBoxFor(x => Model.FirstName, new { autocapitalize = "off", @class = "form-control", aria_label = Umbraco.GetDictionaryValue("USN Login Form Username Label") })
+                            @Html.ValidationMessageFor(x => Model.FirstName, Umbraco.GetDictionaryValue("USN Register Form First Name Validation"))
+                        </div>
+
+                        <div class="form-group">
+                            <label for="LastName" class="control-label font-weight-bold">
+                                @Umbraco.GetDictionaryValue("USN Provider Register Form Last Name Label")<em class="req">*</em>
+                            </label>
+                            @Html.TextBoxFor(x => Model.LastName, new { autocapitalize = "off", @class = "form-control", aria_label = Umbraco.GetDictionaryValue("USN Login Form Username Label") })
+                            @Html.ValidationMessageFor(x => Model.LastName, Umbraco.GetDictionaryValue("USN Register Form Last Name Validation"))
+                        </div>
+
+                        <div class="form-group">
+                            <label for="StreetName" class="control-label font-weight-bold">
+                                @Umbraco.GetDictionaryValue("USN Provider Register Form Street Name Label")
+                            </label>
+                            @Html.TextBoxFor(x => Model.StreetName, new { autocapitalize = "off", @class = "form-control", aria_label = Umbraco.GetDictionaryValue("USN Login Form Username Label") })
+                            @Html.ValidationMessageFor(x => Model.StreetName, Umbraco.GetDictionaryValue("USN Register Form Last Name Validation"))
+                        </div>
+
+                        <div class="form-group">
+                            <label for="City" class="control-label font-weight-bold">
+                                @Umbraco.GetDictionaryValue("USN Provider Register Form City Label")
+                            </label>
+                            @Html.TextBoxFor(x => Model.City, new { autocapitalize = "off", @class = "form-control", aria_label = Umbraco.GetDictionaryValue("USN Login Form Username Label") })
+                            @Html.ValidationMessageFor(x => Model.City, Umbraco.GetDictionaryValue("USN Register Form Last Name Validation"))
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ZipCode" class="control-label font-weight-bold">
+                                @Umbraco.GetDictionaryValue("USN Provider Register Form Zip Label")
+                            </label>
+                            @Html.TextBoxFor(x => Model.ZipCode, new { autocapitalize = "off", @class = "form-control", aria_label = Umbraco.GetDictionaryValue("USN Login Form Username Label") })
+                            @Html.ValidationMessageFor(x => Model.ZipCode, Umbraco.GetDictionaryValue("USN Register Form Last Name Validation"))
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Country" class="control-label font-weight-bold">
+                                @Umbraco.GetDictionaryValue("USN Provider Register Form Country Label")
+                            </label>
+                            @Html.TextBoxFor(x => Model.Country, new { autocapitalize = "off", @class = "form-control", aria_label = Umbraco.GetDictionaryValue("USN Login Form Username Label") })
+                            @Html.ValidationMessageFor(x => Model.Country, Umbraco.GetDictionaryValue("USN Register Form Last Name Validation"))
+                        </div>
+
+                        <div class="form-group">
+                            <label for="TelephoneNumber" class="control-label font-weight-bold">
+                                @Umbraco.GetDictionaryValue("USN Provider Register Form Telephone Number Label")
+                            </label>
+                            @Html.TextBoxFor(x => Model.TelephoneNumber, new { autocapitalize = "off", @class = "form-control", aria_label = Umbraco.GetDictionaryValue("USN Login Form Username Label") })
+                            @Html.ValidationMessageFor(x => Model.TelephoneNumber, Umbraco.GetDictionaryValue("USN Register Form Last Name Validation"))
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Email" class="control-label font-weight-bold">
+                                @Umbraco.GetDictionaryValue("USN Provider Register Form Email Label")<em class="req">*</em>
+                            </label>
+                            @Html.TextBoxFor(x => Model.Email, new { autocapitalize = "off", @class = "form-control", aria_label = Umbraco.GetDictionaryValue("USN Login Form Username Label") })
+                            @Html.ValidationMessageFor(x => Model.Email, Umbraco.GetDictionaryValue("USN Register Form Last Name Validation"))
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ID" class="control-label font-weight-bold">
+                                @Umbraco.GetDictionaryValue("USN Provider Register Form ID Document Label")<em class="req">*</em>
+                            </label>
+                            @if (Model.IdDocument != null)
+                            {
+                                <label class="alert alert-danger mb-2">File is already uploaded. Select new file if you want to change existing file (@Model.IdDocument.Name)"</label>
+                            }
+                            <input type="file" name="iDDocument" />
+                            @Html.ValidationMessageFor(x => Model.Email, Umbraco.GetDictionaryValue("USN Provider Register Form ID Document Validation"))
+                        </div>
+
+                        @*@if (globalSettings.GoogleReCaptchasiteKey.HasValue() && globalSettings.GoogleReCaptchasecretKey.HasValue())
+                            {
+                                <div class="g-recaptcha" data-sitekey="@globalSettings.GoogleReCaptchasiteKey" data-size="@Model.CaptchaDataSize"></div>
+                            }*@
+                    </fieldset>
+                    <fieldset>
+                        <button role="button" class="btn @(Model.FormButtonColor)-btn-bg @(Model.FormButtonColor)-btn-text @(Model.FormButtonColor)-btn-borders" type="submit">
+                            <span></span>
+                            @(Model.FormButtonText.HasValue() ? Model.FormButtonText : Umbraco.GetDictionaryValue("USN Register Form Button Text"))
+                        </button>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    }
+
+}

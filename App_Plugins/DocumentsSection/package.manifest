@@ -1,0 +1,26 @@
+﻿{
+  "dashboards": [
+    {
+      "alias": "documentDashboard",
+      "sections": ["documentsSection"],
+      "view": "~/App_Plugins/DocumentsSection/views/dashboard.html"
+    }
+  ],
+  "css": [
+    "~/App_Plugins/DocumentsSection/css/documentsSection.styles.css"
+  ],
+  "javascript": [
+    "~/App_Plugins/DocumentsSection/js/documentsSection.controller.js",
+    "~/App_Plugins/DocumentsSection/RequestedUserList.Resource.js",
+    "~/App_Plugins/DocumentsSection/ProductsList.Resource.js",
+    "~/App_Plugins/DocumentsSection/ProviderWallet.Resource.js",
+    "~/App_Plugins/DocumentsSection/backoffice/DocumentsSectionTree/RequestedUserListDashboard.Controller.js",
+    "~/App_Plugins/DocumentsSection/backoffice/DocumentsSectionTree/waitingForApprovalUsers.controller.js",
+    "~/App_Plugins/DocumentsSection/backoffice/DocumentsSectionTree/approvedUsers.controller.js",
+    "~/App_Plugins/DocumentsSection/backoffice/DocumentsSectionTree/rejectedUsers.controller.js",
+    "~/App_Plugins/DocumentsSection/backoffice/DocumentsSectionTree/productsList.controller.js",
+    "~/App_Plugins/DocumentsSection/backoffice/DocumentsSectionTree/productDetails.controller.js",
+    "~/App_Plugins/DocumentsSection/backoffice/DocumentsSectionTree/providerWithdrawalRequests.controller.js",
+    "~/App_Plugins/DocumentsSection/backoffice/DocumentsSectionTree/paymentHistory.controller.js"
+  ]
+}

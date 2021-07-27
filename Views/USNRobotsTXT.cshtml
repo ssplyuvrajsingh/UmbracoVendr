@@ -1,0 +1,10 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<UsnrobotsTxt>
+@{
+    Response.AddHeader("Content-Type", "text/plain");
+}
+@Model.CrawlInstructions
+
+@if (Model.SitemapXmllocation.HasValue())
+{
+    @("Sitemap: " + Model.SitemapXmllocation.Url(mode:UrlMode.Absolute))
+}

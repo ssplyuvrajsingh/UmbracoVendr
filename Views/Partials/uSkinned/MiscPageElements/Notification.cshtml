@@ -1,0 +1,41 @@
+﻿@inherits USNStarterKit.ViewPages.USNViewPage<USNStarterKit.Models.USNBaseViewModel>
+
+@{
+    UsnglobalSettings globalSettings = (UsnglobalSettings)Model.GlobalSettings;
+    Usnstyle websiteStyle = (Usnstyle)Model.WebsiteStyle;
+
+    string positionClass = websiteStyle.StyleLayout.notificationHorizontalPosition.HasValue() ? websiteStyle.StyleLayout.notificationHorizontalPosition.ToString() : String.Empty;
+
+    if (globalSettings.EnableNotification)
+    {
+        string buttonBackgroundClass = websiteStyle.StyleColors.buttonBackgroundClass;
+        string buttonBackgroundHoverClass = websiteStyle.StyleColors.buttonBackgroundHoverClass;
+
+        <!-- Notification -->
+        <div class="usn-notification @positionClass base-bg closed" id="NotificationPanel">
+            <div class="inner">
+                @if (globalSettings.NotificationSecondaryHeading.HasValue())
+                {
+                    @Html.Raw(String.Format("<{0} class=\"secondary-heading {1} base-secondary-heading\">{2}</{0}>", globalSettings.NotificationSecondaryHeading.HeadingTag, globalSettings.NotificationSecondaryHeading.Style, globalSettings.NotificationSecondaryHeading.Text))
+                }
+                @if (globalSettings.NotificationHeading.HasValue())
+                {
+                    @Html.Raw(String.Format("<{0} class=\"heading {1} base-heading\">{2}</{0}>", globalSettings.NotificationHeading.HeadingTag, globalSettings.NotificationHeading.Style, globalSettings.NotificationHeading.Text))
+                }
+                @if (globalSettings.NotificationText.HasValue())
+                {
+                    <div class="text base-text">
+                        @Html.Raw(globalSettings.NotificationText)
+                    </div>
+                }
+                <p class="link">
+                    <a class="btn base-btn-bg @buttonBackgroundClass @buttonBackgroundHoverClass base-btn-text base-btn-borders accept-cookies" href="#">
+                        <span></span>
+                        @(globalSettings.AcceptNotificationButtonText.HasValue() ? globalSettings.AcceptNotificationButtonText : Umbraco.GetDictionaryValue("USN Notification Button Text"))
+                    </a>
+                </p>
+            </div>
+        </div>
+        <!--// Notification -->
+    }
+}

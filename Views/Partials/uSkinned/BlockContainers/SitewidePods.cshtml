@@ -1,0 +1,100 @@
+﻿@inherits USNStarterKit.ViewPages.USNViewPage<USNStarterKit.Models.USNBaseViewModel>
+
+@{
+    UsnglobalSettings globalSettings = (UsnglobalSettings)Model.GlobalSettings;
+    Usnstyle websiteStyle = (Usnstyle)Model.WebsiteStyle;
+
+    IEnumerable<BlockListItem> globalPods = null;
+    IEnumerable<BlockListItem> pagePods = null;
+
+    string pageLayout = Model.Content.HasValue("pageLayout") ? Model.Content.Value<string>("pageLayout") : "pageLayoutFull";
+    string itemClass = "swp-item";
+
+    globalPods = !Model.Content.Value<bool>("hideDefaultPods") && globalSettings.Value<BlockListModel>("defaultPods") != null ? globalSettings.Value<BlockListModel>("defaultPods").Where(x => !x.Settings.Value<bool>("hideFromWebsite")) : null;
+    pagePods = Model.Content.Value<BlockListModel>("pagePods") != null ? Model.Content.Value<BlockListModel>("pagePods").Where(x => !x.Settings.Value<bool>("hideFromWebsite")) : null;
+
+    if ((globalPods != null && globalPods.Any()) || (pagePods != null && pagePods.Any()))
+    {
+        <!-- Pods -->
+        <div class="swp">
+
+            @if (pageLayout == "pageLayoutFull")
+            {
+                itemClass = itemClass + " items-3 col-12";
+
+                @:<section class="content component usn_cmp_pods swp-wide base-bg"><div class="container"><div class="component-main row listing listing-pods">
+            }
+            else
+            {
+                @:<div class="listing listing-pods">
+            }
+
+            @if(globalPods != null && globalPods.Any())
+            {
+                foreach (var item in globalPods)
+                {
+                    if (item?.ContentUdi != null)
+                    {
+                        var podItem = new USNBlock(Model, item);
+                        string uniqueID = Guid.NewGuid().ToString();
+
+                        var itemCommonBlockSettings = (IUsn_Cmp_CommonBlockSettings)item.Settings;
+
+                        if (podItem.BlockContent.ContentType.Alias.GetBlockViewName() == "RelatedContent" || podItem.BlockContent.ContentType.Alias.GetBlockViewName() == "TextImage"
+                            || podItem.BlockContent.ContentType.Alias.GetBlockViewName() == "ReusablePods")
+                        {
+                            @Html.Partial(Model.ThemeFolder + "/Blocks/" + item.Content.ContentType.Alias.GetBlockViewName(), podItem, new ViewDataDictionary { { "blockLocation", "pod" }, { "backgroundColorLabel", "base" }, { "itemClass", itemClass }, { "uniqueID", uniqueID } })                    
+                        }
+                        else
+                        {
+                          <div class="item usn_pod_@podItem.BlockContent.ContentType.Alias.GetBlockStyleName() @itemClass @itemCommonBlockSettings.CustomClasses">
+                              <div class="inner">
+                                  @Html.Partial(Model.ThemeFolder + "/Blocks/" + item.Content.ContentType.Alias.GetBlockViewName(), podItem, new ViewDataDictionary { { "blockLocation", "pod" }, { "backgroundColorLabel", "base" }, { "uniqueID", uniqueID } })
+                              </div>
+                          </div>
+                        }
+                    }
+                }
+            }
+
+            @if(pagePods != null && pagePods.Any())
+            {
+                foreach (var item in pagePods)
+                {
+                    if (item?.ContentUdi != null)
+                    {
+                        var podItem = new USNBlock(Model, item);
+                        string uniqueID = Guid.NewGuid().ToString();
+
+                        if (podItem.BlockContent.ContentType.Alias.GetBlockViewName() == "RelatedContent" || podItem.BlockContent.ContentType.Alias.GetBlockViewName() == "TextImage"
+                             || podItem.BlockContent.ContentType.Alias.GetBlockViewName() == "ReusablePods")
+                        {
+                            @Html.Partial(Model.ThemeFolder + "/Blocks/" + item.Content.ContentType.Alias.GetBlockViewName(), podItem, new ViewDataDictionary { { "blockLocation", "pod" }, { "backgroundColorLabel", "base" }, { "itemClass", itemClass }, { "uniqueID", uniqueID } })
+                        }
+                        else
+                        {
+                            var itemCommonBlockSettings = (IUsn_Cmp_CommonBlockSettings)item.Settings;
+
+                            <div class="item usn_pod_@podItem.BlockContent.ContentType.Alias.GetBlockStyleName() @itemClass @itemCommonBlockSettings.CustomClasses">
+                                <div class="inner">
+                                    @Html.Partial(Model.ThemeFolder + "/Blocks/" + item.Content.ContentType.Alias.GetBlockViewName(), podItem, new ViewDataDictionary { { "blockLocation", "pod" }, { "backgroundColorLabel", "base" }, { "uniqueID", uniqueID } })
+                                </div>
+                            </div>
+                        }
+                    }
+                }
+            }
+
+            @if (pageLayout == "pageLayoutFull")
+            {
+                @:</div></div></section>
+            }
+            else
+            {
+                @:</div>
+            }
+
+        </div>
+        <!--// Pods -->
+    }
+}

@@ -1,0 +1,323 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Vendr.Web</name>
+    </assembly>
+    <members>
+        <member name="T:Vendr.Web.Constants.DistributedCache">
+            <summary>
+            Defines the alias identifiers for Vendr's distributed cache control.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.InstanceId">
+            <summary>
+            Defines a unique instance ID for this instance of Vendr.
+            </summary>
+        </member>
+        <member name="T:Vendr.Web.Constants.Trees">
+            <summary>
+            Defines the alias identifiers for vendr's core trees.
+            </summary>
+        </member>
+        <member name="T:Vendr.Web.Constants.Trees.Settings">
+            <summary>
+            Defines the alias identifiers for vendr's core settings trees.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Settings.Alias">
+            <summary>
+            Tree alias for the store settings tree.
+            </summary>
+        </member>
+        <member name="T:Vendr.Web.Constants.Trees.Settings.NodeType">
+            <summary>
+            Defines the aliases for vendr's core settings tree node types.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Settings.NodeType.Settings">
+            <summary>
+            Alias for the settings node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Settings.NodeType.Stores">
+            <summary>
+            Alias for the stores node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Settings.NodeType.Store">
+            <summary>
+            Alias for a single store node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Settings.NodeType.OrderStatuses">
+            <summary>
+            Alias for the order statuses node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Settings.NodeType.OrderStatus">
+            <summary>
+            Alias for a single order status node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Settings.NodeType.ShippingMethods">
+            <summary>
+            Alias for the shipping methods node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Settings.NodeType.ShippingMethod">
+            <summary>
+            Alias for a single shipping method node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Settings.NodeType.PaymentMethods">
+            <summary>
+            Alias for the payment methods node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Settings.NodeType.PaymentMethod">
+            <summary>
+            Alias for a single payment method node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Settings.NodeType.Countries">
+            <summary>
+            Alias for the countries node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Settings.NodeType.Country">
+            <summary>
+            Alias for a single country node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Settings.NodeType.Region">
+            <summary>
+            Alias for a single region node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Settings.NodeType.Currencies">
+            <summary>
+            Alias for the currencies node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Settings.NodeType.Currency">
+            <summary>
+            Alias for a single currency node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Settings.NodeType.TaxClasses">
+            <summary>
+            Alias for the tax classes node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Settings.NodeType.TaxClass">
+            <summary>
+            Alias for a single tax class node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Settings.NodeType.Templating">
+            <summary>
+            Alias for the templating node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Settings.NodeType.EmailTemplates">
+            <summary>
+            Alias for the email templates node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Settings.NodeType.EmailTemplate">
+            <summary>
+            Alias for a single email template node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Settings.NodeType.PrintTemplates">
+            <summary>
+            Alias for the print templates node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Settings.NodeType.PrintTemplate">
+            <summary>
+            Alias for a single print template node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Settings.NodeType.ExportTemplates">
+            <summary>
+            Alias for the export templates node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Settings.NodeType.ExportTemplate">
+            <summary>
+            Alias for a single export template node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Settings.Icons">
+            <summary>
+            Defines the maps of icons for vendr's core settings tree node types.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Settings.Ids">
+            <summary>
+            Defines the maps of fixed IDs for vendr's core settings tree node types.
+            </summary>
+        </member>
+        <member name="T:Vendr.Web.Constants.Trees.Settings.Groups">
+            <summary>
+            Defines the tree group alias identifiers for vendr's core settings trees.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Settings.Groups.Commerce">
+            <summary>
+            Alias for the commerce tree settings group.
+            </summary>
+        </member>
+        <member name="T:Vendr.Web.Constants.Trees.Stores">
+            <summary>
+            Defines the alias identifiers for vendr's stores trees.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Stores.Alias">
+            <summary>
+            Tree alias for the commerce section.
+            </summary>
+        </member>
+        <member name="T:Vendr.Web.Constants.Trees.Stores.NodeType">
+            <summary>
+            Defines the aliases for vendr's core tree node types.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Stores.NodeType.Stores">
+            <summary>
+            Alias for the stores node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Stores.NodeType.Store">
+            <summary>
+            Alias for a single store node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Stores.NodeType.Orders">
+            <summary>
+            Alias for the orders node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Stores.NodeType.Order">
+            <summary>
+            Alias for a single order node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Stores.NodeType.Discounts">
+            <summary>
+            Alias for the discounts node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Stores.NodeType.Discount">
+            <summary>
+            Alias for a single discount node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Stores.NodeType.GiftCards">
+            <summary>
+            Alias for the gift cards node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Stores.NodeType.GiftCard">
+            <summary>
+            Alias for a single gift card node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Stores.NodeType.Analytics">
+            <summary>
+            Alias for a analytics node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Stores.NodeType.Options">
+            <summary>
+            Alias for a options node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Stores.NodeType.ProductAttributes">
+            <summary>
+            Alias for a product attributes node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Stores.NodeType.ProductAttribute">
+            <summary>
+            Alias for a product attribute node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Stores.NodeType.ProductAttributePresets">
+            <summary>
+            Alias for a product attribute presets node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Stores.NodeType.ProductAttributePreset">
+            <summary>
+            Alias for a product attribute preset node.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Stores.Icons">
+            <summary>
+            Defines the maps of icons for vendr's core tree node types.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Trees.Stores.Ids">
+            <summary>
+            Defines the maps of fixed IDs for vendr's core settings tree node types.
+            </summary>
+        </member>
+        <member name="T:Vendr.Web.Constants.Sections">
+            <summary>
+            Defines the alias identifiers for Vendr's core sections.
+            </summary>
+        </member>
+        <member name="F:Vendr.Web.Constants.Sections.Commerce">
+            <summary>
+            Application alias for the commerce section.
+            </summary>
+        </member>
+        <member name="T:Vendr.Web.PropertyEditors.VariantsEditor.VariantsEditorComponent">
+            <summary>
+            Component to watch for content changes to nodes with a variants editor
+            on them and stash a storeId property in the data structure. This is
+            predominantly for Vendr Deploy which needs to lookup Product Attribute
+            dependencies but needs as storeId to do it however the Umbraco Deploy
+            value connectors don't have any other context other than the property
+            value and it's property type. This may also be true for uSycn too.
+            We could also look to potetially use this in the value converter for 
+            the variants editor as we now have this also being store aware.
+            </summary>
+        </member>
+        <member name="T:Vendr.Web.PropertyEditors.Stock.StockComponent">
+            <summary>
+            Component to hook into the content saved event handler in order to update stock values.
+            We have to do it this way because we need to ensure a content item has been saved and
+            has a key before we can persist the stock as we need the key as reference. 
+            Without this, you'd  have to disallow entry during create which isn't an ideal UX. 
+            With this approach, we can allow a stock level to be entered straight away and only 
+            persist it when the content item itself has been persisted.
+            </summary>
+        </member>
+        <member name="M:Vendr.Web.PublishedContentExtensions.GetProductSourceNode(Umbraco.Core.Models.PublishedContent.IPublishedContent,System.Boolean)">
+            <summary>
+            Gets a product nodes source if one exists. Only to be used if using Umbraco nodes as product information data source.
+            </summary>
+            <param name="productNode">The product node that is linked to the product source node.</param>
+            <param name="recursive">Whether to search recursively for the source relation.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Vendr.Web.PublishedContentExtensions.GetMasterProductNode(Umbraco.Core.Models.PublishedContent.IPublishedContent,System.Boolean)">
+            <summary>
+            Gets a product nodes master product if one exists. Only to be used if using Umbraco nodes as product information data source.
+            </summary>
+            <param name="productNode">The child product node that belongs to the master product node.</param>
+            <param name="recursive">Whether to search recursively for the master relation.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Vendr.Web.StringExtensions.ParseDecimal(System.String)">
+            <summary>
+            Parse a string input into a decimal number
+            </summary>
+            <param name="input">The input string</param>
+            <returns>The decimal value</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,84 @@
+﻿<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<style>
+    .table-scroll {
+        max-height: 570px;
+        overflow: auto;
+    }
+</style>
+
+<div ng-controller="RequestedUserList.WaitingForApprovalUsersController">
+    <input type="hidden" id="EditUserPage" value="1" />
+    <h2 class="ml-4 mt-2"><u>Waiting for Approval Providers</u></h2>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-7" style="padding:10px">
+                <div class="umb-table ng-scope table-scroll" ng-if="AnyRecord">
+                    <div class="umb-table-head">
+                        <div class="umb-table-row">
+                            <div class="umb-table-cell">
+                                <span class="umb-table__action">&nbsp;</span>
+                            </div>
+                            <div class="umb-table-cell">
+                                <span class="umb-table-head__link">Id</span>
+                            </div>
+                            <div class="umb-table-cell">
+                                <span class="umb-table-head__link">Name</span>
+                            </div>
+                            <div class="umb-table-cell">
+                                <span class="umb-table-head__link">Provider Type</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="umb-table-body" ng-repeat="user in RequestedUserList">
+                        <div class="umb-table-row umb-outline ng-scope">
+                            <div class="umb-table-cell">
+                                <input type="hidden" value="{{user.FileName}}" class="fileName" />
+                                <input type="hidden" value="{{user.FileType}}" class="fileType" />
+                                <input type="hidden" value="{{user.FileUrl}}" class="fileUrl" />
+                            </div>
+                            <div class="umb-table-cell">
+                                <a class="umb-table-body__link userIdLink" href="javascript:void(0);">{{user.Id}}</a>
+                            </div>
+                            <div class="umb-table-cell">
+                                {{user.Name}}
+                            </div>
+                            <div class="umb-table-cell">
+                                {{user.ProviderType}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div ng-if="!AnyRecord" class="ml-3">
+                    <strong>No records found!</strong>
+                </div>
+            </div>
+
+            <div class="col-md-5" style="padding:10px">
+                <div class="d-none border-left border-bottom" id="documentsSection">
+                    <div class="ml-3">
+                        <div id="fileSection">
+
+                        </div>
+                        <label><strong>Status : </strong></label>
+                        <select class="custom-select" id="providerStatusDDL">
+                            <option value="Waiting for Approval" selected>Waiting for Approval</option>
+                            <option value="Approved">Approved</option>
+                            <option value="Rejected">Rejected</option>
+                        </select>
+                        <input type="hidden" id="updateMemberId" />
+                        <button type="submit" class="btn btn-success mt-3 mb-3" id="updateMemberStatus">Update</button>
+                        <button type="submit" class="btn btn-danger mt-3 mb-3" id="deleteMember">Delete</button>
+                    </div>                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,67 @@
+﻿@inherits USNStarterKit.ViewPages.USNViewPage<USNStarterKit.Models.USNBaseViewModel>
+
+@if (!Model.Content.Value<bool>("hideWebsiteHeaderSection"))
+{
+
+    UsnglobalSettings globalSettings = (UsnglobalSettings)Model.GlobalSettings;
+    Usnstyle websiteStyle = (Usnstyle)Model.WebsiteStyle;
+    Usnnavigation navigation = (Usnnavigation)Model.Navigation;
+    var routeCultures = USNThemeService.GetRootCultures();
+    IPublishedContent searchResultsPage = globalSettings.SearchResultsPage;
+    string containerClass = websiteStyle.StyleSpacing.headerFixedWidth ? "container" : "container-fluid";
+
+    <header id="site-header" class="@websiteStyle.StyleColors.headerBackgroundClass">
+        <div class="@containerClass">
+
+            <div class="row">
+
+                @Html.Partial(Model.ThemeFolder + "/WebsiteHeadSection/WebsiteLogo", Model)
+
+                @if ((navigation.MainNavigation != null && navigation.MainNavigation.Any()) ||
+                    (navigation.SecondaryNavigation != null && navigation.SecondaryNavigation.Any()) ||
+        (navigation.MultilingualConfiguration.HasValue() && navigation.MultilingualConfiguration == "multitenant" && navigation.LanguageNavigation != null && navigation.LanguageNavigation.Any()) ||
+        (navigation.MultilingualConfiguration.HasValue() && navigation.MultilingualConfiguration == "onetoone" && routeCultures != null && routeCultures.Count() > 1) ||
+        (!Umbraco.MemberIsLoggedOn() && navigation.LoggedOutMembersNavigation != null && navigation.LoggedOutMembersNavigation.Any()) ||
+        Umbraco.MemberIsLoggedOn() ||
+        navigation.CtaButtons != null && navigation.CtaButtons.Any() ||
+        searchResultsPage != null)
+                {
+                <!-- Expand -->
+                <a href="javascript:void(0)" id="burgerNavStyle" class="expand @websiteStyle.StyleLayout.burgerNavStyle expand-active-cross">
+                    <span>@Umbraco.GetDictionaryValue("USN Menu")</span>
+                </a>
+                <!--// Expand -->
+                }
+
+                <!-- Main navigation -->
+                @Html.Partial(Model.ThemeFolder + "/Navigation/MainNavigation", Model)
+                <!--// Main navigation -->
+
+                <!-- Secondary navigation -->
+                @Html.Partial(Model.ThemeFolder + "/Navigation/SecondaryNavigation", Model)
+                <!--// Secondary navigation -->
+                
+                <!-- CTA Links -->
+                @Html.Partial(Model.ThemeFolder + "/Navigation/CTANavigation", Model)
+                <!--// CTA Links -->
+
+                <!-- Site search -->
+                @Html.Partial(Model.ThemeFolder + "/Forms/SearchForm", Model)
+                <!--// Site search -->
+
+                @if (globalSettings.EnableShop && globalSettings.Ecwid.HasValue() && globalSettings.ShopPage.HasValue())
+                {
+                <!-- Shop - Ecwid Cart -->
+                <nav class="shopping-cart">
+                    <i class="icon usn_ion-ios-cart"></i>
+                    <div data-responsive="false" class="ec-cart-widget"></div>
+                </nav>
+                <!--// Shop - Ecwid Cart -->
+                }
+
+            </div>
+
+        </div>
+    </header>
+}
+

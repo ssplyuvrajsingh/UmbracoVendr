@@ -1,0 +1,87 @@
+﻿@inherits USNStarterKit.ViewPages.USNViewPage<USNBlock>
+
+@{
+    // Available as Pod Block type only
+
+    var content = (Usn_Pb_RelatedContent)Model.BlockContent;
+
+    //Settings taken from compositions common to all pod block types
+    var uniqueSettings = (IUsn_Cmp_RelatedContent_Settings)Model.BlockSettings;
+    var animateSettings = (IUsn_Cmp_AnimateSettings)Model.BlockSettings;
+    var itemCommonBlockSettings = (IUsn_Cmp_CommonBlockSettings)Model.BlockSettings;
+
+    USNAnimation animation = Umbraco.GetAnimationSettings(animateSettings.Animate, animateSettings.AnimationDelay, animateSettings.AnimationDuration, animateSettings.AnimationStyle);
+
+    if (content.RelatedContent.HasValue() && content.RelatedContent.Any())
+    {
+        string backgroundColorLabel = ViewData["backgroundColorLabel"].ToString();
+        string itemClass = ViewData["itemClass"] != null ? ViewData["itemClass"].ToString() : String.Empty;
+        string itemHeadingSizeClass = uniqueSettings.ItemHeadingSize;
+
+        string blockLocation = ViewData["blockLocation"] != null ? ViewData["blockLocation"].ToString() : String.Empty;
+        string leftOffsetDesktop = ViewData["leftOffsetDesktop"] != null ? ViewData["leftOffsetDesktop"].ToString() : String.Empty;
+        string leftOffsetTablet = ViewData["leftOffsetTablet"] != null ? ViewData["leftOffsetTablet"].ToString() : String.Empty;
+        string colWidthDesktop = ViewData["colWidthDesktop"] != null ? ViewData["colWidthDesktop"].ToString() : String.Empty;
+        string colWidthTablet = ViewData["colWidthTablet"] != null ? ViewData["colWidthTablet"].ToString() : String.Empty;
+
+        Usnstyle websiteStyle = (Usnstyle)Model.BaseModel.WebsiteStyle;
+
+        string overlayImageClass = uniqueSettings.TextPosition == "item_text-boxed item_overlay" ? USNThemeService.GetBackgroundColorClass(uniqueSettings.OverlayBackgroundColor.sortOrder, "content", websiteStyle) : String.Empty;
+        backgroundColorLabel = uniqueSettings.TextPosition == "item_text-boxed item_overlay" ? uniqueSettings.OverlayBackgroundColor.label : backgroundColorLabel;
+
+        string itemTextAlignment = uniqueSettings.TextAlignment.HasValue() ? uniqueSettings.TextAlignment : "text-left";
+        USNImageSettings imageSettings = Umbraco.GetImageSettings(uniqueSettings.ImageStyle, uniqueSettings.BoxPad);
+
+        string itemStyleClass = uniqueSettings.TextPosition.HasValue() ? uniqueSettings.TextPosition : "item_text-below";
+        string blockLocationClass = blockLocation == "footer" ? "footer-item " + leftOffsetDesktop + " " + leftOffsetTablet + " " + colWidthDesktop + " " + colWidthTablet + " col-12 col" : String.Empty;
+
+        string verticalAlignmentClass = uniqueSettings.TextPosition == "item_text-boxed item_overlay" ? (uniqueSettings.OverlayTextPosition.HasValue() ? uniqueSettings.OverlayTextPosition.ToString() : "align-self-center") : String.Empty;
+
+        foreach (var item in content.RelatedContent)
+        {
+            string pageName = item.HasValue("subpageListingLinkText") ? item.Value<string>("subpageListingLinkText") : item.Name;
+
+            <div class="item @blockLocationClass @itemClass @itemStyleClass usn_pod_@content.ContentType.Alias.GetBlockStyleName() @itemTextAlignment @animation.AnimationClass @itemCommonBlockSettings.CustomClasses" data-os-animation="@animation.AnimationStyle" data-os-animation-delay="@animation.AnimationDelay" data-os-animation-duration="@animation.AnimationDuration">
+                <div class="inner @overlayImageClass">
+                    <a href="@item.Url()">
+                        @if (item.Value<IPublishedContent>("pageListingImage") != null && uniqueSettings.TextPosition != "item_text-above")
+                        {
+                            <div class="image @overlayImageClass @imageSettings.CircleClass">
+                                @Html.Partial(Model.BaseModel.ThemeFolder + "/MiscPageElements/Image", item.Value<IPublishedContent>("pageListingImage"), new ViewDataDictionary { { "imageSettings", imageSettings } })
+                            </div>
+                        }
+                        <div class="info @verticalAlignmentClass">
+                            <p class="heading @itemHeadingSizeClass @(backgroundColorLabel)-heading">@Html.Raw(pageName)</p>
+                            @if (item.HasValue("pageSummary"))
+                            {
+                                <div class="text @(backgroundColorLabel)-text">@Html.Raw(item.Value<IHtmlString>("pageSummary"))</div>
+                            }
+                            @if (item.IsDocumentType(UsnblogPost.ModelTypeAlias) && uniqueSettings.TextPosition == "item_text-boxed item_overlay")
+                            {
+                                <!-- Meta -->
+                                <div class="meta @(backgroundColorLabel)-text">
+                                    <p class="date"><time>@(item.Value<DateTime>("postDate").ToString("dd MMM yyyy"))</time></p>
+                                </div>
+                                <!--// Meta -->
+                            }
+                        </div>
+                        @if (item.Value<IPublishedContent>("pageListingImage") != null && uniqueSettings.TextPosition == "item_text-above")
+                        {
+                            <div class="image @overlayImageClass @imageSettings.CircleClass">
+                                @Html.Partial(Model.BaseModel.ThemeFolder + "/MiscPageElements/Image", item.Value<IPublishedContent>("pageListingImage"), new ViewDataDictionary { { "imageSettings", imageSettings } })
+                            </div>
+                        }
+                    </a>
+                    @if (item.IsDocumentType(UsnblogPost.ModelTypeAlias) && uniqueSettings.TextPosition != "item_text-boxed item_overlay")
+                    {
+                        <!-- Meta -->
+                        <div class="meta @(backgroundColorLabel)-text">
+                            <p class="date"><time>@(item.Value<DateTime>("postDate").ToString("dd MMM yyyy"))</time></p>
+                        </div>
+                        <!--// Meta -->
+                    }
+                </div>
+            </div>
+        }
+    }
+}

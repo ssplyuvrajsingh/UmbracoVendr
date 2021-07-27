@@ -1,0 +1,403 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<map>
+  <item key="L3VtYnJhY28vYXNzZXRzL2Nzcy91bWJyYWNvLmNzczsvdW1icmFjby9saWIvYm9vdHN0cmFwLXNvY2lhbC9ib290c3RyYXAtc29jaWFsLmNzczsvdW1icmFjby9saWIvZm9udC1hd2Vzb21lL2Nzcy9mb250LWF3ZXNvbWUubWluLmNzczs" file="C:\Users\s5\OneDrive\Desktop\DevProviderUmbraco_8_14\App_Data\TEMP\ClientDependency\1_f960f39317fb46d3ac7d3359177ced9c.cdC" compression="gzip" version="1">
+    <files>
+      <file name="/umbraco/assets/css/umbraco.css" />
+      <file name="/umbraco/lib/bootstrap-social/bootstrap-social.css" />
+      <file name="/umbraco/lib/font-awesome/css/font-awesome.min.css" />
+    </files>
+  </item>
+  <item key="L3VtYnJhY28vbGliL2pxdWVyeS9qcXVlcnkubWluLmpzOy91bWJyYWNvL2xpYi9qcXVlcnktdWkvanF1ZXJ5LXVpLm1pbi5qczsvdW1icmFjby9saWIvanF1ZXJ5LXVpLXRvdWNoLXB1bmNoL2pxdWVyeS51aS50b3VjaC1wdW5jaC5taW4uanM7L3VtYnJhY28vbGliL2FuZ3VsYXIvYW5ndWxhci5qczsvdW1icmFjby9saWIvdW5kZXJzY29yZS91bmRlcnNjb3JlLW1pbi5qczsvdW1icmFjby9saWIvbW9tZW50L21vbWVudC5taW4uanM7L3VtYnJhY28vbGliL2ZsYXRwaWNrci9mbGF0cGlja3IuanM7L3VtYnJhY28vbGliL2FuaW1lanMvYW5pbWUubWluLmpzOy91bWJyYWNvL2xpYi9hbmd1bGFyLXJvdXRlL2FuZ3VsYXItcm91dGUuanM7L3VtYnJhY28vbGliL2FuZ3VsYXItY29va2llcy9hbmd1bGFyLWNvb2tpZXMuanM7L3VtYnJhY28vbGliL2FuZ3VsYXItYXJpYS9hbmd1bGFyLWFyaWEubWluLmpzOy91bWJyYWNvL2xpYi9hbmd1bGFyLXRvdWNoL2FuZ3VsYXItdG91Y2guanM7L3VtYnJhY28vbGliL2FuZ3VsYXItc2FuaXRpemUvYW5ndWxhci1zYW5pdGl6ZS5qczsvdW1icmFjby9saWIvYW5ndWxhci1hbmltYXRlL2FuZ3VsYXItYW5pbWF0ZS5qczsvdW1icmFjby9saWIvYW5ndWxhci1tZXNzYWdlcy9hbmd1bGFyLW1lc3NhZ2VzLmpzOy91bWJyYWNvL2xpYi9hbmd1bGFyLXVpLXNvcnRhYmxlL3NvcnRhYmxlLmpzOy91bWJyYWNvL2xpYi9hbmd1bGFyLWR5bmFtaWMtbG9jYWxlL3RtaER5bmFtaWNMb2NhbGUubWluLmpzOy91bWJyYWNvL2xpYi9uZy1maWxlLXVwbG9hZC9uZy1maWxlLXVwbG9hZC5taW4uanM7L3VtYnJhY28vbGliL2FuZ3VsYXItbG9jYWwtc3RvcmFnZS9hbmd1bGFyLWxvY2FsLXN0b3JhZ2UubWluLmpzOy91bWJyYWNvL2xpYi9jaGFydC5qcy9jaGFydC5taW4uanM7L3VtYnJhY28vbGliL2FuZ3VsYXItY2hhcnQuanMvYW5ndWxhci1jaGFydC5taW4uanM7L3VtYnJhY28vbGliL3dpY2ctaW5lcnQvZGlzdC9pbmVydC5taW4uanM7L3VtYnJhY28vbGliL3VtYnJhY28vRXh0ZW5zaW9ucy5qczsvdW1icmFjby9saWIvdW1icmFjby9OYW1lc3BhY2VNYW5hZ2VyLmpzOy91bWJyYWNvL2xpYi91bWJyYWNvL0xlZ2FjeVNwZWVjaEJ1YmJsZS5qczsvdW1icmFjby9qcy91dGlsaXRpZXMuanM7L3VtYnJhY28vanMvYXBwLmpzOy91bWJyYWNvL2pzL3VtYnJhY28ucmVzb3VyY2VzLmpzOy91bWJyYWNvL2pzL3VtYnJhY28uZGlyZWN0aXZlcy5qczsvdW1icmFjby9qcy91bWJyYWNvLmZpbHRlcnMuanM7L3VtYnJhY28vanMvdW1icmFjby5zZXJ2aWNlcy5qczsvdW1icmFjby9qcy91bWJyYWNvLmludGVyY2VwdG9ycy5qczsvdW1icmFjby9qcy91bWJyYWNvLmNvbnRyb2xsZXJzLmpzOy91bWJyYWNvL2pzL3JvdXRlcy5qczsvdW1icmFjby9qcy9pbml0LmpzOw" file="C:\Users\s5\OneDrive\Desktop\DevProviderUmbraco_8_14\App_Data\TEMP\ClientDependency\1_dfff3d087cb34f73a5a6a418ebe3e310.cdJ" compression="gzip" version="1">
+    <files>
+      <file name="/umbraco/lib/jquery/jquery.min.js" />
+      <file name="/umbraco/lib/jquery-ui/jquery-ui.min.js" />
+      <file name="/umbraco/lib/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js" />
+      <file name="/umbraco/lib/angular/angular.js" />
+      <file name="/umbraco/lib/underscore/underscore-min.js" />
+      <file name="/umbraco/lib/moment/moment.min.js" />
+      <file name="/umbraco/lib/flatpickr/flatpickr.js" />
+      <file name="/umbraco/lib/animejs/anime.min.js" />
+      <file name="/umbraco/lib/angular-route/angular-route.js" />
+      <file name="/umbraco/lib/angular-cookies/angular-cookies.js" />
+      <file name="/umbraco/lib/angular-aria/angular-aria.min.js" />
+      <file name="/umbraco/lib/angular-touch/angular-touch.js" />
+      <file name="/umbraco/lib/angular-sanitize/angular-sanitize.js" />
+      <file name="/umbraco/lib/angular-animate/angular-animate.js" />
+      <file name="/umbraco/lib/angular-messages/angular-messages.js" />
+      <file name="/umbraco/lib/angular-ui-sortable/sortable.js" />
+      <file name="/umbraco/lib/angular-dynamic-locale/tmhDynamicLocale.min.js" />
+      <file name="/umbraco/lib/ng-file-upload/ng-file-upload.min.js" />
+      <file name="/umbraco/lib/angular-local-storage/angular-local-storage.min.js" />
+      <file name="/umbraco/lib/chart.js/chart.min.js" />
+      <file name="/umbraco/lib/angular-chart.js/angular-chart.min.js" />
+      <file name="/umbraco/lib/wicg-inert/dist/inert.min.js" />
+      <file name="/umbraco/lib/umbraco/Extensions.js" />
+      <file name="/umbraco/lib/umbraco/NamespaceManager.js" />
+      <file name="/umbraco/lib/umbraco/LegacySpeechBubble.js" />
+      <file name="/umbraco/js/utilities.js" />
+      <file name="/umbraco/js/app.js" />
+      <file name="/umbraco/js/umbraco.resources.js" />
+      <file name="/umbraco/js/umbraco.directives.js" />
+      <file name="/umbraco/js/umbraco.filters.js" />
+      <file name="/umbraco/js/umbraco.services.js" />
+      <file name="/umbraco/js/umbraco.interceptors.js" />
+      <file name="/umbraco/js/umbraco.controllers.js" />
+      <file name="/umbraco/js/routes.js" />
+      <file name="/umbraco/js/init.js" />
+    </files>
+  </item>
+  <item key="L3VtYnJhY28vbGliL3RpbnltY2UvdGlueW1jZS5taW4uanM7L3VtYnJhY28vbGliL3RpbnltY2UvcGx1Z2lucy9wYXN0ZS9wbHVnaW4ubWluLmpzOy91bWJyYWNvL2xpYi90aW55bWNlL3BsdWdpbnMvYW5jaG9yL3BsdWdpbi5taW4uanM7L3VtYnJhY28vbGliL3RpbnltY2UvcGx1Z2lucy9jaGFybWFwL3BsdWdpbi5taW4uanM7L3VtYnJhY28vbGliL3RpbnltY2UvcGx1Z2lucy90YWJsZS9wbHVnaW4ubWluLmpzOy91bWJyYWNvL2xpYi90aW55bWNlL3BsdWdpbnMvbGlzdHMvcGx1Z2luLm1pbi5qczsvdW1icmFjby9saWIvdGlueW1jZS9wbHVnaW5zL2Fkdmxpc3QvcGx1Z2luLm1pbi5qczsvdW1icmFjby9saWIvdGlueW1jZS9wbHVnaW5zL2hyL3BsdWdpbi5taW4uanM7L3VtYnJhY28vbGliL3RpbnltY2UvcGx1Z2lucy9hdXRvbGluay9wbHVnaW4ubWluLmpzOy91bWJyYWNvL2xpYi90aW55bWNlL3BsdWdpbnMvZGlyZWN0aW9uYWxpdHkvcGx1Z2luLm1pbi5qczsvdW1icmFjby9saWIvdGlueW1jZS9wbHVnaW5zL3RhYmZvY3VzL3BsdWdpbi5taW4uanM7L3VtYnJhY28vbGliL3RpbnltY2UvcGx1Z2lucy9zZWFyY2hyZXBsYWNlL3BsdWdpbi5taW4uanM7L3VtYnJhY28vbGliL3RpbnltY2UvcGx1Z2lucy9mdWxsc2NyZWVuL3BsdWdpbi5taW4uanM7L3VtYnJhY28vbGliL3RpbnltY2UvcGx1Z2lucy9ub25lZGl0YWJsZS9wbHVnaW4ubWluLmpzOw" file="C:\Users\s5\OneDrive\Desktop\DevProviderUmbraco_8_14\App_Data\TEMP\ClientDependency\1_24feaa7b9d584be7b61ab2a217f6bf1c.cdJ" compression="gzip" version="1">
+    <files>
+      <file name="/umbraco/lib/tinymce/tinymce.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/paste/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/anchor/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/charmap/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/table/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/lists/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/advlist/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/hr/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/autolink/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/directionality/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/tabfocus/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/searchreplace/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/fullscreen/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/noneditable/plugin.min.js" />
+    </files>
+  </item>
+  <item key="L3VtYnJhY28vYXNzZXRzL2Nzcy91bWJyYWNvLmNzczsvdW1icmFjby9saWIvYm9vdHN0cmFwLXNvY2lhbC9ib290c3RyYXAtc29jaWFsLmNzczsvdW1icmFjby9saWIvZm9udC1hd2Vzb21lL2Nzcy9mb250LWF3ZXNvbWUubWluLmNzczs" file="C:\Users\s5\OneDrive\Desktop\DevProviderUmbraco_8_14\App_Data\TEMP\ClientDependency\1410315794_2bce62e7a02d4d949e1be2e68b210c47.cdC" compression="gzip" version="1410315794">
+    <files>
+      <file name="/umbraco/assets/css/umbraco.css" />
+      <file name="/umbraco/lib/bootstrap-social/bootstrap-social.css" />
+      <file name="/umbraco/lib/font-awesome/css/font-awesome.min.css" />
+    </files>
+  </item>
+  <item key="L3VtYnJhY28vbGliL2pxdWVyeS9qcXVlcnkubWluLmpzOy91bWJyYWNvL2xpYi9qcXVlcnktdWkvanF1ZXJ5LXVpLm1pbi5qczsvdW1icmFjby9saWIvanF1ZXJ5LXVpLXRvdWNoLXB1bmNoL2pxdWVyeS51aS50b3VjaC1wdW5jaC5taW4uanM7L3VtYnJhY28vbGliL2FuZ3VsYXIvYW5ndWxhci5qczsvdW1icmFjby9saWIvdW5kZXJzY29yZS91bmRlcnNjb3JlLW1pbi5qczsvdW1icmFjby9saWIvbW9tZW50L21vbWVudC5taW4uanM7L3VtYnJhY28vbGliL2ZsYXRwaWNrci9mbGF0cGlja3IuanM7L3VtYnJhY28vbGliL2FuaW1lanMvYW5pbWUubWluLmpzOy91bWJyYWNvL2xpYi9hbmd1bGFyLXJvdXRlL2FuZ3VsYXItcm91dGUuanM7L3VtYnJhY28vbGliL2FuZ3VsYXItY29va2llcy9hbmd1bGFyLWNvb2tpZXMuanM7L3VtYnJhY28vbGliL2FuZ3VsYXItYXJpYS9hbmd1bGFyLWFyaWEubWluLmpzOy91bWJyYWNvL2xpYi9hbmd1bGFyLXRvdWNoL2FuZ3VsYXItdG91Y2guanM7L3VtYnJhY28vbGliL2FuZ3VsYXItc2FuaXRpemUvYW5ndWxhci1zYW5pdGl6ZS5qczsvdW1icmFjby9saWIvYW5ndWxhci1hbmltYXRlL2FuZ3VsYXItYW5pbWF0ZS5qczsvdW1icmFjby9saWIvYW5ndWxhci1tZXNzYWdlcy9hbmd1bGFyLW1lc3NhZ2VzLmpzOy91bWJyYWNvL2xpYi9hbmd1bGFyLXVpLXNvcnRhYmxlL3NvcnRhYmxlLmpzOy91bWJyYWNvL2xpYi9hbmd1bGFyLWR5bmFtaWMtbG9jYWxlL3RtaER5bmFtaWNMb2NhbGUubWluLmpzOy91bWJyYWNvL2xpYi9uZy1maWxlLXVwbG9hZC9uZy1maWxlLXVwbG9hZC5taW4uanM7L3VtYnJhY28vbGliL2FuZ3VsYXItbG9jYWwtc3RvcmFnZS9hbmd1bGFyLWxvY2FsLXN0b3JhZ2UubWluLmpzOy91bWJyYWNvL2xpYi9jaGFydC5qcy9jaGFydC5taW4uanM7L3VtYnJhY28vbGliL2FuZ3VsYXItY2hhcnQuanMvYW5ndWxhci1jaGFydC5taW4uanM7L3VtYnJhY28vbGliL3dpY2ctaW5lcnQvZGlzdC9pbmVydC5taW4uanM7L3VtYnJhY28vbGliL3VtYnJhY28vRXh0ZW5zaW9ucy5qczsvdW1icmFjby9saWIvdW1icmFjby9OYW1lc3BhY2VNYW5hZ2VyLmpzOy91bWJyYWNvL2xpYi91bWJyYWNvL0xlZ2FjeVNwZWVjaEJ1YmJsZS5qczsvdW1icmFjby9qcy91dGlsaXRpZXMuanM7L3VtYnJhY28vanMvYXBwLmpzOy91bWJyYWNvL2pzL3VtYnJhY28ucmVzb3VyY2VzLmpzOy91bWJyYWNvL2pzL3VtYnJhY28uZGlyZWN0aXZlcy5qczsvdW1icmFjby9qcy91bWJyYWNvLmZpbHRlcnMuanM7L3VtYnJhY28vanMvdW1icmFjby5zZXJ2aWNlcy5qczsvdW1icmFjby9qcy91bWJyYWNvLmludGVyY2VwdG9ycy5qczsvdW1icmFjby9qcy91bWJyYWNvLmNvbnRyb2xsZXJzLmpzOy91bWJyYWNvL2pzL3JvdXRlcy5qczsvdW1icmFjby9qcy9pbml0LmpzOy9BcHBfUGx1Z2lucy9PdXIuVW1icmFjby5NYXRyeW9zaGthL2NvbnRlbnQtaW50ZXJjZXB0b3IuanM7" file="C:\Users\s5\OneDrive\Desktop\DevProviderUmbraco_8_14\App_Data\TEMP\ClientDependency\1410315794_c6c5d9d3fe714d9cbc6c77ab8d86d881.cdJ" compression="gzip" version="1410315794">
+    <files>
+      <file name="/umbraco/lib/jquery/jquery.min.js" />
+      <file name="/umbraco/lib/jquery-ui/jquery-ui.min.js" />
+      <file name="/umbraco/lib/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js" />
+      <file name="/umbraco/lib/angular/angular.js" />
+      <file name="/umbraco/lib/underscore/underscore-min.js" />
+      <file name="/umbraco/lib/moment/moment.min.js" />
+      <file name="/umbraco/lib/flatpickr/flatpickr.js" />
+      <file name="/umbraco/lib/animejs/anime.min.js" />
+      <file name="/umbraco/lib/angular-route/angular-route.js" />
+      <file name="/umbraco/lib/angular-cookies/angular-cookies.js" />
+      <file name="/umbraco/lib/angular-aria/angular-aria.min.js" />
+      <file name="/umbraco/lib/angular-touch/angular-touch.js" />
+      <file name="/umbraco/lib/angular-sanitize/angular-sanitize.js" />
+      <file name="/umbraco/lib/angular-animate/angular-animate.js" />
+      <file name="/umbraco/lib/angular-messages/angular-messages.js" />
+      <file name="/umbraco/lib/angular-ui-sortable/sortable.js" />
+      <file name="/umbraco/lib/angular-dynamic-locale/tmhDynamicLocale.min.js" />
+      <file name="/umbraco/lib/ng-file-upload/ng-file-upload.min.js" />
+      <file name="/umbraco/lib/angular-local-storage/angular-local-storage.min.js" />
+      <file name="/umbraco/lib/chart.js/chart.min.js" />
+      <file name="/umbraco/lib/angular-chart.js/angular-chart.min.js" />
+      <file name="/umbraco/lib/wicg-inert/dist/inert.min.js" />
+      <file name="/umbraco/lib/umbraco/Extensions.js" />
+      <file name="/umbraco/lib/umbraco/NamespaceManager.js" />
+      <file name="/umbraco/lib/umbraco/LegacySpeechBubble.js" />
+      <file name="/umbraco/js/utilities.js" />
+      <file name="/umbraco/js/app.js" />
+      <file name="/umbraco/js/umbraco.resources.js" />
+      <file name="/umbraco/js/umbraco.directives.js" />
+      <file name="/umbraco/js/umbraco.filters.js" />
+      <file name="/umbraco/js/umbraco.services.js" />
+      <file name="/umbraco/js/umbraco.interceptors.js" />
+      <file name="/umbraco/js/umbraco.controllers.js" />
+      <file name="/umbraco/js/routes.js" />
+      <file name="/umbraco/js/init.js" />
+      <file name="/App_Plugins/Our.Umbraco.Matryoshka/content-interceptor.js" />
+    </files>
+  </item>
+  <item key="L0FwcF9QbHVnaW5zL091ci5VbWJyYWNvLk1hdHJ5b3Noa2EvZ3JvdXBzZXBhcmF0b3IuY29udHJvbGxlci5qczsvQXBwX1BsdWdpbnMvT3VyLlVtYnJhY28uTWF0cnlvc2hrYS9kaXJlY3RpdmVzL21hdHJ5b3Noa2EtdGFiYmVkLWNvbnRlbnQuZGlyZWN0aXZlLmpzOy9BcHBfUGx1Z2lucy9PdXIuVW1icmFjby5NYXRyeW9zaGthL2RpcmVjdGl2ZXMvbWF0cnlvc2hrYS12YWwtdGFiLmRpcmVjdGl2ZS5qczsvQXBwX1BsdWdpbnMvVW1icmFjb0Zvcm1zL2pzL3VtYnJhY28uZm9ybXMuanM7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2NvbnRyb2xsZXJzL2FkZGl0aW9uYWxjbGFzc2VzLWVkaXRvci1jb250cm9sbGVyLmpzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9jb250cm9sbGVycy9iYWNrZ3JvdW5kb3B0aW9ucy1lZGl0b3ItY29udHJvbGxlci5qczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY29udHJvbGxlcnMvY29sb3JwaWNrZXItZWRpdG9yLWNvbnRyb2xsZXIuanM7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2NvbnRyb2xsZXJzL2hlYWRpbmctZWRpdG9yLWNvbnRyb2xsZXIuanM7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2NvbnRyb2xsZXJzL2xhYmVsLWVkaXRvci1jb250cm9sbGVyLmpzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9jb250cm9sbGVycy9tZWdhbmF2LWVkaXRvci1jb250cm9sbGVyLmpzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9jb250cm9sbGVycy9tZWdhbmF2LWljb25waWNrZXItY29udHJvbGxlci5qczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvbGliL2FuZ3VsYXItdWktdHJlZS5qczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY29udHJvbGxlcnMvbXVsdGl1cmxwaWNrZXItZWRpdG9yLWNvbnRyb2xsZXIuanM7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2NvbnRyb2xsZXJzL211bHRpdXJscGlja2VyLWljb25waWNrZXItY29udHJvbGxlci5qczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY29udHJvbGxlcnMvbXVsdGl1cmxwaWNrZXItY29sb3JwaWNrZXItY29udHJvbGxlci5qczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY29udHJvbGxlcnMvbXVsdGl1cmxwaWNrZXItc2l6ZXBpY2tlci1jb250cm9sbGVyLmpzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9jb250cm9sbGVycy9vcHRpb25zc2hvd2hpZGUtZWRpdG9yLWNvbnRyb2xsZXIuanM7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2NvbnRyb2xsZXJzL29wdGlvbnNzaG93aGlkZS1wcmV2YWx1ZXMtY29udHJvbGxlci5qczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY29udHJvbGxlcnMvcmVhZG9ubHktZWRpdG9yLWNvbnRyb2xsZXIuanM7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2NvbnRyb2xsZXJzL3Nlb21ldGEtZWRpdG9yLWNvbnRyb2xsZXIuanM7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2NvbnRyb2xsZXJzL3RleHRwb3NpdGlvbi1lZGl0b3ItY29udHJvbGxlci5qczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY29udHJvbGxlcnMvdGhlbWVjb2xvcnMtZWRpdG9yLWNvbnRyb2xsZXIuanM7" file="C:\Users\s5\OneDrive\Desktop\DevProviderUmbraco_8_14\App_Data\TEMP\ClientDependency\1410315794_d3b0ad15be0b478db6cff02a23297d11.cdJ" compression="gzip" version="1410315794">
+    <files>
+      <file name="/App_Plugins/Our.Umbraco.Matryoshka/groupseparator.controller.js" />
+      <file name="/App_Plugins/Our.Umbraco.Matryoshka/directives/matryoshka-tabbed-content.directive.js" />
+      <file name="/App_Plugins/Our.Umbraco.Matryoshka/directives/matryoshka-val-tab.directive.js" />
+      <file name="/App_Plugins/UmbracoForms/js/umbraco.forms.js" />
+      <file name="/App_Plugins/uSkinned/controllers/additionalclasses-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/backgroundoptions-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/colorpicker-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/heading-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/label-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/meganav-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/meganav-iconpicker-controller.js" />
+      <file name="/App_Plugins/uSkinned/lib/angular-ui-tree.js" />
+      <file name="/App_Plugins/uSkinned/controllers/multiurlpicker-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/multiurlpicker-iconpicker-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/multiurlpicker-colorpicker-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/multiurlpicker-sizepicker-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/optionsshowhide-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/optionsshowhide-prevalues-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/readonly-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/seometa-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/textposition-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/themecolors-editor-controller.js" />
+    </files>
+  </item>
+  <item key="L0FwcF9QbHVnaW5zL091ci5VbWJyYWNvLk1hdHJ5b3Noa2EvZ3JvdXAtc2VwYXJhdG9yLmNzczsvQXBwX1BsdWdpbnMvT3VyLlVtYnJhY28uTWF0cnlvc2hrYS90YWJiZWQtY29udGVudC5jc3M7L0FwcF9QbHVnaW5zL1VtYnJhY29Gb3Jtcy9jc3MvdW1icmFjby5mb3Jtcy5jc3M7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2Nzcy9hZGRpdGlvbmFsY2xhc3Nlcy1zdHlsZS5jc3M7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2Nzcy9iYWNrZ3JvdW5kb3B0aW9ucy1zdHlsZS5jc3M7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2Nzcy9jb2xvcnBpY2tlci1lZGl0b3Itc3R5bGUuY3NzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9jc3MvY3VzdG9tLXN0eWxlLmNzczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY3NzL2hlYWRpbmctc3R5bGUuY3NzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9jc3MvbGFiZWwtc3R5bGUuY3NzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9jc3MvbWVnYW5hdi1zdHlsZS5jc3M7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2Nzcy9hbmd1bGFyLXVpLXRyZWUubWluLmNzczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY3NzL2FwcC5jc3M7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2Nzcy9tdWx0aXVybHBpY2tlci1zdHlsZS5jc3M7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2Nzcy9vcHRpb25zc2hvd2hpZGUtcHJldmFsdWVzLmNzczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY3NzL29wdGlvbnNzaG93aGlkZS1zdHlsZS5jc3M7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2Nzcy9zZW9tZXRhLXN0eWxlLmNzczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY3NzL3RleHRwb3NpdGlvbi1zdHlsZS5jc3M7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2Nzcy9zcGVjdHJ1bS5jc3M7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2Nzcy90cnVlZmFsc2VzaG93aGlkZS1zdHlsZS5jc3M7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2Nzcy92ZXJ0aWNhbHBvc2l0aW9uLXN0eWxlLmNzczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY3NzL2NvZGUtZWRpdG9yLXN0eWxlLmNzczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY3NzL3dlbGNvbWUtc3R5bGUuY3NzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9jc3MvbGljZW5zZS1zdHlsZS5jc3M7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2Nzcy9kZXNpZ25zLWxpc3R2aWV3LXN0eWxlLmNzczs" file="C:\Users\s5\OneDrive\Desktop\DevProviderUmbraco_8_14\App_Data\TEMP\ClientDependency\1410315794_cd075a12802348ae9d826c999f8b77ef.cdC" compression="gzip" version="1410315794">
+    <files>
+      <file name="/App_Plugins/Our.Umbraco.Matryoshka/group-separator.css" />
+      <file name="/App_Plugins/Our.Umbraco.Matryoshka/tabbed-content.css" />
+      <file name="/App_Plugins/UmbracoForms/css/umbraco.forms.css" />
+      <file name="/App_Plugins/uSkinned/css/additionalclasses-style.css" />
+      <file name="/App_Plugins/uSkinned/css/backgroundoptions-style.css" />
+      <file name="/App_Plugins/uSkinned/css/colorpicker-editor-style.css" />
+      <file name="/App_Plugins/uSkinned/css/custom-style.css" />
+      <file name="/App_Plugins/uSkinned/css/heading-style.css" />
+      <file name="/App_Plugins/uSkinned/css/label-style.css" />
+      <file name="/App_Plugins/uSkinned/css/meganav-style.css" />
+      <file name="/App_Plugins/uSkinned/css/angular-ui-tree.min.css" />
+      <file name="/App_Plugins/uSkinned/css/app.css" />
+      <file name="/App_Plugins/uSkinned/css/multiurlpicker-style.css" />
+      <file name="/App_Plugins/uSkinned/css/optionsshowhide-prevalues.css" />
+      <file name="/App_Plugins/uSkinned/css/optionsshowhide-style.css" />
+      <file name="/App_Plugins/uSkinned/css/seometa-style.css" />
+      <file name="/App_Plugins/uSkinned/css/textposition-style.css" />
+      <file name="/App_Plugins/uSkinned/css/spectrum.css" />
+      <file name="/App_Plugins/uSkinned/css/truefalseshowhide-style.css" />
+      <file name="/App_Plugins/uSkinned/css/verticalposition-style.css" />
+      <file name="/App_Plugins/uSkinned/css/code-editor-style.css" />
+      <file name="/App_Plugins/uSkinned/css/welcome-style.css" />
+      <file name="/App_Plugins/uSkinned/css/license-style.css" />
+      <file name="/App_Plugins/uSkinned/css/designs-listview-style.css" />
+    </files>
+  </item>
+  <item key="L0FwcF9QbHVnaW5zL3VTa2lubmVkL2xpYi9zcGVjdHJ1bS5qczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY29udHJvbGxlcnMvdGhlbWVmb250cy1lZGl0b3ItY29udHJvbGxlci5qczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY29udHJvbGxlcnMvdGhlbWVwaWNrZXItZWRpdG9yLWNvbnRyb2xsZXIuanM7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2NvbnRyb2xsZXJzL3RoZW1lc3BhY2luZy1lZGl0b3ItY29udHJvbGxlci5qczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY29udHJvbGxlcnMvdGhlbWVsYXlvdXQtZWRpdG9yLWNvbnRyb2xsZXIuanM7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2xpYi9zd2l0Y2hlci5qczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY29udHJvbGxlcnMvdHJ1ZWZhbHNlc2hvd2hpZGUtZWRpdG9yLWNvbnRyb2xsZXIuanM7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2NvbnRyb2xsZXJzL3ZlcnRpY2FscG9zaXRpb24tZWRpdG9yLWNvbnRyb2xsZXIuanM7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2NvbnRyb2xsZXJzL211bHRpbm9kZXRyZWVwaWNrZXItZWRpdG9yLWNvbnRyb2xsZXIuanM7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2NvbnRyb2xsZXJzL2NvZGUtZWRpdG9yLWNvbnRyb2xsZXIuanM7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2NvbnRyb2xsZXJzL3dlbGNvbWUtY29udHJvbGxlci5qczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY29udHJvbGxlcnMvbGljZW5zZS1kYXNoYm9hcmQuY29udHJvbGxlci5qczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY29udHJvbGxlcnMvZGVzaWducy1saXN0dmlldy1jb250cm9sbGVyLmpzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9jb250cm9sbGVycy9nbG9iYWwtbGlzdHZpZXctY29udHJvbGxlci5qczs" file="C:\Users\s5\OneDrive\Desktop\DevProviderUmbraco_8_14\App_Data\TEMP\ClientDependency\1410315794_4ac0d9f98a974398a76511f30b845159.cdJ" compression="gzip" version="1410315794">
+    <files>
+      <file name="/App_Plugins/uSkinned/lib/spectrum.js" />
+      <file name="/App_Plugins/uSkinned/controllers/themefonts-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/themepicker-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/themespacing-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/themelayout-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/lib/switcher.js" />
+      <file name="/App_Plugins/uSkinned/controllers/truefalseshowhide-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/verticalposition-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/multinodetreepicker-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/code-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/welcome-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/license-dashboard.controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/designs-listview-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/global-listview-controller.js" />
+    </files>
+  </item>
+  <item key="L3VtYnJhY28vbGliL3RpbnltY2UvdGlueW1jZS5taW4uanM7L3VtYnJhY28vbGliL3RpbnltY2UvcGx1Z2lucy9wYXN0ZS9wbHVnaW4ubWluLmpzOy91bWJyYWNvL2xpYi90aW55bWNlL3BsdWdpbnMvYW5jaG9yL3BsdWdpbi5taW4uanM7L3VtYnJhY28vbGliL3RpbnltY2UvcGx1Z2lucy9jaGFybWFwL3BsdWdpbi5taW4uanM7L3VtYnJhY28vbGliL3RpbnltY2UvcGx1Z2lucy90YWJsZS9wbHVnaW4ubWluLmpzOy91bWJyYWNvL2xpYi90aW55bWNlL3BsdWdpbnMvbGlzdHMvcGx1Z2luLm1pbi5qczsvdW1icmFjby9saWIvdGlueW1jZS9wbHVnaW5zL2Fkdmxpc3QvcGx1Z2luLm1pbi5qczsvdW1icmFjby9saWIvdGlueW1jZS9wbHVnaW5zL2hyL3BsdWdpbi5taW4uanM7L3VtYnJhY28vbGliL3RpbnltY2UvcGx1Z2lucy9hdXRvbGluay9wbHVnaW4ubWluLmpzOy91bWJyYWNvL2xpYi90aW55bWNlL3BsdWdpbnMvZGlyZWN0aW9uYWxpdHkvcGx1Z2luLm1pbi5qczsvdW1icmFjby9saWIvdGlueW1jZS9wbHVnaW5zL3RhYmZvY3VzL3BsdWdpbi5taW4uanM7L3VtYnJhY28vbGliL3RpbnltY2UvcGx1Z2lucy9zZWFyY2hyZXBsYWNlL3BsdWdpbi5taW4uanM7L3VtYnJhY28vbGliL3RpbnltY2UvcGx1Z2lucy9mdWxsc2NyZWVuL3BsdWdpbi5taW4uanM7L3VtYnJhY28vbGliL3RpbnltY2UvcGx1Z2lucy9ub25lZGl0YWJsZS9wbHVnaW4ubWluLmpzOw" file="C:\Users\s5\OneDrive\Desktop\DevProviderUmbraco_8_14\App_Data\TEMP\ClientDependency\1410315794_37e39fbb2cab4adc9e23f0dda0be6ad5.cdJ" compression="gzip" version="1410315794">
+    <files>
+      <file name="/umbraco/lib/tinymce/tinymce.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/paste/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/anchor/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/charmap/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/table/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/lists/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/advlist/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/hr/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/autolink/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/directionality/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/tabfocus/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/searchreplace/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/fullscreen/plugin.min.js" />
+      <file name="/umbraco/lib/tinymce/plugins/noneditable/plugin.min.js" />
+    </files>
+  </item>
+  <item key="L0FwcF9QbHVnaW5zL091ci5VbWJyYWNvLk1hdHJ5b3Noa2EvZ3JvdXAtc2VwYXJhdG9yLmNzczsvQXBwX1BsdWdpbnMvT3VyLlVtYnJhY28uTWF0cnlvc2hrYS90YWJiZWQtY29udGVudC5jc3M7L0FwcF9QbHVnaW5zL1VtYnJhY29Gb3Jtcy9jc3MvdW1icmFjby5mb3Jtcy5jc3M7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2Nzcy9hZGRpdGlvbmFsY2xhc3Nlcy1zdHlsZS5jc3M7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2Nzcy9iYWNrZ3JvdW5kb3B0aW9ucy1zdHlsZS5jc3M7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2Nzcy9jb2xvcnBpY2tlci1lZGl0b3Itc3R5bGUuY3NzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9jc3MvY3VzdG9tLXN0eWxlLmNzczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY3NzL2hlYWRpbmctc3R5bGUuY3NzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9jc3MvbGFiZWwtc3R5bGUuY3NzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9jc3MvbWVnYW5hdi1zdHlsZS5jc3M7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2Nzcy9hbmd1bGFyLXVpLXRyZWUubWluLmNzczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY3NzL2FwcC5jc3M7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2Nzcy9tdWx0aXVybHBpY2tlci1zdHlsZS5jc3M7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2Nzcy9vcHRpb25zc2hvd2hpZGUtcHJldmFsdWVzLmNzczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY3NzL29wdGlvbnNzaG93aGlkZS1zdHlsZS5jc3M7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2Nzcy9zZW9tZXRhLXN0eWxlLmNzczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY3NzL3RleHRwb3NpdGlvbi1zdHlsZS5jc3M7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2Nzcy9zcGVjdHJ1bS5jc3M7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2Nzcy90cnVlZmFsc2VzaG93aGlkZS1zdHlsZS5jc3M7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2Nzcy92ZXJ0aWNhbHBvc2l0aW9uLXN0eWxlLmNzczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY3NzL2NvZGUtZWRpdG9yLXN0eWxlLmNzczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY3NzL3dlbGNvbWUtc3R5bGUuY3NzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9jc3MvbGljZW5zZS1zdHlsZS5jc3M7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2Nzcy9kZXNpZ25zLWxpc3R2aWV3LXN0eWxlLmNzczsvYXBwX3BsdWdpbnMvdmVuZHIvY3NzL3ZlbmRyLmNzczs" file="C:\Users\s5\OneDrive\Desktop\DevProviderUmbraco_8_14\App_Data\TEMP\ClientDependency\1410315794_d4b1200d54f24ce89b1119b8bb6e848d.cdC" compression="gzip" version="1410315794">
+    <files>
+      <file name="/App_Plugins/Our.Umbraco.Matryoshka/group-separator.css" />
+      <file name="/App_Plugins/Our.Umbraco.Matryoshka/tabbed-content.css" />
+      <file name="/App_Plugins/UmbracoForms/css/umbraco.forms.css" />
+      <file name="/App_Plugins/uSkinned/css/additionalclasses-style.css" />
+      <file name="/App_Plugins/uSkinned/css/backgroundoptions-style.css" />
+      <file name="/App_Plugins/uSkinned/css/colorpicker-editor-style.css" />
+      <file name="/App_Plugins/uSkinned/css/custom-style.css" />
+      <file name="/App_Plugins/uSkinned/css/heading-style.css" />
+      <file name="/App_Plugins/uSkinned/css/label-style.css" />
+      <file name="/App_Plugins/uSkinned/css/meganav-style.css" />
+      <file name="/App_Plugins/uSkinned/css/angular-ui-tree.min.css" />
+      <file name="/App_Plugins/uSkinned/css/app.css" />
+      <file name="/App_Plugins/uSkinned/css/multiurlpicker-style.css" />
+      <file name="/App_Plugins/uSkinned/css/optionsshowhide-prevalues.css" />
+      <file name="/App_Plugins/uSkinned/css/optionsshowhide-style.css" />
+      <file name="/App_Plugins/uSkinned/css/seometa-style.css" />
+      <file name="/App_Plugins/uSkinned/css/textposition-style.css" />
+      <file name="/App_Plugins/uSkinned/css/spectrum.css" />
+      <file name="/App_Plugins/uSkinned/css/truefalseshowhide-style.css" />
+      <file name="/App_Plugins/uSkinned/css/verticalposition-style.css" />
+      <file name="/App_Plugins/uSkinned/css/code-editor-style.css" />
+      <file name="/App_Plugins/uSkinned/css/welcome-style.css" />
+      <file name="/App_Plugins/uSkinned/css/license-style.css" />
+      <file name="/App_Plugins/uSkinned/css/designs-listview-style.css" />
+      <file name="/app_plugins/vendr/css/vendr.css" />
+    </files>
+  </item>
+  <item key="L0FwcF9QbHVnaW5zL3VTa2lubmVkL2xpYi9zcGVjdHJ1bS5qczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY29udHJvbGxlcnMvdGhlbWVmb250cy1lZGl0b3ItY29udHJvbGxlci5qczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY29udHJvbGxlcnMvdGhlbWVwaWNrZXItZWRpdG9yLWNvbnRyb2xsZXIuanM7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2NvbnRyb2xsZXJzL3RoZW1lc3BhY2luZy1lZGl0b3ItY29udHJvbGxlci5qczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY29udHJvbGxlcnMvdGhlbWVsYXlvdXQtZWRpdG9yLWNvbnRyb2xsZXIuanM7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2xpYi9zd2l0Y2hlci5qczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY29udHJvbGxlcnMvdHJ1ZWZhbHNlc2hvd2hpZGUtZWRpdG9yLWNvbnRyb2xsZXIuanM7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2NvbnRyb2xsZXJzL3ZlcnRpY2FscG9zaXRpb24tZWRpdG9yLWNvbnRyb2xsZXIuanM7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2NvbnRyb2xsZXJzL211bHRpbm9kZXRyZWVwaWNrZXItZWRpdG9yLWNvbnRyb2xsZXIuanM7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2NvbnRyb2xsZXJzL2NvZGUtZWRpdG9yLWNvbnRyb2xsZXIuanM7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2NvbnRyb2xsZXJzL3dlbGNvbWUtY29udHJvbGxlci5qczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY29udHJvbGxlcnMvbGljZW5zZS1kYXNoYm9hcmQuY29udHJvbGxlci5qczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY29udHJvbGxlcnMvZGVzaWducy1saXN0dmlldy1jb250cm9sbGVyLmpzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9jb250cm9sbGVycy9nbG9iYWwtbGlzdHZpZXctY29udHJvbGxlci5qczsvQXBwX1BsdWdpbnMvdmVuZHIvanMvdmVuZHIudmVuZG9yLmpzOy9BcHBfUGx1Z2lucy92ZW5kci9qcy92ZW5kci5leHRlbnNpb25zLmpzOy9BcHBfUGx1Z2lucy92ZW5kci9qcy92ZW5kci5tb2R1bGVzLmpzOy9BcHBfUGx1Z2lucy92ZW5kci9qcy92ZW5kci5wcm92aWRlcnMuanM7L0FwcF9QbHVnaW5zL3ZlbmRyL2pzL3ZlbmRyLmludGVyY2VwdG9ycy5qczsvQXBwX1BsdWdpbnMvdmVuZHIvanMvdmVuZHIuZGVjb3JhdG9ycy5qczsvQXBwX1BsdWdpbnMvdmVuZHIvanMvdmVuZHIuZmlsdGVycy5qczsvQXBwX1BsdWdpbnMvdmVuZHIvanMvdmVuZHIuZGlyZWN0aXZlcy5qczsvQXBwX1BsdWdpbnMvdmVuZHIvanMvdmVuZHIucmVzb3VyY2VzLmpzOy9BcHBfUGx1Z2lucy92ZW5kci9qcy92ZW5kci5zZXJ2aWNlcy5qczsvQXBwX1BsdWdpbnMvdmVuZHIvanMvdmVuZHIuY29udHJvbGxlcnMuanM7" file="C:\Users\s5\OneDrive\Desktop\DevProviderUmbraco_8_14\App_Data\TEMP\ClientDependency\1410315794_ed5806cce29645fe89885899b3faa669.cdJ" compression="gzip" version="1410315794">
+    <files>
+      <file name="/App_Plugins/uSkinned/lib/spectrum.js" />
+      <file name="/App_Plugins/uSkinned/controllers/themefonts-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/themepicker-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/themespacing-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/themelayout-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/lib/switcher.js" />
+      <file name="/App_Plugins/uSkinned/controllers/truefalseshowhide-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/verticalposition-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/multinodetreepicker-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/code-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/welcome-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/license-dashboard.controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/designs-listview-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/global-listview-controller.js" />
+      <file name="/App_Plugins/vendr/js/vendr.vendor.js" />
+      <file name="/App_Plugins/vendr/js/vendr.extensions.js" />
+      <file name="/App_Plugins/vendr/js/vendr.modules.js" />
+      <file name="/App_Plugins/vendr/js/vendr.providers.js" />
+      <file name="/App_Plugins/vendr/js/vendr.interceptors.js" />
+      <file name="/App_Plugins/vendr/js/vendr.decorators.js" />
+      <file name="/App_Plugins/vendr/js/vendr.filters.js" />
+      <file name="/App_Plugins/vendr/js/vendr.directives.js" />
+      <file name="/App_Plugins/vendr/js/vendr.resources.js" />
+      <file name="/App_Plugins/vendr/js/vendr.services.js" />
+      <file name="/App_Plugins/vendr/js/vendr.controllers.js" />
+    </files>
+  </item>
+  <item key="L0FwcF9QbHVnaW5zL0RvY3VtZW50c1NlY3Rpb24vY3NzL2RvY3VtZW50c1NlY3Rpb24uc3R5bGVzLmNzczsvQXBwX1BsdWdpbnMvT3VyLlVtYnJhY28uTWF0cnlvc2hrYS9ncm91cC1zZXBhcmF0b3IuY3NzOy9BcHBfUGx1Z2lucy9PdXIuVW1icmFjby5NYXRyeW9zaGthL3RhYmJlZC1jb250ZW50LmNzczsvQXBwX1BsdWdpbnMvVW1icmFjb0Zvcm1zL2Nzcy91bWJyYWNvLmZvcm1zLmNzczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY3NzL2FkZGl0aW9uYWxjbGFzc2VzLXN0eWxlLmNzczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY3NzL2JhY2tncm91bmRvcHRpb25zLXN0eWxlLmNzczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY3NzL2NvbG9ycGlja2VyLWVkaXRvci1zdHlsZS5jc3M7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2Nzcy9jdXN0b20tc3R5bGUuY3NzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9jc3MvaGVhZGluZy1zdHlsZS5jc3M7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2Nzcy9sYWJlbC1zdHlsZS5jc3M7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2Nzcy9tZWdhbmF2LXN0eWxlLmNzczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY3NzL2FuZ3VsYXItdWktdHJlZS5taW4uY3NzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9jc3MvYXBwLmNzczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY3NzL211bHRpdXJscGlja2VyLXN0eWxlLmNzczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY3NzL29wdGlvbnNzaG93aGlkZS1wcmV2YWx1ZXMuY3NzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9jc3Mvb3B0aW9uc3Nob3doaWRlLXN0eWxlLmNzczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY3NzL3Nlb21ldGEtc3R5bGUuY3NzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9jc3MvdGV4dHBvc2l0aW9uLXN0eWxlLmNzczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY3NzL3NwZWN0cnVtLmNzczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY3NzL3RydWVmYWxzZXNob3doaWRlLXN0eWxlLmNzczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY3NzL3ZlcnRpY2FscG9zaXRpb24tc3R5bGUuY3NzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9jc3MvY29kZS1lZGl0b3Itc3R5bGUuY3NzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9jc3Mvd2VsY29tZS1zdHlsZS5jc3M7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2Nzcy9saWNlbnNlLXN0eWxlLmNzczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY3NzL2Rlc2lnbnMtbGlzdHZpZXctc3R5bGUuY3NzOy9hcHBfcGx1Z2lucy92ZW5kci9jc3MvdmVuZHIuY3NzOw" file="C:\Users\s5\OneDrive\Desktop\DevProviderUmbraco_8_14\App_Data\TEMP\ClientDependency\1410315794_579a5f61d4a745f18f0c3fad80ccbd81.cdC" compression="gzip" version="1410315794">
+    <files>
+      <file name="/App_Plugins/DocumentsSection/css/documentsSection.styles.css" />
+      <file name="/App_Plugins/Our.Umbraco.Matryoshka/group-separator.css" />
+      <file name="/App_Plugins/Our.Umbraco.Matryoshka/tabbed-content.css" />
+      <file name="/App_Plugins/UmbracoForms/css/umbraco.forms.css" />
+      <file name="/App_Plugins/uSkinned/css/additionalclasses-style.css" />
+      <file name="/App_Plugins/uSkinned/css/backgroundoptions-style.css" />
+      <file name="/App_Plugins/uSkinned/css/colorpicker-editor-style.css" />
+      <file name="/App_Plugins/uSkinned/css/custom-style.css" />
+      <file name="/App_Plugins/uSkinned/css/heading-style.css" />
+      <file name="/App_Plugins/uSkinned/css/label-style.css" />
+      <file name="/App_Plugins/uSkinned/css/meganav-style.css" />
+      <file name="/App_Plugins/uSkinned/css/angular-ui-tree.min.css" />
+      <file name="/App_Plugins/uSkinned/css/app.css" />
+      <file name="/App_Plugins/uSkinned/css/multiurlpicker-style.css" />
+      <file name="/App_Plugins/uSkinned/css/optionsshowhide-prevalues.css" />
+      <file name="/App_Plugins/uSkinned/css/optionsshowhide-style.css" />
+      <file name="/App_Plugins/uSkinned/css/seometa-style.css" />
+      <file name="/App_Plugins/uSkinned/css/textposition-style.css" />
+      <file name="/App_Plugins/uSkinned/css/spectrum.css" />
+      <file name="/App_Plugins/uSkinned/css/truefalseshowhide-style.css" />
+      <file name="/App_Plugins/uSkinned/css/verticalposition-style.css" />
+      <file name="/App_Plugins/uSkinned/css/code-editor-style.css" />
+      <file name="/App_Plugins/uSkinned/css/welcome-style.css" />
+      <file name="/App_Plugins/uSkinned/css/license-style.css" />
+      <file name="/App_Plugins/uSkinned/css/designs-listview-style.css" />
+      <file name="/app_plugins/vendr/css/vendr.css" />
+    </files>
+  </item>
+  <item key="L0FwcF9QbHVnaW5zL0RvY3VtZW50c1NlY3Rpb24vUmVxdWVzdGVkVXNlckxpc3QuUmVzb3VyY2UuanM7L0FwcF9QbHVnaW5zL0RvY3VtZW50c1NlY3Rpb24vUHJvZHVjdHNMaXN0LlJlc291cmNlLmpzOy9BcHBfUGx1Z2lucy9Eb2N1bWVudHNTZWN0aW9uL1Byb3ZpZGVyV2FsbGV0LlJlc291cmNlLmpzOy9BcHBfUGx1Z2lucy9Eb2N1bWVudHNTZWN0aW9uL2JhY2tvZmZpY2UvRG9jdW1lbnRzU2VjdGlvblRyZWUvUmVxdWVzdGVkVXNlckxpc3REYXNoYm9hcmQuQ29udHJvbGxlci5qczsvQXBwX1BsdWdpbnMvRG9jdW1lbnRzU2VjdGlvbi9iYWNrb2ZmaWNlL0RvY3VtZW50c1NlY3Rpb25UcmVlL3dhaXRpbmdGb3JBcHByb3ZhbFVzZXJzLmNvbnRyb2xsZXIuanM7L0FwcF9QbHVnaW5zL0RvY3VtZW50c1NlY3Rpb24vYmFja29mZmljZS9Eb2N1bWVudHNTZWN0aW9uVHJlZS9hcHByb3ZlZFVzZXJzLmNvbnRyb2xsZXIuanM7L0FwcF9QbHVnaW5zL0RvY3VtZW50c1NlY3Rpb24vYmFja29mZmljZS9Eb2N1bWVudHNTZWN0aW9uVHJlZS9yZWplY3RlZFVzZXJzLmNvbnRyb2xsZXIuanM7L0FwcF9QbHVnaW5zL0RvY3VtZW50c1NlY3Rpb24vYmFja29mZmljZS9Eb2N1bWVudHNTZWN0aW9uVHJlZS9wcm9kdWN0c0xpc3QuY29udHJvbGxlci5qczsvQXBwX1BsdWdpbnMvRG9jdW1lbnRzU2VjdGlvbi9iYWNrb2ZmaWNlL0RvY3VtZW50c1NlY3Rpb25UcmVlL3Byb2R1Y3REZXRhaWxzLmNvbnRyb2xsZXIuanM7L0FwcF9QbHVnaW5zL0RvY3VtZW50c1NlY3Rpb24vYmFja29mZmljZS9Eb2N1bWVudHNTZWN0aW9uVHJlZS9wcm92aWRlcldpdGhkcmF3YWxSZXF1ZXN0cy5jb250cm9sbGVyLmpzOy9BcHBfUGx1Z2lucy9Eb2N1bWVudHNTZWN0aW9uL2JhY2tvZmZpY2UvRG9jdW1lbnRzU2VjdGlvblRyZWUvcGF5bWVudEhpc3RvcnkuY29udHJvbGxlci5qczsvQXBwX1BsdWdpbnMvRG9jdW1lbnRzU2VjdGlvbi9iYWNrb2ZmaWNlL0RvY3VtZW50c1NlY3Rpb25UcmVlL3Byb3ZpZGVyV2l0aGRyYXdhbERldGFpbHMuY29udHJvbGxlci5qczsvQXBwX1BsdWdpbnMvT3VyLlVtYnJhY28uTWF0cnlvc2hrYS9jb250ZW50LWludGVyY2VwdG9yLmpzOy9BcHBfUGx1Z2lucy9PdXIuVW1icmFjby5NYXRyeW9zaGthL2dyb3Vwc2VwYXJhdG9yLmNvbnRyb2xsZXIuanM7L0FwcF9QbHVnaW5zL091ci5VbWJyYWNvLk1hdHJ5b3Noa2EvZGlyZWN0aXZlcy9tYXRyeW9zaGthLXRhYmJlZC1jb250ZW50LmRpcmVjdGl2ZS5qczsvQXBwX1BsdWdpbnMvT3VyLlVtYnJhY28uTWF0cnlvc2hrYS9kaXJlY3RpdmVzL21hdHJ5b3Noa2EtdmFsLXRhYi5kaXJlY3RpdmUuanM7L0FwcF9QbHVnaW5zL1VtYnJhY29Gb3Jtcy9qcy91bWJyYWNvLmZvcm1zLmpzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9jb250cm9sbGVycy9hZGRpdGlvbmFsY2xhc3Nlcy1lZGl0b3ItY29udHJvbGxlci5qczs" file="C:\Users\s5\OneDrive\Desktop\DevProviderUmbraco_8_14\App_Data\TEMP\ClientDependency\1410315794_f119e0183e6c4b8b9fc3da8c58bf92ed.cdJ" compression="gzip" version="1410315794">
+    <files>
+      <file name="/App_Plugins/DocumentsSection/RequestedUserList.Resource.js" />
+      <file name="/App_Plugins/DocumentsSection/ProductsList.Resource.js" />
+      <file name="/App_Plugins/DocumentsSection/ProviderWallet.Resource.js" />
+      <file name="/App_Plugins/DocumentsSection/backoffice/DocumentsSectionTree/RequestedUserListDashboard.Controller.js" />
+      <file name="/App_Plugins/DocumentsSection/backoffice/DocumentsSectionTree/waitingForApprovalUsers.controller.js" />
+      <file name="/App_Plugins/DocumentsSection/backoffice/DocumentsSectionTree/approvedUsers.controller.js" />
+      <file name="/App_Plugins/DocumentsSection/backoffice/DocumentsSectionTree/rejectedUsers.controller.js" />
+      <file name="/App_Plugins/DocumentsSection/backoffice/DocumentsSectionTree/productsList.controller.js" />
+      <file name="/App_Plugins/DocumentsSection/backoffice/DocumentsSectionTree/productDetails.controller.js" />
+      <file name="/App_Plugins/DocumentsSection/backoffice/DocumentsSectionTree/providerWithdrawalRequests.controller.js" />
+      <file name="/App_Plugins/DocumentsSection/backoffice/DocumentsSectionTree/paymentHistory.controller.js" />
+      <file name="/App_Plugins/Our.Umbraco.Matryoshka/content-interceptor.js" />
+      <file name="/App_Plugins/Our.Umbraco.Matryoshka/groupseparator.controller.js" />
+      <file name="/App_Plugins/Our.Umbraco.Matryoshka/directives/matryoshka-tabbed-content.directive.js" />
+      <file name="/App_Plugins/Our.Umbraco.Matryoshka/directives/matryoshka-val-tab.directive.js" />
+      <file name="/App_Plugins/UmbracoForms/js/umbraco.forms.js" />
+      <file name="/App_Plugins/uSkinned/controllers/additionalclasses-editor-controller.js" />
+    </files>
+  </item>
+  <item key="L0FwcF9QbHVnaW5zL3VTa2lubmVkL2NvbnRyb2xsZXJzL3RydWVmYWxzZXNob3doaWRlLWVkaXRvci1jb250cm9sbGVyLmpzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9jb250cm9sbGVycy92ZXJ0aWNhbHBvc2l0aW9uLWVkaXRvci1jb250cm9sbGVyLmpzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9jb250cm9sbGVycy9tdWx0aW5vZGV0cmVlcGlja2VyLWVkaXRvci1jb250cm9sbGVyLmpzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9jb250cm9sbGVycy9jb2RlLWVkaXRvci1jb250cm9sbGVyLmpzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9jb250cm9sbGVycy93ZWxjb21lLWNvbnRyb2xsZXIuanM7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2NvbnRyb2xsZXJzL2xpY2Vuc2UtZGFzaGJvYXJkLmNvbnRyb2xsZXIuanM7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2NvbnRyb2xsZXJzL2Rlc2lnbnMtbGlzdHZpZXctY29udHJvbGxlci5qczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY29udHJvbGxlcnMvZ2xvYmFsLWxpc3R2aWV3LWNvbnRyb2xsZXIuanM7L0FwcF9QbHVnaW5zL3ZlbmRyL2pzL3ZlbmRyLnZlbmRvci5qczsvQXBwX1BsdWdpbnMvdmVuZHIvanMvdmVuZHIuZXh0ZW5zaW9ucy5qczsvQXBwX1BsdWdpbnMvdmVuZHIvanMvdmVuZHIubW9kdWxlcy5qczsvQXBwX1BsdWdpbnMvdmVuZHIvanMvdmVuZHIucHJvdmlkZXJzLmpzOy9BcHBfUGx1Z2lucy92ZW5kci9qcy92ZW5kci5pbnRlcmNlcHRvcnMuanM7L0FwcF9QbHVnaW5zL3ZlbmRyL2pzL3ZlbmRyLmRlY29yYXRvcnMuanM7L0FwcF9QbHVnaW5zL3ZlbmRyL2pzL3ZlbmRyLmZpbHRlcnMuanM7L0FwcF9QbHVnaW5zL3ZlbmRyL2pzL3ZlbmRyLmRpcmVjdGl2ZXMuanM7L0FwcF9QbHVnaW5zL3ZlbmRyL2pzL3ZlbmRyLnJlc291cmNlcy5qczsvQXBwX1BsdWdpbnMvdmVuZHIvanMvdmVuZHIuc2VydmljZXMuanM7L0FwcF9QbHVnaW5zL3ZlbmRyL2pzL3ZlbmRyLmNvbnRyb2xsZXJzLmpzOw" file="C:\Users\s5\OneDrive\Desktop\DevProviderUmbraco_8_14\App_Data\TEMP\ClientDependency\1410315794_100ee753569047519bc7b1bd7da63e50.cdJ" compression="gzip" version="1410315794">
+    <files>
+      <file name="/App_Plugins/uSkinned/controllers/truefalseshowhide-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/verticalposition-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/multinodetreepicker-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/code-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/welcome-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/license-dashboard.controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/designs-listview-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/global-listview-controller.js" />
+      <file name="/App_Plugins/vendr/js/vendr.vendor.js" />
+      <file name="/App_Plugins/vendr/js/vendr.extensions.js" />
+      <file name="/App_Plugins/vendr/js/vendr.modules.js" />
+      <file name="/App_Plugins/vendr/js/vendr.providers.js" />
+      <file name="/App_Plugins/vendr/js/vendr.interceptors.js" />
+      <file name="/App_Plugins/vendr/js/vendr.decorators.js" />
+      <file name="/App_Plugins/vendr/js/vendr.filters.js" />
+      <file name="/App_Plugins/vendr/js/vendr.directives.js" />
+      <file name="/App_Plugins/vendr/js/vendr.resources.js" />
+      <file name="/App_Plugins/vendr/js/vendr.services.js" />
+      <file name="/App_Plugins/vendr/js/vendr.controllers.js" />
+    </files>
+  </item>
+  <item key="L3VtYnJhY28vbGliL2pxdWVyeS9qcXVlcnkubWluLmpzOy91bWJyYWNvL2xpYi9qcXVlcnktdWkvanF1ZXJ5LXVpLm1pbi5qczsvdW1icmFjby9saWIvanF1ZXJ5LXVpLXRvdWNoLXB1bmNoL2pxdWVyeS51aS50b3VjaC1wdW5jaC5taW4uanM7L3VtYnJhY28vbGliL2FuZ3VsYXIvYW5ndWxhci5qczsvdW1icmFjby9saWIvdW5kZXJzY29yZS91bmRlcnNjb3JlLW1pbi5qczsvdW1icmFjby9saWIvbW9tZW50L21vbWVudC5taW4uanM7L3VtYnJhY28vbGliL2ZsYXRwaWNrci9mbGF0cGlja3IuanM7L3VtYnJhY28vbGliL2FuaW1lanMvYW5pbWUubWluLmpzOy91bWJyYWNvL2xpYi9hbmd1bGFyLXJvdXRlL2FuZ3VsYXItcm91dGUuanM7L3VtYnJhY28vbGliL2FuZ3VsYXItY29va2llcy9hbmd1bGFyLWNvb2tpZXMuanM7L3VtYnJhY28vbGliL2FuZ3VsYXItYXJpYS9hbmd1bGFyLWFyaWEubWluLmpzOy91bWJyYWNvL2xpYi9hbmd1bGFyLXRvdWNoL2FuZ3VsYXItdG91Y2guanM7L3VtYnJhY28vbGliL2FuZ3VsYXItc2FuaXRpemUvYW5ndWxhci1zYW5pdGl6ZS5qczsvdW1icmFjby9saWIvYW5ndWxhci1hbmltYXRlL2FuZ3VsYXItYW5pbWF0ZS5qczsvdW1icmFjby9saWIvYW5ndWxhci1tZXNzYWdlcy9hbmd1bGFyLW1lc3NhZ2VzLmpzOy91bWJyYWNvL2xpYi9hbmd1bGFyLXVpLXNvcnRhYmxlL3NvcnRhYmxlLmpzOy91bWJyYWNvL2xpYi9hbmd1bGFyLWR5bmFtaWMtbG9jYWxlL3RtaER5bmFtaWNMb2NhbGUubWluLmpzOy91bWJyYWNvL2xpYi9uZy1maWxlLXVwbG9hZC9uZy1maWxlLXVwbG9hZC5taW4uanM7L3VtYnJhY28vbGliL2FuZ3VsYXItbG9jYWwtc3RvcmFnZS9hbmd1bGFyLWxvY2FsLXN0b3JhZ2UubWluLmpzOy91bWJyYWNvL2xpYi9jaGFydC5qcy9jaGFydC5taW4uanM7L3VtYnJhY28vbGliL2FuZ3VsYXItY2hhcnQuanMvYW5ndWxhci1jaGFydC5taW4uanM7L3VtYnJhY28vbGliL3dpY2ctaW5lcnQvZGlzdC9pbmVydC5taW4uanM7L3VtYnJhY28vbGliL3VtYnJhY28vRXh0ZW5zaW9ucy5qczsvdW1icmFjby9saWIvdW1icmFjby9OYW1lc3BhY2VNYW5hZ2VyLmpzOy91bWJyYWNvL2xpYi91bWJyYWNvL0xlZ2FjeVNwZWVjaEJ1YmJsZS5qczsvdW1icmFjby9qcy91dGlsaXRpZXMuanM7L3VtYnJhY28vanMvYXBwLmpzOy91bWJyYWNvL2pzL3VtYnJhY28ucmVzb3VyY2VzLmpzOy91bWJyYWNvL2pzL3VtYnJhY28uZGlyZWN0aXZlcy5qczsvdW1icmFjby9qcy91bWJyYWNvLmZpbHRlcnMuanM7L3VtYnJhY28vanMvdW1icmFjby5zZXJ2aWNlcy5qczsvdW1icmFjby9qcy91bWJyYWNvLmludGVyY2VwdG9ycy5qczsvdW1icmFjby9qcy91bWJyYWNvLmNvbnRyb2xsZXJzLmpzOy91bWJyYWNvL2pzL3JvdXRlcy5qczsvdW1icmFjby9qcy9pbml0LmpzOy9BcHBfUGx1Z2lucy9Eb2N1bWVudHNTZWN0aW9uL2pzL2RvY3VtZW50c1NlY3Rpb24uY29udHJvbGxlci5qczs" file="C:\Users\s5\OneDrive\Desktop\DevProviderUmbraco_8_14\App_Data\TEMP\ClientDependency\1410315794_c445f93d79fc452b8119d434e89dd5c3.cdJ" compression="gzip" version="1410315794">
+    <files>
+      <file name="/umbraco/lib/jquery/jquery.min.js" />
+      <file name="/umbraco/lib/jquery-ui/jquery-ui.min.js" />
+      <file name="/umbraco/lib/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js" />
+      <file name="/umbraco/lib/angular/angular.js" />
+      <file name="/umbraco/lib/underscore/underscore-min.js" />
+      <file name="/umbraco/lib/moment/moment.min.js" />
+      <file name="/umbraco/lib/flatpickr/flatpickr.js" />
+      <file name="/umbraco/lib/animejs/anime.min.js" />
+      <file name="/umbraco/lib/angular-route/angular-route.js" />
+      <file name="/umbraco/lib/angular-cookies/angular-cookies.js" />
+      <file name="/umbraco/lib/angular-aria/angular-aria.min.js" />
+      <file name="/umbraco/lib/angular-touch/angular-touch.js" />
+      <file name="/umbraco/lib/angular-sanitize/angular-sanitize.js" />
+      <file name="/umbraco/lib/angular-animate/angular-animate.js" />
+      <file name="/umbraco/lib/angular-messages/angular-messages.js" />
+      <file name="/umbraco/lib/angular-ui-sortable/sortable.js" />
+      <file name="/umbraco/lib/angular-dynamic-locale/tmhDynamicLocale.min.js" />
+      <file name="/umbraco/lib/ng-file-upload/ng-file-upload.min.js" />
+      <file name="/umbraco/lib/angular-local-storage/angular-local-storage.min.js" />
+      <file name="/umbraco/lib/chart.js/chart.min.js" />
+      <file name="/umbraco/lib/angular-chart.js/angular-chart.min.js" />
+      <file name="/umbraco/lib/wicg-inert/dist/inert.min.js" />
+      <file name="/umbraco/lib/umbraco/Extensions.js" />
+      <file name="/umbraco/lib/umbraco/NamespaceManager.js" />
+      <file name="/umbraco/lib/umbraco/LegacySpeechBubble.js" />
+      <file name="/umbraco/js/utilities.js" />
+      <file name="/umbraco/js/app.js" />
+      <file name="/umbraco/js/umbraco.resources.js" />
+      <file name="/umbraco/js/umbraco.directives.js" />
+      <file name="/umbraco/js/umbraco.filters.js" />
+      <file name="/umbraco/js/umbraco.services.js" />
+      <file name="/umbraco/js/umbraco.interceptors.js" />
+      <file name="/umbraco/js/umbraco.controllers.js" />
+      <file name="/umbraco/js/routes.js" />
+      <file name="/umbraco/js/init.js" />
+      <file name="/App_Plugins/DocumentsSection/js/documentsSection.controller.js" />
+    </files>
+  </item>
+  <item key="L0FwcF9QbHVnaW5zL3VTa2lubmVkL2NvbnRyb2xsZXJzL2JhY2tncm91bmRvcHRpb25zLWVkaXRvci1jb250cm9sbGVyLmpzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9jb250cm9sbGVycy9jb2xvcnBpY2tlci1lZGl0b3ItY29udHJvbGxlci5qczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY29udHJvbGxlcnMvaGVhZGluZy1lZGl0b3ItY29udHJvbGxlci5qczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY29udHJvbGxlcnMvbGFiZWwtZWRpdG9yLWNvbnRyb2xsZXIuanM7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2NvbnRyb2xsZXJzL21lZ2FuYXYtZWRpdG9yLWNvbnRyb2xsZXIuanM7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2NvbnRyb2xsZXJzL21lZ2FuYXYtaWNvbnBpY2tlci1jb250cm9sbGVyLmpzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9saWIvYW5ndWxhci11aS10cmVlLmpzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9jb250cm9sbGVycy9tdWx0aXVybHBpY2tlci1lZGl0b3ItY29udHJvbGxlci5qczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY29udHJvbGxlcnMvbXVsdGl1cmxwaWNrZXItaWNvbnBpY2tlci1jb250cm9sbGVyLmpzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9jb250cm9sbGVycy9tdWx0aXVybHBpY2tlci1jb2xvcnBpY2tlci1jb250cm9sbGVyLmpzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9jb250cm9sbGVycy9tdWx0aXVybHBpY2tlci1zaXplcGlja2VyLWNvbnRyb2xsZXIuanM7L0FwcF9QbHVnaW5zL3VTa2lubmVkL2NvbnRyb2xsZXJzL29wdGlvbnNzaG93aGlkZS1lZGl0b3ItY29udHJvbGxlci5qczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY29udHJvbGxlcnMvb3B0aW9uc3Nob3doaWRlLXByZXZhbHVlcy1jb250cm9sbGVyLmpzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9jb250cm9sbGVycy9yZWFkb25seS1lZGl0b3ItY29udHJvbGxlci5qczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY29udHJvbGxlcnMvc2VvbWV0YS1lZGl0b3ItY29udHJvbGxlci5qczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY29udHJvbGxlcnMvdGV4dHBvc2l0aW9uLWVkaXRvci1jb250cm9sbGVyLmpzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9jb250cm9sbGVycy90aGVtZWNvbG9ycy1lZGl0b3ItY29udHJvbGxlci5qczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvbGliL3NwZWN0cnVtLmpzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9jb250cm9sbGVycy90aGVtZWZvbnRzLWVkaXRvci1jb250cm9sbGVyLmpzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9jb250cm9sbGVycy90aGVtZXBpY2tlci1lZGl0b3ItY29udHJvbGxlci5qczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvY29udHJvbGxlcnMvdGhlbWVzcGFjaW5nLWVkaXRvci1jb250cm9sbGVyLmpzOy9BcHBfUGx1Z2lucy91U2tpbm5lZC9jb250cm9sbGVycy90aGVtZWxheW91dC1lZGl0b3ItY29udHJvbGxlci5qczsvQXBwX1BsdWdpbnMvdVNraW5uZWQvbGliL3N3aXRjaGVyLmpzOw" file="C:\Users\s5\OneDrive\Desktop\DevProviderUmbraco_8_14\App_Data\TEMP\ClientDependency\1410315794_2a97888c3741466fbfc252099f870e71.cdJ" compression="gzip" version="1410315794">
+    <files>
+      <file name="/App_Plugins/uSkinned/controllers/backgroundoptions-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/colorpicker-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/heading-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/label-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/meganav-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/meganav-iconpicker-controller.js" />
+      <file name="/App_Plugins/uSkinned/lib/angular-ui-tree.js" />
+      <file name="/App_Plugins/uSkinned/controllers/multiurlpicker-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/multiurlpicker-iconpicker-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/multiurlpicker-colorpicker-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/multiurlpicker-sizepicker-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/optionsshowhide-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/optionsshowhide-prevalues-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/readonly-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/seometa-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/textposition-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/themecolors-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/lib/spectrum.js" />
+      <file name="/App_Plugins/uSkinned/controllers/themefonts-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/themepicker-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/themespacing-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/controllers/themelayout-editor-controller.js" />
+      <file name="/App_Plugins/uSkinned/lib/switcher.js" />
+    </files>
+  </item>
+</map>

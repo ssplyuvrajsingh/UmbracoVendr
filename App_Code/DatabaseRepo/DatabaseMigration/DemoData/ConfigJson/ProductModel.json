@@ -1,0 +1,64 @@
+{
+  "ProductModel": [
+    {
+      "Action": 1,
+      "MemberId": 0,
+      "ProductName": "Dummy Product First",
+      "ProductTypeId": 1565,
+      "ProductTypeName": "Strategy",
+      "ProductPrice": 20,
+      "ProductDescription": "This is a demo product.",
+      "ProductFiles": "~/UploadedFiles/Dummy Product First/dummyImageFirst.jpg,~/UploadedFiles/Dummy Product First/dummyImageSecond.jpg,~/UploadedFiles/Dummy Product First/dummyImageThird.jpg,~/UploadedFiles/Dummy Product First/dummyImageFourth.jpg",
+      "ProductLogoLarge": "~/UploadedFiles/dummyImageFirst.jpg",
+      "ProductLogoSmall": "~/UploadedFiles/dummyImageFirst.jpg",
+      "ProductScreenshot": "~/UploadedFiles/dummyImageFirst.jpg",
+      "ProductScreenshotDescription": "This is logo description demo.",
+      "ProductStatus": "Waiting For Approval"
+    },
+    {
+      "Action": 1,
+      "MemberId": 0,
+      "ProductName": "Dummy Product Second",
+      "ProductTypeId": 1565,
+      "ProductTypeName": "Strategy",
+      "ProductPrice": 20,
+      "ProductDescription": "This is a demo product.",
+      "ProductFiles": "~/UploadedFiles/Dummy Product Second/dummyImageFirst.jpg,~/UploadedFiles/Dummy Product Second/dummyImageSecond.jpg,~/UploadedFiles/Dummy Product Second/dummyImageThird.jpg,~/UploadedFiles/Dummy Product Second/dummyImageFourth.jpg",
+      "ProductLogoLarge": "~/UploadedFiles/dummyImageSecond.jpg",
+      "ProductLogoSmall": "~/UploadedFiles/dummyImageSecond.jpg",
+      "ProductScreenshot": "~/UploadedFiles/dummyImageSecond.jpg",
+      "ProductScreenshotDescription": "This is logo description demo.",
+      "ProductStatus": "Waiting For Approval"
+    },
+    {
+      "Action": 1,
+      "MemberId": 0,
+      "ProductName": "Dummy Product Third",
+      "ProductTypeId": 1565,
+      "ProductTypeName": "Strategy",
+      "ProductPrice": 20,
+      "ProductDescription": "This is a demo product.",
+      "ProductFiles": "~/UploadedFiles/Dummy Product Third/dummyImageFirst.jpg,~/UploadedFiles/Dummy Product Third/dummyImageSecond.jpg,~/UploadedFiles/Dummy Product Third/dummyImageThird.jpg,~/UploadedFiles/Dummy Product Third/dummyImageFourth.jpg",
+      "ProductLogoLarge": "~/UploadedFiles/dummyImageThird.jpg",
+      "ProductLogoSmall": "~/UploadedFiles/dummyImageThird.jpg",
+      "ProductScreenshot": "~/UploadedFiles/dummyImageThird.jpg",
+      "ProductScreenshotDescription": "This is logo description demo.",
+      "ProductStatus": "Waiting For Approval"
+    },
+    {
+      "Action": 1,
+      "MemberId": 0,
+      "ProductName": "Dummy Product Fourth",
+      "ProductTypeId": 1565,
+      "ProductTypeName": "Strategy",
+      "ProductPrice": 20,
+      "ProductDescription": "This is a demo product.",
+      "ProductFiles": "~/UploadedFiles/Dummy Product Fourth/dummyImageFirst.jpg,~/UploadedFiles/Dummy Product Fourth/dummyImageSecond.jpg,~/UploadedFiles/Dummy Product Fourth/dummyImageThird.jpg,~/UploadedFiles/Dummy Product Fourth/dummyImageFourth.jpg",
+      "ProductLogoLarge": "~/UploadedFiles/dummyImageFourth.jpg",
+      "ProductLogoSmall": "~/UploadedFiles/dummyImageFourth.jpg",
+      "ProductScreenshot": "~/UploadedFiles/dummyImageFourth.jpg",
+      "ProductScreenshotDescription": "This is logo description demo.",
+      "ProductStatus": "Waiting For Approval"
+    }
+  ]
+}

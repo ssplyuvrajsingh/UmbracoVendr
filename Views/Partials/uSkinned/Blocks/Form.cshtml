@@ -1,0 +1,161 @@
+﻿@inherits USNStarterKit.ViewPages.USNViewPage<USNBlock>
+
+@{
+    //Available as Component Block, Split Component Block and Pod Block types
+
+    var content = (IUsn_Cmp_Form)Model.BlockContent;
+    var uniqueSettings = Model.BlockSettings;
+
+    //Settings taken from compositions common to all block types
+    var animateSettings = (IUsn_Cmp_AnimateSettings)Model.BlockSettings;
+
+    Usnstyle websiteStyle = (Usnstyle)Model.BaseModel.WebsiteStyle;
+
+    USNAnimation animation = Umbraco.GetAnimationSettings(animateSettings.Animate, animateSettings.AnimationDelay, animateSettings.AnimationDuration, animateSettings.AnimationStyle);
+
+    string blockLocation = ViewData["blockLocation"] != null ? ViewData["blockLocation"].ToString() : String.Empty;
+
+    string formColorLabel = blockLocation == "footer" ? "footer" : uniqueSettings.Value<USNColor>("formContainerBackgroundColor").label;
+    string formBgColorClass = blockLocation == "footer" ? String.Empty : USNThemeService.GetBackgroundColorClass(uniqueSettings.Value<USNColor>("formContainerBackgroundColor").sortOrder, "content", websiteStyle);
+
+    string formButtonColorLabel = uniqueSettings.Value<USNColor>("FormButtonColor").label;
+    string formButtonColorClass = USNThemeService.GetBackgroundColorClass(uniqueSettings.Value<USNColor>("FormButtonColor").sortOrder, "button", websiteStyle);
+    string formButtonHoverColorClass = USNThemeService.GetBackgroundColorClass(uniqueSettings.Value<USNColor>("FormButtonColor").sortOrder, "buttonHover", websiteStyle);
+
+    string formSize = (blockLocation == "footer" || blockLocation == "pod") ? "compact" : "normal";
+    string newsletterClass = (content.FormType == "signupForm" && content.HideFields) ? "item_form-single_field" : String.Empty;
+    var homeNode = Umbraco.ContentAtRoot().Where(x => x.IsDocumentType("providers")).FirstOrDefault();
+    var productCategories = homeNode?.Children(x => x.IsDocumentType("productsPage"))?.FirstOrDefault()?.Children()?.ToList();
+
+    <div class="@newsletterClass @animation.AnimationClass" data-os-animation="@animation.AnimationStyle" data-os-animation-delay="@animation.AnimationDelay" data-os-animation-duration="@animation.AnimationDuration">
+        @switch (content.FormType)
+        {
+            case "contactForm":
+                @Html.Action("Index", "USNContactFormSurface", new
+                {
+                    GlobalSettingsID = Model.BaseModel.GlobalSettings.Id,
+                    FullViewPath = Model.BaseModel.ThemeFolder + "/Forms/ContactForm",
+                    DataSize = formSize,
+                    FormColorLabel = formColorLabel,
+                    FormBgColorClass = formBgColorClass,
+                    FormButtonColorLabel = formButtonColorLabel,
+                    FormButtonColorClass = formButtonColorClass,
+                    FormButtonHoverColorClass = formButtonHoverColorClass,
+                    Content = content
+                })
+                break;
+            case "signupForm":
+                @Html.Action("Index", "USNNewsletterSignupSurface", new
+                {
+                    GlobalSettingsID = Model.BaseModel.GlobalSettings.Id,
+                    FullViewPath = Model.BaseModel.ThemeFolder + "/Forms/NewsletterSignup",
+                    DataSize = formSize,
+                    FormColorLabel = formColorLabel,
+                    FormBgColorClass = formBgColorClass,
+                    FormButtonColorLabel = formButtonColorLabel,
+                    FormButtonColorClass = formButtonColorClass,
+                    FormButtonHoverColorClass = formButtonHoverColorClass,
+                    Content = content
+                })
+                break;
+            case "loginForm":
+                @Html.Action("LoginIndex", "USNMemberSurface", new
+                {
+                    GlobalSettingsID = Model.BaseModel.GlobalSettings.Id,
+                    FullViewPath = Model.BaseModel.ThemeFolder + "/Forms/LoginForm",
+                    DataSize = formSize,
+                    FormColorLabel = formColorLabel,
+                    FormBgColorClass = formBgColorClass,
+                    FormButtonColorLabel = formButtonColorLabel,
+                    FormButtonColorClass = formButtonColorClass,
+                    FormButtonHoverColorClass = formButtonHoverColorClass,
+                    Content = content
+                })
+                break;
+            case "resetRequestForm":
+                @Html.Action("ResetRequestIndex", "USNMemberSurface", new
+                {
+                    GlobalSettingsID = Model.BaseModel.GlobalSettings.Id,
+                    FullViewPath = Model.BaseModel.ThemeFolder + "/Forms/ResetRequestForm",
+                    DataSize = formSize,
+                    FormColorLabel = formColorLabel,
+                    FormBgColorClass = formBgColorClass,
+                    FormButtonColorLabel = formButtonColorLabel,
+                    FormButtonColorClass = formButtonColorClass,
+                    FormButtonHoverColorClass = formButtonHoverColorClass,
+                    Content = content
+                })
+                break;
+            case "resetPasswordForm":
+                @Html.Action("ResetPasswordIndex", "USNMemberSurface", new
+                {
+                    GlobalSettingsID = Model.BaseModel.GlobalSettings.Id,
+                    FullViewPath = Model.BaseModel.ThemeFolder + "/Forms/ResetPasswordForm",
+                    DataSize = formSize,
+                    FormColorLabel = formColorLabel,
+                    FormBgColorClass = formBgColorClass,
+                    FormButtonColorLabel = formButtonColorLabel,
+                    FormButtonColorClass = formButtonColorClass,
+                    FormButtonHoverColorClass = formButtonHoverColorClass,
+                    Content = content
+                })
+                break;
+            case "registerForm":
+                @Html.Action("RegisterIndex", "USNMemberSurface", new
+                {
+                    GlobalSettingsID = Model.BaseModel.GlobalSettings.Id,
+                    FullViewPath = Model.BaseModel.ThemeFolder + "/Forms/RegisterForm",
+                    DataSize = formSize,
+                    FormColorLabel = formColorLabel,
+                    FormBgColorClass = formBgColorClass,
+                    FormButtonColorLabel = formButtonColorLabel,
+                    FormButtonColorClass = formButtonColorClass,
+                    FormButtonHoverColorClass = formButtonHoverColorClass,
+                    Content = content
+                })
+                break;
+            case "umbracoForm":
+                <div class="umbraco-forms form">
+                    <div class="inner @formBgColorClass @(formColorLabel)-text btn-bg_@formButtonColorClass @formButtonHoverColorClass btn-text_@(formButtonColorLabel)-btn-text btn-borders_@(formButtonColorLabel)-btn-borders">
+                        @if (content.UmbracoForm.HasValue())
+                        {
+                            var formGuid = content.UmbracoForm;
+
+                            @Umbraco.RenderMacro("renderUmbracoForm", new { FormGuid = formGuid, FormTheme = "uSkinned", ExcludeScripts = "0" })
+                        }
+                    </div>
+                </div>
+                break;
+            case "providerRegister":
+                @Html.Action("Index", "USNProviderRegisterFormSurface", new
+           {
+               GlobalSettingsID = Model.BaseModel.GlobalSettings.Id,
+               FullViewPath = Model.BaseModel.ThemeFolder + "/Forms/ProviderRegisterForm",
+               DataSize = formSize,
+               FormColorLabel = formColorLabel,
+               FormBgColorClass = formBgColorClass,
+               FormButtonColorLabel = formButtonColorLabel,
+               FormButtonColorClass = formButtonColorClass,
+               FormButtonHoverColorClass = formButtonHoverColorClass,
+               Content = content
+           })
+                break;
+            case "productCreate":
+                @Html.Action("Index", "USNCreateProductFormSurface", new
+           {
+
+               GlobalSettingsID = Model.BaseModel.GlobalSettings.Id,
+               FullViewPath = Model.BaseModel.ThemeFolder + "/Forms/CreateProductForm",
+               DataSize = formSize,
+               FormColorLabel = formColorLabel,
+               FormBgColorClass = formBgColorClass,
+               FormButtonColorLabel = formButtonColorLabel,
+               FormButtonColorClass = formButtonColorClass,
+               FormButtonHoverColorClass = formButtonHoverColorClass,
+               Content = content,
+               ProductCategories = productCategories
+           })
+                break;
+        }
+    </div>
+}

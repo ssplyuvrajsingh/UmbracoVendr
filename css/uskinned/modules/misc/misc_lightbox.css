@@ -1,0 +1,109 @@
+/*  
+---------------------------------------------------
+Lightbox
+---------------------------------------------------  
+*/
+
+/*
+#site { 
+    transition: filter 0.3s ease-in-out 0s;
+}
+
+body.modal-open #site { 
+    filter: blur(2px);
+}
+*/
+
+.modal-backdrop.show { 
+    opacity: 1;
+}
+
+.ekko-lightbox .modal-content { 
+    border-radius: 0;
+    color: rgba(var(--true-white), 1);
+    background: none;
+}
+
+.ekko-lightbox .modal-content .modal-header,
+.ekko-lightbox .modal-content .modal-footer { 
+    color: rgba(var(--true-white), 1);
+    background: none;
+    padding: var(--base-half-spacing) 0;
+    justify-content: flex-start;
+}
+
+.ekko-lightbox .modal-content .modal-header .modal-title { 
+    color: rgba(var(--true-white), 1);
+}
+
+.ekko-lightbox .modal-header .close { 
+    display:none!important;
+}
+
+.ekko-lightbox .modal-content .modal-body { 
+    padding: 0; margin-top: -1px; margin-left: -1px; margin-bottom:-1px;
+    background-color: rgba(var(--true-black), 1);
+}
+
+.ekko-lightbox-nav-overlay a span { 
+    display:none;
+}
+
+.ekko-lightbox-nav-overlay a { 
+    display: inline-block;
+    font-family: "Ionicons";
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-rendering: auto;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    opacity:0.5;
+}
+
+.ekko-lightbox-nav-overlay a::before { 
+    position: absolute;
+    top:50%; 
+    width:40px; height:40px;
+    text-align:center;
+    font-size:20px; line-height: 40px;
+    color: rgba(var(--base-link), 1);
+    background-color: rgba(var(--base-bg-color1), 1);
+    border-radius: var(--base-border-radius);
+    transform: translateY(-50%);
+}
+.ekko-lightbox-nav-overlay a::before:hover {
+    color: rgba(var(--base-link-hover), 1);
+}
+
+.ekko-lightbox-nav-overlay a:nth-child(1)::before { 
+    left:0;
+}
+
+.ekko-lightbox-nav-overlay a:nth-child(2)::before { 
+    right:0;
+}
+
+.ekko-lightbox::before { 
+    content: "\f2c0";
+    display: inline-block;
+    font-family: "Ionicons";
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-rendering: auto;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    
+    position: absolute; top:10px; right:var(--base-half-spacing);
+    color: rgba(var(--true-white), 1);
+    font-size:30px;
+    cursor:pointer;
+    transition: all 0.2s ease-in-out 0s;
+}

@@ -1,0 +1,23 @@
+﻿<div ng-controller="RequestedUserList.RequestedUserListDashboardController">
+    <input type="hidden" id="EditUserPage" value="1"/>
+    <h2>Edit Template</h2>
+
+    <div class="table table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="user in RequestedUserList">
+                <tr>
+                    <td>{{user.Id}}</td>
+                    <td>{{user.Name}}</td>
+                    <td>{{user.Email}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>    
+</div>

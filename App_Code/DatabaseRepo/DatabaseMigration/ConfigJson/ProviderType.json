@@ -1,0 +1,12 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "value": "Market Provider"
+    },
+    {
+      "id": 2,
+      "value": "Signal Provider"
+    }
+  ]
+}

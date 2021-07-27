@@ -1,0 +1,35 @@
+﻿@inherits USNStarterKit.ViewPages.USNViewPage<USNStarterKit.Models.USNBaseViewModel>
+
+@{
+    Usnstyle websiteStyle = (Usnstyle)Model.WebsiteStyle;
+    UsnglobalSettings globalSettings = (UsnglobalSettings)Model.GlobalSettings;
+
+    string logoClass = !Model.Content.Value<bool>("overrideWebsiteLogo") ?  (websiteStyle.WebsiteLogo == null ? "class=\"no-image\"" : String.Empty) : (Model.Content.Value<IPublishedContent>("websiteLogoOverride") == null ? "class=\"no-image\"" : String.Empty);
+    string websiteName = !Model.Content.Value<bool>("overrideWebsiteLogo") ? globalSettings.WebsiteName : Model.Content.Value<string>("logoTextOverride");
+    IPublishedContent websiteLogo = !Model.Content.Value<bool>("overrideWebsiteLogo") ? websiteStyle.WebsiteLogo : Model.Content.Value<IPublishedContent>("websiteLogoOverride");
+
+    <div id="logo" @Html.Raw(logoClass)>
+        <a href="@Model.Content.Root().Url()" title="@websiteName">
+            @if (websiteLogo != null)
+            {
+                if (websiteLogo.Value<string>("umbracoExtension") != "svg")
+                {
+                    bool webPEnabled = Convert.ToBoolean(ConfigurationManager.AppSettings["USN_WEBP_Enabled"]);
+                    <picture>
+                        @if (webPEnabled)
+                        {
+                        <source type="image/webp" data-srcset="@(websiteLogo.Url())?format=webp">
+                        }
+                        <img src="@websiteLogo.Url()" alt="@(websiteLogo.Value<string>("alternativeText"))">
+                    </picture>
+                }
+                else
+                {
+                    <img src="@websiteLogo.Url()" alt="@(websiteLogo.Value<string>("alternativeText"))">
+                }
+            }
+            <span>@websiteName</span>
+        </a>
+    </div>
+}
+

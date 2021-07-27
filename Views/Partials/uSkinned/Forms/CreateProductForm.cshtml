@@ -1,0 +1,369 @@
+﻿@inherits USNStarterKit.ViewPages.USNViewPage<USNWebsite.USNModels.USNCreateProductFormViewModel>
+@using USNStarterKit.Extensions;
+
+<script src="~/ckeditor/ckeditor.js"></script>
+<style>
+    .tab-content > .tab-pane.active {
+        height: auto !important;
+    }
+</style>
+<a href="/products/" class="btn btn-primary mb-4"><i class="fa fa-arrow-circle-left"></i> Go to products page</a>
+@using (Html.BeginUmbracoForm("HandleProductCreationSubmit", "USNCreateProductFormSurface", null, new { id = "productForm" }))
+{
+    UsnglobalSettings globalSettings = (UsnglobalSettings)Umbraco.Content(Model.GlobalSettingsID);
+
+    @Html.AntiForgeryToken()
+    @Html.Hidden("GlobalSettingsID", Model.GlobalSettingsID)
+    @Html.Hidden("ProductId", Model.ProductId)
+    @Html.Hidden("Action", Model.Action)
+    @Html.Hidden("ProductStatus", Model.ProductStatus)
+
+
+    <div class="form login-form">
+        <div class="inner @(Model.FormColor)-bg @(Model.FormColor)-text">
+            @if (Model.FormHeading.HasValue() || Model.FormIntroduction.HasValue() || Model.FormSecondaryHeading.HasValue())
+            {
+                <div class="info short-margin-bottom">
+
+                    @if (Model.FormSecondaryHeading.HasValue())
+                    {
+                        @Html.Raw(String.Format("<{0} class=\"secondary-heading {1} {2}-heading\">{3}</{0}>", Model.FormSecondaryHeading.HeadingTag, Model.FormSecondaryHeading.Style, Model.FormColor, Model.FormSecondaryHeading.Text))
+                    }
+
+                    @if (Model.FormHeading.HasValue())
+                    {
+                        @Html.Raw(String.Format("<{0} class=\"heading main {1} {2}-heading\">{3}</{0}>", Model.FormHeading.HeadingTag, Model.FormHeading.Style, Model.FormColor, Model.FormHeading.Text))
+                    }
+
+                    @if (Model.FormIntroduction.HasValue())
+                    {
+                        <div class="text @(Model.FormColor)-text">
+                            @Html.Raw(Model.FormIntroduction)
+                        </div>
+                    }
+
+                </div>
+            }
+            @if (TempData["ProductCreationSuccess"] != null)
+            {
+                <div class="alert alert-success mb-3">
+                    <div class="info">
+                        <p>@TempData["ProductCreationSuccess"]</p>
+                    </div>
+                </div>
+            }
+            else if (TempData["ProductCreationFailure"] != null)
+            {
+                <div class="alert alert-danger mb-3">
+                    <div class="info">
+                        <p>@TempData["ProductCreationFailure"]</p>
+                    </div>
+                </div>
+            }
+            <fieldset>
+                <ul class="nav nav-pills nav-tabs ml-0" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#information" role="tab" aria-controls="home" aria-selected="true">Information</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#graphic" role="tab" aria-controls="profile" aria-selected="false">Graphic</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#file" role="tab" aria-controls="contact" aria-selected="false">File</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#protection" role="tab" aria-controls="contact" aria-selected="false">Protection</a>
+                    </li>
+                </ul>
+                <div class="tab-content mt-4" id="myTabContent">
+                    <div class="tab-pane fade show active" id="information" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="form-group">
+                            <label for="ProductName" class="control-label font-weight-bold">
+                                @*@Umbraco.GetDictionaryValue("USN Provider Register Form First Name Label")*@
+                                Product Name
+                            </label>
+                            @if (string.IsNullOrWhiteSpace(Model.ProductName))
+                            {
+                                @Html.TextBoxFor(x => Model.ProductName, new { autocapitalize = "off", @class = "form-control", aria_label = Umbraco.GetDictionaryValue("USN Login Form Username Label") })
+                                @Html.ValidationMessageFor(x => Model.ProductName, "This field is mandatory.")
+                            }
+                            else
+                            {
+                                @Html.TextBoxFor(x => Model.ProductName, new { autocapitalize = "off", @class = "form-control", @readonly = "readonly", aria_label = Umbraco.GetDictionaryValue("USN Login Form Username Label") })
+                                @Html.ValidationMessageFor(x => Model.ProductName, "This field is mandatory.")
+                            }
+
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="ProductType" class="control-label font-weight-bold">
+                                    @*@Umbraco.GetDictionaryValue("USN Provider Register Form Provider Type Label")*@
+                                    Product Type
+                                </label>
+
+                                @if (Model.ProductCategories?.Count > 0)
+                                {
+                                    if (Model.ProductCategories.Any(x => x.Id.ToString() == Model.ProductTypeId))
+                                    {
+                                        var productCategory = Model.ProductCategories.Where(x => x.Id.ToString() == Model.ProductTypeId).FirstOrDefault();
+                                        <div class="form-group col-md-4 mb-0 d-flex align-items-center">
+                                            @Html.RadioButtonFor(x => Model.ProductTypeId, productCategory.Id, new { @id = productCategory.Id })
+                                            <label class="mb-0 ml-1" for="@productCategory.Id">@productCategory.Name</label>
+                                        </div>
+                                    }
+                                    else
+                                    {
+
+                                        var totalProductCategories = Model.ProductCategories.Count;
+                                        int totalIndex = totalProductCategories / 2;
+                                        totalIndex = (totalProductCategories % 2) + totalIndex;
+                                        var j = 0;
+
+                                        for (int i = 0; i < totalIndex; i++)
+                                        {
+                                            <div class="form-row mt-2">
+                                                <div class="form-group col-md-4 mb-0 d-flex align-items-center">
+                                                    @Html.RadioButtonFor(x => Model.ProductTypeId, Model.ProductCategories[j].Id, new { @id = Model.ProductCategories[j].Id })
+                                                    <label class="mb-0 ml-1" for="@Model.ProductCategories[j].Id">@Model.ProductCategories[j++].Name</label>
+                                                </div>
+                                                @if (i != (totalIndex - 1) || totalProductCategories % 2 == 0)
+                                                {
+                                                    <div class="form-group col-md-4 mb-0 d-flex align-items-center">
+                                                        @Html.RadioButtonFor(x => Model.ProductTypeId, Model.ProductCategories[j].Id, new { @id = Model.ProductCategories[j].Id })
+                                                        <label class="mb-0 ml-1" for="@Model.ProductCategories[j].Id">@Model.ProductCategories[j++].Name</label>
+                                                    </div>
+                                                }
+                                            </div>
+                                        }
+
+
+                                        @Html.ValidationMessageFor(x => Model.ProductTypeId, "This field is mandatory.")
+                                    }
+                                }
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @{
+                                bool flag = Convert.ToDecimal(Model.FormattedPrice?.WithTaxNoSymbol) > Convert.ToDecimal(Model.ProductPrice);
+                                bool taxFlag = Model.FormattedPrice != null;
+                                string taxRate = Model.CountryRegionTaxRateDto != null && !flag && Model.FormattedPrice != null ? String.Format("{0:0.00}", Model.CountryRegionTaxRateDto.TaxRate) : "0";
+
+                            }
+                            <label for="ProductPrice" class="control-label font-weight-bold">
+                                @*@Umbraco.GetDictionaryValue("USN Provider Register Form Street Name Label")*@Price
+                            </label>
+                            @if (Model.FormattedPrice != null)
+                            {
+                                <sub><strong>Price Include Tax @taxRate %</strong></sub>
+                            }
+                            @Html.TextBoxFor(x => Model.ProductPrice, new { autocapitalize = "off", @class = "form-control", aria_label = Umbraco.GetDictionaryValue("USN Login Form Username Label") })
+                            @Html.ValidationMessageFor(x => Model.ProductPrice, Umbraco.GetDictionaryValue("USN Register Form Last Name Validation"))
+                            @if (Model.FormattedPrice != null)
+                            {
+                                if (!flag)
+                                {
+                                    <br /><br />
+                                    <label for="ProductPrice" class="control-label font-weight-bold">
+                                        Without Tax Product Price
+                                    </label>
+                                    @Html.TextBoxFor(x => Model.FormattedPrice.WithoutTaxNoSymbol, new { autocapitalize = "off", @class = "form-control", @readonly = "readonly" })
+                                }
+                                else
+                                {
+                                    <br /><br />
+                                    <label for="ProductPrice" class="control-label font-weight-bold">
+                                        With Tax Product Price
+                                    </label>
+                                    @Html.TextBoxFor(x => Model.FormattedPrice.WithTaxNoSymbol, new { autocapitalize = "off", @class = "form-control", @readonly = "readonly" })
+                                }
+                            }
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ProductDescription" class="control-label font-weight-bold">
+                                @*@Umbraco.GetDictionaryValue("USN Provider Register Form Street Name Label")*@
+                                Description
+                            </label>
+                            @Html.TextAreaFor(x => Model.ProductDescription, new { autocapitalize = "off", @class = "form-control", aria_label = Umbraco.GetDictionaryValue("USN Login Form Username Label") })
+                            @Html.ValidationMessageFor(x => Model.ProductDescription, Umbraco.GetDictionaryValue("USN Register Form Last Name Validation"))
+                            <script type="text/javascript" language="javascript">
+                                    CKEDITOR.replace(@Html.IdFor(model => model.ProductDescription));
+                            </script>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="graphic" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="form-group">
+                            <label for="ID" class="control-label font-weight-bold">
+                                @*@Umbraco.GetDictionaryValue("USN Provider Register Form ID Document Label")*@Logo Large
+                            </label>
+                            @Html.Hidden("ProductLogoLarge", Model.ProductLogoLarge)
+                            @if (!string.IsNullOrEmpty(Model.ProductLogoLarge))
+                            {
+                                <label class="alert alert-warning mb-2">Select new file if you want to change existing file (@Model.ProductLogoLargeName)"</label>
+                            }
+                            <input type="file" name="logoLarge" />
+                            @*@Html.ValidationMessageFor(x => Model.Email, Umbraco.GetDictionaryValue("USN Provider Register Form ID Document Validation"))*@
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ID" class="control-label font-weight-bold">
+                                @*@Umbraco.GetDictionaryValue("USN Provider Register Form ID Document Label")*@Logo Small
+                            </label>
+                            @Html.Hidden("ProductLogoSmall", Model.ProductLogoSmall)
+                            @if (!string.IsNullOrEmpty(Model.ProductLogoSmall))
+                            {
+                                <label class="alert alert-warning mb-2">Select new file if you want to change existing file (@Model.ProductLogoSmallName)"</label>
+                            }
+                            <input type="file" name="logoSmall" />
+                            @*@Html.ValidationMessageFor(x => Model.Email, Umbraco.GetDictionaryValue("USN Provider Register Form ID Document Validation"))*@
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ProductScreenshotDescription" class="control-label font-weight-bold">
+                                @*@Umbraco.GetDictionaryValue("USN Provider Register Form ID Document Label")*@Screenshot
+                            </label>
+                            @Html.Hidden("ProductScreenshot", Model.ProductScreenshot)
+                            @if (!string.IsNullOrEmpty(Model.ProductScreenshot))
+                            {
+                                <label class="alert alert-warning mb-2">Select new file if you want to change existing file (@Model.ProductScreenshotName)"</label>
+                            }
+                            <input type="file" name="screenShot" />
+                            @Html.TextAreaFor(x => Model.ProductScreenshotDescription, new { autocapitalize = "off", @class = "form-control mt-4", aria_label = Umbraco.GetDictionaryValue("USN Login Form Username Label"), placeholder = "Description" })
+                            @Html.ValidationMessageFor(x => Model.ProductScreenshotDescription, Umbraco.GetDictionaryValue("USN Provider Register Form ID Document Validation"))
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="file" role="tabpanel" aria-labelledby="contact-tab">
+
+                        @if (Model.ProductStatus?.ToLower() == "active")
+                        {
+
+                            <div class="form-group">
+                                <input class="btn btn-primary" onclick="$('#div_newVersion').show();" type="button" value="Add Version" id="btn_NewVersion" />
+                                <div style="display:none;" id="div_newVersion">
+                                    <label for="ProductName" class="control-label font-weight-bold">
+                                        @*@Umbraco.GetDictionaryValue("USN Provider Register Form First Name Label")*@
+                                        Add New Version
+                                    </label>
+                                    @Html.TextBoxFor(x => Model.ProductNewVersionNumber, new { autocapitalize = "off", @class = "form-control", aria_label = Umbraco.GetDictionaryValue("USN Login Form Username Label") })
+                                    @*@Html.ValidationMessageFor(x => Model.ProductName, "This field is mandatory.")*@
+                                    <div class="form-group">
+                                        <label for="ID" class="control-label font-weight-bold">
+                                            @*@Umbraco.GetDictionaryValue("USN Provider Register Form ID Document Label")*@
+                                            Add File
+                                        </label>
+                                        <input id="product_files" type="file" disabled name="productFiles" multiple /><br />
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="form-group">
+                                <label for="ID" class="control-label font-weight-bold">
+                                    @*@Umbraco.GetDictionaryValue("USN Provider Register Form ID Document Label")*@
+                                    Add File
+                                </label>
+                                <input type="file" name="productFiles" multiple /><br />
+                            </div>
+                        }
+
+                        @if (Model.ProductVersionGroupList?.Count > 0)
+                        {
+                            foreach (var item in Model.ProductVersionGroupList)
+                            {
+                                <div id="divTable_@item.ProductVersionNumber.Replace('.','_')">
+                                    <input id="hdn_nextVersion" type="hidden" value="@item.ProductVersionNumber" />
+                                    @{
+                                        var i = 1;
+                                    }
+                                    <ul value="@item.ProductVersionNumber">
+                                        <li>
+                                            <h6 style="cursor:pointer;">
+                                                <a onclick="showTableAccordingVersionNumber('table_@item.ProductVersionNumber.Replace('.','_')')">
+                                                    Product Version : @item.ProductVersionNumber
+                                                </a>
+                                            </h6>
+                                        </li>
+                                    </ul>
+
+                                    @if (Model.LastVersionProductName == null)
+                                    {
+                                        Model.LastVersionProductName = item.ProductVersionNumber;
+                                    }
+                                    <div class="form-group table-responsive">
+                                        <table style="display:none;" id="table_@item.ProductVersionNumber.Replace('.','_')" class="table table-bordered productFilesTable product_table_@item.ProductVersionNumber">
+                                            <thead class="thead-dark">
+                                                <tr>
+                                                    <th>S.No</th>
+                                                    @*<th class="col-4">File Name</th>*@
+                                                    <th>File</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach (var list in item.productVersionFiles)
+                                                {
+                                                    <tr id="tr_@list.ProductFileId">
+                                                        <td>@i</td>
+                                                        <td class="text-break">
+                                                            @if (!list.FileUrl.Contains(".jpg"))
+                                                            {
+                                                                <a href="@list.FileUrl" target="_blank">@list.FileName</a>
+                                                            }
+                                                            else
+                                                            {
+                                                                <a href="@list.FileUrl" target="_blank">@list.FileName</a>
+                                                            }
+                                                        </td>
+                                                        <td>
+                                                            <a href="javascript:void(0);" class="btn btn-danger" onclick="deleteFile(@list.ProductFileId, '@list.FileUrl','@item.ProductVersionNumber')">Delete</a>
+                                                        </td>
+                                                    </tr>
+                                                    i++;
+                                                }
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            }
+                            @Html.Hidden("LastVersionProductName", Model.LastVersionProductName)
+                        }
+                    </div>
+
+                    <div class="tab-pane fade" id="protection" role="tabpanel" aria-labelledby="contact-tab">
+                        <div class="form-group">
+                            <label for="ProductProtectionTrialLength" class="control-label font-weight-bold">
+                                @*@Umbraco.GetDictionaryValue("USN Provider Register Form First Name Label")*@Trial Length
+                            </label>
+                            @Html.TextBoxFor(x => Model.ProductProtectionTrialLength, new { autocapitalize = "off", @class = "form-control", aria_label = Umbraco.GetDictionaryValue("USN Login Form Username Label") })
+                            @Html.ValidationMessageFor(x => Model.ProductProtectionTrialLength, Umbraco.GetDictionaryValue("USN Register Form First Name Validation"))
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ProductProtectionNumberOfTrails" class="control-label font-weight-bold">
+                                @*@Umbraco.GetDictionaryValue("USN Provider Register Form First Name Label")*@Number of Trails
+                            </label>
+                            @Html.TextBoxFor(x => Model.ProductProtectionNumberOfTrials, new { autocapitalize = "off", @class = "form-control", aria_label = Umbraco.GetDictionaryValue("USN Login Form Username Label") })
+                            @Html.ValidationMessageFor(x => Model.ProductProtectionNumberOfTrials, Umbraco.GetDictionaryValue("USN Register Form First Name Validation"))
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="tab-content mt-4 row" id="formSubmitButtons">
+                    <div class="col-md-6 text-center">
+                        <input class="btn btn-warning w-100" type="submit" value="Save for Later" id="saveForLater" />
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <input class="btn btn-success w-100" type="submit" value="Submit for Approval" id="submitForApprocal" />
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+}
+<script src="~/scripts/ProvidersScript/CreateProductForm.js"></script>
