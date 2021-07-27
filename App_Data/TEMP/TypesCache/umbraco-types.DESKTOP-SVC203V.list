@@ -87,54 +87,6 @@ Umbraco.Core.Migrations.Upgrade.V_8_0_0.ContentVariationMigration, Umbraco.Core,
 Umbraco.Core.Migrations.Upgrade.V_8_0_0.DataTypes.PreValueMigratorComposer, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Core.Logging.Viewer.LogViewerComposer, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Core.Services.Implement.KeyValueService+InitializeMigration, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.Actions.ActionAddAppConfigKey, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.Actions.ActionAddImages, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.Actions.ActionAddMimeType, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.Actions.ActionAddSection, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.Actions.ActionAddThemeConfig, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.Actions.ActionAddUmbracoFormPlaceholder, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.Actions.ActionMoveDesign, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.Actions.ActionRebuildNucache, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.Actions.ActionUpdateContent, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.Actions.ActionUpdateMediaTypes, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.Actions.ActionUpdateUser, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.BusinessLogic.USNComposer, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.Controllers.USNBlogListingSurfaceController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.Controllers.USNColorPickerController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.Controllers.USNDesignPanelController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.Controllers.USNLicenseDashboardController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.Controllers.USNMultiNodeTreePickerController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.Controllers.USNMultiUrlPickerController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.Controllers.USNPageNameController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.Controllers.USNThemePickerController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.Controllers.USNValueShowHideController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.Controllers.USNWelcomeDashboardController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.CustomSection.USNLicenseDashboardController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.PropertyValueConverters.USNColorConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.PropertyValueConverters.USNHeadingConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.PropertyValueConverters.USNMegaNavConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.PropertyValueConverters.USNMultiNodeTreePickerConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.PropertyValueConverters.USNMultiUrlConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.PropertyValueConverters.USNSEOMetaConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.PropertyValueConverters.USNThemeColorConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.PropertyValueConverters.USNThemeFontsConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.PropertyValueConverters.USNThemeLayoutConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.PropertyValueConverters.USNThemeSpacingConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.USNPropertyValueConverters.OptionsShowHideValueConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.USNPropertyValueConverters.TrueFalseShowHideValueConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.USNPropertyValueConverters.USNBackgroundOptionsConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-Umbraco.ModelsBuilder.Embedded.ModelsBuilderDashboard, Umbraco.ModelsBuilder.Embedded, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
-Umbraco.ModelsBuilder.Embedded.Compose.ModelsBuilderComposer, Umbraco.ModelsBuilder.Embedded, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
-Umbraco.ModelsBuilder.Embedded.BackOffice.MediaTypeModelValidator, Umbraco.ModelsBuilder.Embedded, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
-Umbraco.ModelsBuilder.Embedded.BackOffice.MemberTypeModelValidator, Umbraco.ModelsBuilder.Embedded, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
-Umbraco.ModelsBuilder.Embedded.BackOffice.ModelsBuilderDashboardController, Umbraco.ModelsBuilder.Embedded, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
-Umbraco.ModelsBuilder.Embedded.BackOffice.ContentTypeModelValidator, Umbraco.ModelsBuilder.Embedded, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
-Vendr.Checkout.Web.Controllers.VendrCheckoutApiController, Vendr.Checkout, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-Vendr.Checkout.Web.Controllers.VendrCheckoutCheckoutStepPageController, Vendr.Checkout, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-Vendr.Checkout.Web.Controllers.VendrCheckoutCheckoutPageController, Vendr.Checkout, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-Vendr.Checkout.Web.Controllers.VendrCheckoutSurfaceController, Vendr.Checkout, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-Vendr.Checkout.Web.Composing.VendrCheckoutWebComposer, Vendr.Checkout, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-Vendr.Checkout.Composing.VendrCheckoutComposer, Vendr.Checkout, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Controllers.UmbProfileController, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Controllers.UmbLoginStatusController, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Controllers.UmbRegisterController, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -342,26 +294,6 @@ Umbraco.Web.Cache.MemberGroupCacheRefresher, Umbraco.Web, Version=8.0.0.0, Cultu
 Umbraco.Web.Cache.PublicAccessCacheRefresher, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Cache.TemplateCacheRefresher, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Cache.UserCacheRefresher, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
-MemberSurfaceController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-SectionComposer, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-USNFabricV8Web.App_Code.USNHostingControllers.AzureHostingController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-Providers.Services.Composer, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-FinCMS.App_Code.USNControllers.USNProviderWalletSurfaceController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-FinCMS.App_Code.DocumentsSection.CartSurfaceController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-UmbracoVendr.App_Code.USNControllers.USNProviderBaseController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-UmbracoVendr.App_Code.DatabaseRepo.DatabaseMigration.ProductsTableComposer, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-UmbracoVendr.App_Code.DatabaseRepo.DatabaseMigration.AddCommentsTable, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-USNWebsite.USNBusinessLogic.USNUserComposer, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-USNWebsite.USNControllers.USNBaseController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-USNWebsite.USNControllers.ProductsListController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-USNWebsite.USNControllers.USNMemberSurfaceController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-USNWebsite.USNControllers.USNNewsletterSignupSurfaceController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-USNWebsite.USNControllers.USNCreateProductFormSurfaceController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-USNWebsite.USNControllers.USNProviderRegisterFormSurfaceController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-USNWebsite.USNControllers.RequestedUsersListController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-USNWebsite.USNControllers.DocumentsTreeController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-USNWebsite.USNControllers.ProviderWalletController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-USNWebsite.USNControllers.USNContactFormSurfaceController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 Vendr.Web.Trees.SettingsTreeController, Vendr.Web, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
 Vendr.Web.Trees.StoresTreeController, Vendr.Web, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
 Vendr.Web.PackageActions.InstallNuGetPackage, Vendr.Web, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
@@ -416,6 +348,28 @@ Vendr.Web.Cache.ProductAttributeCacheRefresher, Vendr.Web, Version=1.8.2.0, Cult
 Vendr.Web.Cache.StoreCacheRefresher, Vendr.Web, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
 Vendr.Web.Cache.TaxClassCacheRefresher, Vendr.Web, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
 Vendr.Web.Cache.VendrCacheRefresherComposer, Vendr.Web, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
+MemberSurfaceController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+SectionComposer, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+USNFabricV8Web.App_Code.USNHostingControllers.AzureHostingController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+FinCMS.App_Code.USNControllers.USNProviderWalletSurfaceController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+FinCMS.App_Code.DocumentsSection.CartSurfaceController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+UmbracoVendr.App_Code.USNControllers.USNProviderBaseController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+UmbracoVendr.App_Code.DatabaseRepo.DatabaseMigration.AddCommentsTable, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+UmbracoVendr.App_Code.DatabaseRepo.DatabaseMigration.ProductsTableComposer, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+Providers.Services.Composer, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+USNWebsite.USNBusinessLogic.USNUserComposer, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+USNWebsite.USNControllers.DocumentsTreeController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+USNWebsite.USNControllers.RequestedUsersListController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+USNWebsite.USNControllers.USNMemberSurfaceController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+USNWebsite.USNControllers.USNContactFormSurfaceController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+USNWebsite.USNControllers.ProductsListController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+USNWebsite.USNControllers.USNCreateProductFormSurfaceController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+USNWebsite.USNControllers.ProviderWalletController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+USNWebsite.USNControllers.USNBaseController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+USNWebsite.USNControllers.USNNewsletterSignupSurfaceController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+USNWebsite.USNControllers.USNProviderRegisterFormSurfaceController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+Vendr.Core.Web.Controllers.VendrPaymentController, Vendr.Core.Web, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
+Vendr.Core.Web.Composing.VendrCoreWebComposer, Vendr.Core.Web, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
 Vendr.Core.Composing.VendrCoreComposer, Vendr.Core, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
 Vendr.Core.Migrations.V_1_2_0.AddGiftCardRemainingAmountColumnDefault, Vendr.Core, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
 Vendr.Core.Migrations.V_1_2_0.AddGiftCardIsActiveColumn, Vendr.Core, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
@@ -491,8 +445,54 @@ Vendr.Core.Migrations.V_1_2_5.ChangeDiscountRulesDbTypeToNvarcharMax, Vendr.Core
 Vendr.Core.Migrations.V_1_2_5.ChangeDiscountRewardsDbTypeToNvarcharMax, Vendr.Core, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
 Vendr.Core.Migrations.V_1_2_5.FixAmountsIncludeTaxSpellingMistake, Vendr.Core, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
 Vendr.Core.Migrations.V_1_8_0.CreateExportTemplateTable, Vendr.Core, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
-Vendr.Core.Web.Controllers.VendrPaymentController, Vendr.Core.Web, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
-Vendr.Core.Web.Composing.VendrCoreWebComposer, Vendr.Core.Web, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
+Umbraco.ModelsBuilder.Embedded.ModelsBuilderDashboard, Umbraco.ModelsBuilder.Embedded, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.ModelsBuilder.Embedded.Compose.ModelsBuilderComposer, Umbraco.ModelsBuilder.Embedded, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.ModelsBuilder.Embedded.BackOffice.MediaTypeModelValidator, Umbraco.ModelsBuilder.Embedded, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.ModelsBuilder.Embedded.BackOffice.MemberTypeModelValidator, Umbraco.ModelsBuilder.Embedded, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.ModelsBuilder.Embedded.BackOffice.ModelsBuilderDashboardController, Umbraco.ModelsBuilder.Embedded, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.ModelsBuilder.Embedded.BackOffice.ContentTypeModelValidator, Umbraco.ModelsBuilder.Embedded, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.Actions.ActionAddAppConfigKey, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.Actions.ActionAddImages, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.Actions.ActionAddMimeType, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.Actions.ActionAddSection, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.Actions.ActionAddThemeConfig, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.Actions.ActionAddUmbracoFormPlaceholder, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.Actions.ActionMoveDesign, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.Actions.ActionRebuildNucache, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.Actions.ActionUpdateContent, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.Actions.ActionUpdateMediaTypes, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.Actions.ActionUpdateUser, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.BusinessLogic.USNComposer, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.Controllers.USNBlogListingSurfaceController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.Controllers.USNColorPickerController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.Controllers.USNDesignPanelController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.Controllers.USNLicenseDashboardController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.Controllers.USNMultiNodeTreePickerController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.Controllers.USNMultiUrlPickerController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.Controllers.USNPageNameController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.Controllers.USNThemePickerController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.Controllers.USNValueShowHideController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.Controllers.USNWelcomeDashboardController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.CustomSection.USNLicenseDashboardController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.PropertyValueConverters.USNColorConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.PropertyValueConverters.USNHeadingConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.PropertyValueConverters.USNMegaNavConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.PropertyValueConverters.USNMultiNodeTreePickerConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.PropertyValueConverters.USNMultiUrlConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.PropertyValueConverters.USNSEOMetaConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.PropertyValueConverters.USNThemeColorConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.PropertyValueConverters.USNThemeFontsConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.PropertyValueConverters.USNThemeLayoutConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.PropertyValueConverters.USNThemeSpacingConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.USNPropertyValueConverters.OptionsShowHideValueConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.USNPropertyValueConverters.TrueFalseShowHideValueConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.USNPropertyValueConverters.USNBackgroundOptionsConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+Vendr.Checkout.Web.Controllers.VendrCheckoutApiController, Vendr.Checkout, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
+Vendr.Checkout.Web.Controllers.VendrCheckoutCheckoutStepPageController, Vendr.Checkout, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
+Vendr.Checkout.Web.Controllers.VendrCheckoutCheckoutPageController, Vendr.Checkout, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
+Vendr.Checkout.Web.Controllers.VendrCheckoutSurfaceController, Vendr.Checkout, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
+Vendr.Checkout.Web.Composing.VendrCheckoutWebComposer, Vendr.Checkout, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
+Vendr.Checkout.Composing.VendrCheckoutComposer, Vendr.Checkout, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
 
 Umbraco.Core.Composing.IComposer
 
@@ -503,10 +503,6 @@ Umbraco.Core.Compose.RelateOnTrashComposer, Umbraco.Core, Version=8.0.0.0, Cultu
 Umbraco.Core.Runtime.CoreInitialComposer, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Core.Migrations.Upgrade.V_8_0_0.DataTypes.PreValueMigratorComposer, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Core.Logging.Viewer.LogViewerComposer, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.BusinessLogic.USNComposer, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-Umbraco.ModelsBuilder.Embedded.Compose.ModelsBuilderComposer, Umbraco.ModelsBuilder.Embedded, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
-Vendr.Checkout.Web.Composing.VendrCheckoutWebComposer, Vendr.Checkout, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-Vendr.Checkout.Composing.VendrCheckoutComposer, Vendr.Checkout, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.SignalR.PreviewHubComposer, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Runtime.WebInitialComposer, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Runtime.WebFinalComposer, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -525,16 +521,20 @@ Umbraco.Web.Compose.PublicAccessComposer, Umbraco.Web, Version=8.0.0.0, Culture=
 Umbraco.Web.Compose.NestedContentPropertyComposer, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Compose.DatabaseServerRegistrarAndMessengerComposer, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Cache.DistributedCacheBinderComposer, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
-SectionComposer, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-Providers.Services.Composer, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-UmbracoVendr.App_Code.DatabaseRepo.DatabaseMigration.ProductsTableComposer, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-USNWebsite.USNBusinessLogic.USNUserComposer, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 Vendr.Web.PropertyEditors.Stock.StockComposer, Vendr.Web, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
 Vendr.Web.PropertyEditors.VariantsEditor.VariantsEditorComposer, Vendr.Web, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
 Vendr.Web.Composing.VendrWebComposer, Vendr.Web, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
 Vendr.Web.Cache.VendrCacheRefresherComposer, Vendr.Web, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
-Vendr.Core.Composing.VendrCoreComposer, Vendr.Core, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
+SectionComposer, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+UmbracoVendr.App_Code.DatabaseRepo.DatabaseMigration.ProductsTableComposer, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+Providers.Services.Composer, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+USNWebsite.USNBusinessLogic.USNUserComposer, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 Vendr.Core.Web.Composing.VendrCoreWebComposer, Vendr.Core.Web, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
+Vendr.Core.Composing.VendrCoreComposer, Vendr.Core, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
+Umbraco.ModelsBuilder.Embedded.Compose.ModelsBuilderComposer, Umbraco.ModelsBuilder.Embedded, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.BusinessLogic.USNComposer, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+Vendr.Checkout.Web.Composing.VendrCheckoutWebComposer, Vendr.Checkout, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
+Vendr.Checkout.Composing.VendrCheckoutComposer, Vendr.Checkout, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
 
 Umbraco.Core.PropertyEditors.IPropertyValueConverter
 
@@ -559,19 +559,6 @@ Umbraco.Core.PropertyEditors.ValueConverters.TextStringValueConverter, Umbraco.C
 Umbraco.Core.PropertyEditors.ValueConverters.TinyMceValueConverter, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Core.PropertyEditors.ValueConverters.UploadPropertyConverter, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Core.PropertyEditors.ValueConverters.YesNoValueConverter, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.PropertyValueConverters.USNColorConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.PropertyValueConverters.USNHeadingConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.PropertyValueConverters.USNMegaNavConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.PropertyValueConverters.USNMultiNodeTreePickerConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.PropertyValueConverters.USNMultiUrlConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.PropertyValueConverters.USNSEOMetaConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.PropertyValueConverters.USNThemeColorConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.PropertyValueConverters.USNThemeFontsConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.PropertyValueConverters.USNThemeLayoutConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.PropertyValueConverters.USNThemeSpacingConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.USNPropertyValueConverters.OptionsShowHideValueConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.USNPropertyValueConverters.TrueFalseShowHideValueConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.USNPropertyValueConverters.USNBackgroundOptionsConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.PropertyEditors.ValueConverters.BlockListPropertyValueConverter, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.PropertyEditors.ValueConverters.MediaPickerWithCropsValueConverter, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.PropertyEditors.ValueConverters.MultiUrlPickerValueConverter, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -591,49 +578,50 @@ Vendr.Web.Converters.TaxClassPickerValueConverter, Vendr.Web, Version=1.8.2.0, C
 Vendr.Web.Converters.StorePickerValueConverter, Vendr.Web, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
 Vendr.Web.Converters.VariantsEditorValueConverter, Vendr.Web, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
 Vendr.Web.Converters.PricePropertyValueConverter, Vendr.Web, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.PropertyValueConverters.USNColorConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.PropertyValueConverters.USNHeadingConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.PropertyValueConverters.USNMegaNavConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.PropertyValueConverters.USNMultiNodeTreePickerConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.PropertyValueConverters.USNMultiUrlConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.PropertyValueConverters.USNSEOMetaConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.PropertyValueConverters.USNThemeColorConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.PropertyValueConverters.USNThemeFontsConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.PropertyValueConverters.USNThemeLayoutConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.PropertyValueConverters.USNThemeSpacingConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.USNPropertyValueConverters.OptionsShowHideValueConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.USNPropertyValueConverters.TrueFalseShowHideValueConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.USNPropertyValueConverters.USNBackgroundOptionsConverter, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
 
 Umbraco.Web.Mvc.PluginController
 
-USNStarterKit.Controllers.USNBlogListingSurfaceController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-Vendr.Checkout.Web.Controllers.VendrCheckoutSurfaceController, Vendr.Checkout, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Controllers.UmbProfileController, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Controllers.UmbLoginStatusController, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Controllers.UmbRegisterController, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Controllers.UmbLoginController, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
-MemberSurfaceController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-FinCMS.App_Code.USNControllers.USNProviderWalletSurfaceController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-FinCMS.App_Code.DocumentsSection.CartSurfaceController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-USNWebsite.USNControllers.ProductsListController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-USNWebsite.USNControllers.USNMemberSurfaceController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-USNWebsite.USNControllers.USNNewsletterSignupSurfaceController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-USNWebsite.USNControllers.USNCreateProductFormSurfaceController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-USNWebsite.USNControllers.USNProviderRegisterFormSurfaceController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-USNWebsite.USNControllers.RequestedUsersListController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-USNWebsite.USNControllers.ProviderWalletController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-USNWebsite.USNControllers.USNContactFormSurfaceController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+MemberSurfaceController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+FinCMS.App_Code.USNControllers.USNProviderWalletSurfaceController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+FinCMS.App_Code.DocumentsSection.CartSurfaceController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+USNWebsite.USNControllers.RequestedUsersListController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+USNWebsite.USNControllers.USNMemberSurfaceController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+USNWebsite.USNControllers.USNContactFormSurfaceController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+USNWebsite.USNControllers.ProductsListController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+USNWebsite.USNControllers.USNCreateProductFormSurfaceController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+USNWebsite.USNControllers.ProviderWalletController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+USNWebsite.USNControllers.USNNewsletterSignupSurfaceController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+USNWebsite.USNControllers.USNProviderRegisterFormSurfaceController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.Controllers.USNBlogListingSurfaceController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+Vendr.Checkout.Web.Controllers.VendrCheckoutSurfaceController, Vendr.Checkout, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
 
 Umbraco.Web.Mvc.IRenderMvcController
 
+Umbraco.Web.Mvc.RenderMvcController, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
+UmbracoVendr.App_Code.USNControllers.USNProviderBaseController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+USNWebsite.USNControllers.USNBaseController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 Vendr.Checkout.Web.Controllers.VendrCheckoutCheckoutStepPageController, Vendr.Checkout, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
 Vendr.Checkout.Web.Controllers.VendrCheckoutCheckoutPageController, Vendr.Checkout, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
-Umbraco.Web.Mvc.RenderMvcController, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
-UmbracoVendr.App_Code.USNControllers.USNProviderBaseController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-USNWebsite.USNControllers.USNBaseController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 
 Umbraco.Web.WebApi.UmbracoApiController
 
-USNStarterKit.Controllers.USNColorPickerController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.Controllers.USNDesignPanelController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.Controllers.USNLicenseDashboardController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.Controllers.USNMultiNodeTreePickerController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.Controllers.USNMultiUrlPickerController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.Controllers.USNPageNameController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.Controllers.USNThemePickerController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.Controllers.USNValueShowHideController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.Controllers.USNWelcomeDashboardController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-USNStarterKit.CustomSection.USNLicenseDashboardController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-Umbraco.ModelsBuilder.Embedded.BackOffice.ModelsBuilderDashboardController, Umbraco.ModelsBuilder.Embedded, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
-Vendr.Checkout.Web.Controllers.VendrCheckoutApiController, Vendr.Checkout, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Trees.LogViewerTreeController, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Trees.FilesTreeController, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Trees.ContentBlueprintTreeController, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -706,8 +694,6 @@ Umbraco.Web.Editors.ContentTypeController, Umbraco.Web, Version=8.0.0.0, Culture
 Umbraco.Web.Editors.MediaTypeController, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Editors.SectionController, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Editors.MediaController, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
-USNFabricV8Web.App_Code.USNHostingControllers.AzureHostingController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-USNWebsite.USNControllers.DocumentsTreeController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 Vendr.Web.Trees.SettingsTreeController, Vendr.Web, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
 Vendr.Web.Trees.StoresTreeController, Vendr.Web, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
 Vendr.Web.Controllers.ActivityLogController, Vendr.Web, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
@@ -733,32 +719,45 @@ Vendr.Web.Controllers.ShippingMethodController, Vendr.Web, Version=1.8.2.0, Cult
 Vendr.Web.Controllers.TaxController, Vendr.Web, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
 Vendr.Web.Controllers.UtilsController, Vendr.Web, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
 Vendr.Web.Controllers.StoreController, Vendr.Web, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
+USNFabricV8Web.App_Code.USNHostingControllers.AzureHostingController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+USNWebsite.USNControllers.DocumentsTreeController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 Vendr.Core.Web.Controllers.VendrPaymentController, Vendr.Core.Web, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
+Umbraco.ModelsBuilder.Embedded.BackOffice.ModelsBuilderDashboardController, Umbraco.ModelsBuilder.Embedded, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.Controllers.USNColorPickerController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.Controllers.USNDesignPanelController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.Controllers.USNLicenseDashboardController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.Controllers.USNMultiNodeTreePickerController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.Controllers.USNMultiUrlPickerController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.Controllers.USNPageNameController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.Controllers.USNThemePickerController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.Controllers.USNValueShowHideController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.Controllers.USNWelcomeDashboardController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.CustomSection.USNLicenseDashboardController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+Vendr.Checkout.Web.Controllers.VendrCheckoutApiController, Vendr.Checkout, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
 
 Umbraco.Web.Mvc.SurfaceController
 
-USNStarterKit.Controllers.USNBlogListingSurfaceController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-Vendr.Checkout.Web.Controllers.VendrCheckoutSurfaceController, Vendr.Checkout, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Controllers.UmbProfileController, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Controllers.UmbLoginStatusController, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Controllers.UmbRegisterController, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Controllers.UmbLoginController, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
-MemberSurfaceController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-FinCMS.App_Code.USNControllers.USNProviderWalletSurfaceController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-FinCMS.App_Code.DocumentsSection.CartSurfaceController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-USNWebsite.USNControllers.ProductsListController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-USNWebsite.USNControllers.USNMemberSurfaceController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-USNWebsite.USNControllers.USNNewsletterSignupSurfaceController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-USNWebsite.USNControllers.USNCreateProductFormSurfaceController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-USNWebsite.USNControllers.USNProviderRegisterFormSurfaceController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-USNWebsite.USNControllers.RequestedUsersListController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-USNWebsite.USNControllers.ProviderWalletController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-USNWebsite.USNControllers.USNContactFormSurfaceController, App_Code.jwubo2yp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+MemberSurfaceController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+FinCMS.App_Code.USNControllers.USNProviderWalletSurfaceController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+FinCMS.App_Code.DocumentsSection.CartSurfaceController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+USNWebsite.USNControllers.RequestedUsersListController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+USNWebsite.USNControllers.USNMemberSurfaceController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+USNWebsite.USNControllers.USNContactFormSurfaceController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+USNWebsite.USNControllers.ProductsListController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+USNWebsite.USNControllers.USNCreateProductFormSurfaceController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+USNWebsite.USNControllers.ProviderWalletController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+USNWebsite.USNControllers.USNNewsletterSignupSurfaceController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+USNWebsite.USNControllers.USNProviderRegisterFormSurfaceController, App_Code.pdnvvet0, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+USNStarterKit.Controllers.USNBlogListingSurfaceController, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
+Vendr.Checkout.Web.Controllers.VendrCheckoutSurfaceController, Vendr.Checkout, Version=1.2.0.0, Culture=neutral, PublicKeyToken=null
 
 Umbraco.Core.Dashboards.IDashboard
 
 Umbraco.Core.Manifest.ManifestDashboard, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
-Umbraco.ModelsBuilder.Embedded.ModelsBuilderDashboard, Umbraco.ModelsBuilder.Embedded, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Dashboards.ContentDashboard, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Dashboards.ExamineDashboard, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Dashboards.FormsDashboard, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -769,6 +768,7 @@ Umbraco.Web.Dashboards.ProfilerDashboardDashboard, Umbraco.Web, Version=8.0.0.0,
 Umbraco.Web.Dashboards.PublishedStatusDashboard, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Dashboards.RedirectUrlDashboard, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Web.Dashboards.SettingsDashboard, Umbraco.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
+Umbraco.ModelsBuilder.Embedded.ModelsBuilderDashboard, Umbraco.ModelsBuilder.Embedded, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 
 Umbraco.Core.PropertyEditors.IDataEditor
 
@@ -855,6 +855,7 @@ Umbraco.Core.PackageActions.IPackageAction
 
 Umbraco.Core.PackageActions.AllowDoctype, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
 Umbraco.Core.PackageActions.PublishRootDocument, Umbraco.Core, Version=8.0.0.0, Culture=neutral, PublicKeyToken=null
+Vendr.Web.PackageActions.InstallNuGetPackage, Vendr.Web, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
 USNStarterKit.Actions.ActionAddAppConfigKey, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
 USNStarterKit.Actions.ActionAddImages, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
 USNStarterKit.Actions.ActionAddMimeType, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
@@ -866,7 +867,6 @@ USNStarterKit.Actions.ActionRebuildNucache, USNStarterKit, Version=1.0.2.0, Cult
 USNStarterKit.Actions.ActionUpdateContent, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
 USNStarterKit.Actions.ActionUpdateMediaTypes, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
 USNStarterKit.Actions.ActionUpdateUser, USNStarterKit, Version=1.0.2.0, Culture=neutral, PublicKeyToken=null
-Vendr.Web.PackageActions.InstallNuGetPackage, Vendr.Web, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
 
 Umbraco.Web.Trees.ISearchableTree
 
@@ -947,5 +947,10 @@ Vendr.Web.Discounts.Rewards.ProductOrderLineAmountDiscountRewardProvider, Vendr.
 Vendr.Core.Web.PaymentProviders.IPaymentProvider
 Vendr.Core.Web.PaymentProviders.PaymentProviderAttribute
 Vendr.Core.Web.PaymentProviders.ZeroValuePaymentProvider, Vendr.Core.Web, Version=1.8.2.0, Culture=neutral, PublicKeyToken=null
+Vendr.PaymentProviders.Stripe.StripeCheckoutPaymentProvider, Vendr.PaymentProviders.Stripe, Version=1.2.1.0, Culture=neutral, PublicKeyToken=null
+Vendr.PaymentProviders.Stripe.StripeCheckoutOneTimePaymentProvider, Vendr.PaymentProviders.Stripe, Version=1.2.1.0, Culture=neutral, PublicKeyToken=null
 Vendr.PaymentProviders.Invoicing.InvoicingPaymentProvider, Vendr.PaymentProviders.Invoicing, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null
+
+Umbraco.Core.Deploy.IServiceConnector
+
 
