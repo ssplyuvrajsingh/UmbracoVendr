@@ -95,6 +95,14 @@ public class DummyDataSurfaceServices : IDummyDataSurfaceServices
                 ProductStatus = item.ProductStatus
             };
             manageProducts.AddUpdateProduct(model);
+
+            //Entry for member wallet
+            var providerWallet = _npocoService.Database().Fetch<ProviderWalletSchema>().FirstOrDefault(x => x.ProviderId == item.MemberId);
+            if (providerWallet == null)
+            {
+                _npocoService.Database().ExecuteScalar<int>($@"Insert into ProviderWallet(ProviderId,ProviderBalance,WithdrawalPending,TotalPaid,LastUpdatedDate) 
+							values({item.MemberId}, 0,0,0,GETDATE())");
+            }
             count++;
         }
         UpdateProductDetails();

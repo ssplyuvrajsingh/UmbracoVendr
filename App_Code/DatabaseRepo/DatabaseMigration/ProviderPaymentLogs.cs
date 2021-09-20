@@ -30,5 +30,8 @@ namespace UmbracoVendr.App_Code.DatabaseRepo.DatabaseMigration
 
         [Column("OrderId"), NullSetting]
         public string OrderId { get; set; }
+
+        [Column("AmountFlag"), NullSetting]
+        public string AmountFlag { get; set; }
     }
 }

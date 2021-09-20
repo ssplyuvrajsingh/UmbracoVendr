@@ -2,6 +2,10 @@
 {
 	public class StoredProcedure
 	{
+		public string ExistSpProductTableQuery()
+		{
+			return "SELECT count(*) FROM sysobjects WHERE  name = 'spProductsTable'";
+		}
 		public string SpProductTableQuery()
 		{
 			string query = @"Create procedure [dbo].[spProductsTable]  
@@ -218,7 +222,10 @@
 				end";
 			return query.Replace("@", "@@");
 		}
-
+		public string ExistSpProductWallet()
+		{
+			return "SELECT count(*) FROM sysobjects WHERE  name = 'spProductWallet'";
+		}
 		public string SpProductWallet()
 		{
 			string query = @"Create proc [dbo].[spProductWallet]

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Web;
 
@@ -99,9 +101,21 @@ namespace UmbracoVendr.App_Code.DatabaseRepo.DatabaseMigration
                         ";
             return query.Replace("@", "@@");
         }
-        public string UsnBlockComponents()
+
+        public string GetUsnBlockComponents()
         {
-            var json = ConfigJson("usnBlockComponents").Replace("'", "''");
+            return $@"Select config from  umbracoDataType where nodeId = (select id from umbracoNode  where uniqueId = '09B761E4-10A2-498B-BC3E-D7755C9EE8AD');";
+        }
+        public string UsnBlockComponents(string config)
+        {
+            var configModel =  JsonConvert.DeserializeObject<UsnBlockComponentsConfig.Root>(config);
+
+            var blocks = JsonConvert.DeserializeObject<UsnBlockComponentsConfig.Root>(ConfigJson("usnBlockComponents"));
+
+            configModel.blocks.AddRange(blocks.blocks);
+
+            var json = JsonConvert.SerializeObject(configModel).Replace("'", "''");
+
             var query = $@"
                         declare @Id int;
                         select @id=id from umbracoNode  where uniqueId = '09B761E4-10A2-498B-BC3E-D7755C9EE8AD';
@@ -110,9 +124,19 @@ namespace UmbracoVendr.App_Code.DatabaseRepo.DatabaseMigration
                         ";
             return query.Replace("@", "@@");
         }
-        public string OptionFormType()
+        public string GetOptionFormType()
         {
-            var json = ConfigJson("optionFormType");
+            return $@"Select config from umbracoDataType where nodeId = (select id from umbracoNode  where uniqueId = '789c570a-726e-4c0d-92a1-dcd47a14961f');";
+        }
+        public string OptionFormType(string config)
+        {
+            var configModel = JsonConvert.DeserializeObject<OptionFormTypeConfig.Root>(config);
+
+            var item = JsonConvert.DeserializeObject<OptionFormTypeConfig.Root>(ConfigJson("optionFormType"));
+            configModel.items.items.AddRange(item.items.items);
+
+            var json = JsonConvert.SerializeObject(configModel).Replace("'", "''");
+
             var query = $@"
                         declare @Id int;
                         select @id=id from umbracoNode  where uniqueId = '789c570a-726e-4c0d-92a1-dcd47a14961f';

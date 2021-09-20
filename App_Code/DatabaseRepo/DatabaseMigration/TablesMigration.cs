@@ -14,10 +14,11 @@ namespace UmbracoVendr.App_Code.DatabaseRepo.DatabaseMigration
         {
         }
         public override void Migrate()
-        {   
+        {
             Logger.Debug<AddCommentsTable>("Running migration {MigrationStep}", "AddCommentsTable");
 
-            // Lots of methods available in the MigrationBase class - discover with this.
+            #region tables
+
             if (TableExists("ProductsTable") == false)
             {
                 Create.Table<ProductsTableSchema>().Do();
@@ -57,26 +58,81 @@ namespace UmbracoVendr.App_Code.DatabaseRepo.DatabaseMigration
             if (TableExists("ProviderWallet") == false)
             {
                 Create.Table<ProviderWalletSchema>().Do();
-                ////Stored Procedure Created
-                Database.Execute(Sql(storedProcedure.SpProductTableQuery()));
-                Database.Execute(Sql(storedProcedure.SpProductWallet()));
-
-                //Triggers Created
-                Database.Execute(Sql(triggers.Tri_ProviderPaymentLogs_Insert_When_GetOrder()));
-                Database.Execute(Sql(triggers.Tri_ProviderPaymentLogs_When_DeleteOrder()));
-                Database.Execute(Sql(triggers.Tri_ProviderPaymentLogs_Update_When_OrderStatusCaptured()));
-                Database.Execute(Sql(triggers.Tri_ProviderWallet_AddBalance()));
-                Database.Execute(Sql(triggers.Tri_ProviderWallet_DebitBalance()));
-
-                //Umbraco Setups
-                Database.Execute(Sql(umbracoSetups.MemberPropertyAdd()));
-                Database.Execute(Sql(umbracoSetups.UsnBlockComponents()));
-                Database.Execute(Sql(umbracoSetups.OptionFormType()));
             }
             else
             {
                 Logger.Debug<AddCommentsTable>("The database table {DbTable} already exists, skipping", "ProviderWallet");
             }
+
+            #endregion
+
+            #region stored procedure created 
+
+            var count = Database.FirstOrDefault<int>(Sql(storedProcedure.ExistSpProductTableQuery()));
+            if (count == 0)
+            {
+                Database.Execute(Sql(storedProcedure.SpProductTableQuery()));
+            }
+
+            count = Database.FirstOrDefault<int>(Sql(storedProcedure.ExistSpProductWallet()));
+            if (count == 0)
+            {
+                Database.Execute(Sql(storedProcedure.SpProductWallet()));
+            }
+
+            #endregion
+
+            #region triggers created
+
+            count = Database.FirstOrDefault<int>(Sql(triggers.ExistsTri_ProviderPaymentLogs_Insert_When_GetOrder()));
+            if (count == 0)
+            {
+                Database.Execute(Sql(triggers.Tri_ProviderPaymentLogs_Insert_When_GetOrder()));
+            }
+
+            count = Database.FirstOrDefault<int>(Sql(triggers.ExistsTri_ProviderPaymentLogs_When_DeleteOrder()));
+            if (count == 0)
+            {
+                Database.Execute(Sql(triggers.Tri_ProviderPaymentLogs_When_DeleteOrder()));
+            }
+
+            count = Database.FirstOrDefault<int>(Sql(triggers.ExistsTri_ProviderPaymentLogs_Update_When_OrderStatusCaptured()));
+            if (count == 0)
+            {
+                Database.Execute(Sql(triggers.Tri_ProviderPaymentLogs_Update_When_OrderStatusCaptured()));
+            }
+
+            count = Database.FirstOrDefault<int>(Sql(triggers.ExistsTri_ProviderWallet_AddBalance()));
+            if (count == 0)
+            {
+                Database.Execute(Sql(triggers.Tri_ProviderWallet_AddBalance()));
+            }
+
+            count = Database.FirstOrDefault<int>(Sql(triggers.ExistsTri_ProviderWallet_DebitBalance()));
+            if (count == 0)
+            {
+                Database.Execute(Sql(triggers.Tri_ProviderWallet_DebitBalance()));
+            }
+
+            #endregion
+
+            #region umbraco setups
+
+            Database.Execute(Sql(umbracoSetups.MemberPropertyAdd()));
+
+            var config = Database.FirstOrDefault<string>(Sql(umbracoSetups.GetUsnBlockComponents()));
+            if (config != null)
+            {
+                Database.Execute(Sql(umbracoSetups.UsnBlockComponents(config)));
+            }
+
+            config = Database.FirstOrDefault<string>(Sql(umbracoSetups.GetOptionFormType()));
+            if (config != null)
+            {
+                Database.Execute(Sql(umbracoSetups.OptionFormType(config)));
+            }
+
+            #endregion
         }
 
     }

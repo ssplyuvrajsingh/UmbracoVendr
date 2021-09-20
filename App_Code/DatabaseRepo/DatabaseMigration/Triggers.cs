@@ -2,6 +2,10 @@
 {
 	public class Triggers
 	{
+		public string ExistsTri_ProviderPaymentLogs_Insert_When_GetOrder()
+		{
+			return @"SELECT count(*) FROM sysobjects WHERE  name = 'tri_ProviderPaymentLogs_Insert_When_GetOrder'";
+		}
 		public string Tri_ProviderPaymentLogs_Insert_When_GetOrder()
 		{
 			var query = @"Create Trigger [dbo].[tri_ProviderPaymentLogs_Insert_When_GetOrder] on [dbo].[vendrOrderLine]
@@ -16,7 +20,7 @@
 
 								select @providerId = (select Top 1 MemberId from ProductsTable where ProductNodeKey = i.productReference),
 								@description = 'Captured amount by product and Product reference Id is ' + i.productReference,
-								@amount = vo.amountAuthorized,
+								@amount = i.unitPrice,
 								@OrderId = i.orderId
 								from inserted i
 								join vendrOrder vo on vo.id = i.orderId;
@@ -26,6 +30,10 @@
 			return query.Replace("@", "@@"); ;
 		}
 
+		public string ExistsTri_ProviderPaymentLogs_When_DeleteOrder()
+		{
+			return @"SELECT count(*) FROM sysobjects WHERE  name = 'tri_ProviderPaymentLogs_When_DeleteOrder'";
+		}
 		public string Tri_ProviderPaymentLogs_When_DeleteOrder()
 		{
 			var query = @"Create Trigger [dbo].[tri_ProviderPaymentLogs_When_DeleteOrder] on [dbo].[vendrOrderLine]
@@ -37,7 +45,10 @@
 			return query.Replace("@", "@@");
 		}
 
-
+		public string ExistsTri_ProviderPaymentLogs_Update_When_OrderStatusCaptured()
+		{
+			return @"SELECT count(*) FROM sysobjects WHERE  name = 'tri_ProviderPaymentLogs_Update_When_OrderStatusCaptured'";
+		}
 		public string Tri_ProviderPaymentLogs_Update_When_OrderStatusCaptured()
 		{
 			var query = @"Create Trigger [dbo].[tri_ProviderPaymentLogs_Update_When_OrderStatusCaptured] on [dbo].[vendrOrder]
@@ -49,17 +60,15 @@
 								declare @flagAmount decimal(19,4);
 
 								select @paymentStatus = i.paymentStatus,
-								@OrderId = i.id,
-								@amount = i.amountAuthorized,
-								@flagAmount = ppl.Amount
+								@OrderId = i.id
 								from inserted i
 								join ProviderPaymentLogs ppl on ppl.OrderId = i.id;
 
 
 
-								if(@paymentStatus = 2 and @flagAmount != @amount)
+								if(@paymentStatus = 2)
 								begin
-									Update ProviderPaymentLogs set PaymentStatus = 'captured',Amount = @amount where OrderId = @OrderId;
+									Update ProviderPaymentLogs set PaymentStatus = 'captured' where OrderId = @OrderId;
 								end
 								else if(@paymentStatus = 4)
 								begin
@@ -80,6 +89,10 @@
 			return query.Replace("@", "@@");
 		}
 
+		public string ExistsTri_ProviderWallet_AddBalance()
+		{
+			return @"SELECT count(*) FROM sysobjects WHERE  name = 'tri_ProviderWallet_AddBalance'";
+		}
 		public string Tri_ProviderWallet_AddBalance()
 		{
 			var query = @"Create Trigger [dbo].[tri_ProviderWallet_AddBalance] on [dbo].[ProviderPaymentLogs]
@@ -91,12 +104,16 @@
 							declare @currentWithdrawalPending decimal(19,4)
 							declare @currentTotalPaid decimal(19,4)
 							declare @id int;
-							declare @paymentStatus nvarchar(max);
+							declare @paymentStatus nvarchar(max)
 							declare @WithdrawalPending decimal(19,4)
 							declare @TotalPaid decimal(19,4)
 							declare @amount decimal(19,4)
+							declare @orderId nvarchar(max)
+							declare @paymentStatusExists nvarchar(max)
+							declare @AmountFlag nvarchar(max)
 
-							select @providerId = i.ProviderId, @amount = i.Amount,@paymentStatus = i.PaymentStatus 
+
+							select @providerId = i.ProviderId, @amount = i.Amount,@paymentStatus = i.PaymentStatus, @orderId = i.OrderId, @AmountFlag = i.AmountFlag
 							from inserted i;
 
 							select @currentBalance = ProviderBalance, @id= ProviderId,
@@ -104,18 +121,30 @@
 							@currentTotalPaid = (case when TotalPaid is null then 0 else TotalPaid end) 
 							from ProviderWallet where ProviderId = @providerId;
 	
+							select @paymentStatusExists = PaymentStatus from ProviderPaymentLogs where OrderId = @orderId;
 	
-							if(@id > 0 and @paymentStatus = 'captured')
+							if(@paymentStatus = 'captured' and  @AmountFlag is null)
 							begin
-								set @providerBalance = @amount + @currentBalance;
-								Update ProviderWallet set  ProviderBalance = @providerBalance where ProviderId = @id;
+							
+							update pw set ProviderBalance=(h.Amount + ProviderBalance)
+							from ProviderWallet pw
+							cross join (select pp.ProviderId, sum(pp.Amount) as Amount
+							from ProviderPaymentLogs pp where pp.OrderId=@orderId group by pp.ProviderId) h
+							where h.ProviderId = pw.ProviderId
+
+							update ProviderPaymentLogs set AmountFlag = 'captured' where OrderId = @orderId
+							--set @providerBalance = @amount + @currentBalance;
+							--Update ProviderWallet set  ProviderBalance = @providerBalance where ProviderId = @id;
 							end
-							else if(@paymentStatus = 'captured')
-							begin
-								set @providerBalance = @amount;
-								Insert into ProviderWallet(ProviderId,ProviderBalance,LastUpdatedDate) 
-								values(@providerId, @providerBalance , GETDATE())
-							end
+							--else if(@paymentStatus = 'captured')
+							--begin
+							--	--set @providerBalance = @amount;
+
+							--	Insert into ProviderWallet(ProviderId,ProviderBalance,LastUpdatedDate) 
+							--	select pp.ProviderId, sum(pp.Amount), GETDATE() as Amount from ProviderPaymentLogs pp where pp.OrderId=@orderId group by pp.ProviderId 
+							--	--Insert into ProviderWallet(ProviderId,ProviderBalance,LastUpdatedDate) 
+							--	--values(@providerId, @providerBalance , GETDATE())
+							--end
 							else if(@paymentStatus = 'approved')
 							begin
 								set @WithdrawalPending = @currentWithdrawalPending - @amount;
@@ -144,6 +173,10 @@
 			return query.Replace("@", "@@");
 		}
 
+		public string ExistsTri_ProviderWallet_DebitBalance()
+		{
+			return @"SELECT count(*) FROM sysobjects WHERE  name = 'tri_ProviderWallet_DebitBalance'";
+		}
 		public string Tri_ProviderWallet_DebitBalance()
 		{
 			var query = @"Create Trigger [dbo].[tri_ProviderWallet_DebitBalance] on [dbo].[ProviderPaymentLogs]

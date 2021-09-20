@@ -7,6 +7,7 @@ using Umbraco.Core.Models;
 using Umbraco.Core.Services;
 using Umbraco.Web;
 using Umbraco.Web.Mvc;
+using UmbracoVendr.App_Code.DatabaseRepo.DatabaseMigration;
 
 namespace USNWebsite.USNControllers
 {
@@ -15,12 +16,14 @@ namespace USNWebsite.USNControllers
         private readonly IMemberService _memberService;
         private readonly IRemoveProviderService _removeProviderService;
         private readonly IDummyDataSurfaceServices _dummyDataSurfaceServices;
+        private readonly INpocoService _npocoService;
 
-        public RequestedUsersListController(IMemberService memberService, IRemoveProviderService removeProviderService, IDummyDataSurfaceServices dummyDataSurfaceServices)
+        public RequestedUsersListController(IMemberService memberService, IRemoveProviderService removeProviderService, IDummyDataSurfaceServices dummyDataSurfaceServices, INpocoService npocoService)
         {
             _memberService = memberService;
             _removeProviderService = removeProviderService;
             _dummyDataSurfaceServices = dummyDataSurfaceServices;
+            _npocoService = npocoService;
         }
 
         public ActionResult GetAllRequestedUsers(string memberType)
@@ -97,7 +100,14 @@ namespace USNWebsite.USNControllers
         [HttpPost]
         public string UpdateProviderStatus(string memberId, string status)
         {
-            var member = _memberService.GetById(int.Parse(memberId));
+            var id = Convert.ToInt32(memberId);
+            var member = _memberService.GetById(id);
+            var providerWallet = _npocoService.Database().Fetch<ProviderWalletSchema>().FirstOrDefault(x => x.ProviderId == id);
+            if(providerWallet == null)
+            {
+                _npocoService.Database().ExecuteScalar<int>($@"Insert into ProviderWallet(ProviderId,ProviderBalance,WithdrawalPending,TotalPaid,LastUpdatedDate) 
+							values({id}, 0,0,0,GETDATE())");
+            }
             try
             {
                 member.SetValue("providerStatus", status);
